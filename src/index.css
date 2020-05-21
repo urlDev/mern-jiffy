@@ -7,15 +7,18 @@
     --sky-blue: #5ecce4;
     --cosmic-cobalt: #383387;
     --iris: #524ad0;
-    --blue-violet: #7e2dd0;
+    --blue-violet: #8931e0;
     --pink: #d752a0;
     --indian-red: #d05656;
     --white: #ffffff;
     --smoke-black: #121212;
+    --green: #429708;
     /* fonts */
     --Merriweather: 'Merriweather Sans', sans-serif;
     --Raleway: 'Raleway', sans-serif;
     /* font sizes */
+    --whaat: 3.5rem;
+    --sub-header: 3rem;
     --giant: 2.5rem;
     --big: 1.8rem;
     --mid: 1.2rem;
@@ -50,5 +53,11 @@ code {
 @keyframes play {
     100% {
         background-position: calc(-10 * var(--giant));
+    }
+}
+
+@keyframes fade {
+    100% {
+        opacity: 1;
     }
 }

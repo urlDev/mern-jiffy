@@ -1,20 +1,16 @@
-import '../../index';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { MenuDropdownContainer } from '../menuDropdown/MenuDropdown.styles';
 
 export const NavContainer = styled.nav`
   display: flex;
   // justify-content: space-between;
   margin-top: 10px;
   ul {
-    width: 500px;
+    width: 65%;
     padding: 0;
     display: flex;
     list-style-type: none;
     transform: translateZ(0px);
-    position: relative;
-    left: 30px;
     margin: 0px;
     animation: gradient 3s ease infinite;
     background: linear-gradient(
@@ -50,7 +46,7 @@ export const NavContainer = styled.nav`
         transition: all 0.5s ease-in;
       }
       &:hover:before {
-        opacity: 0.6;
+        opacity: 0.4;
       }
       a {
         font-family: var(--Merriweather);
@@ -80,20 +76,39 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: var(--white);
   font-size: var(--giant);
+  position: relative;
+  top: 8px;
   img {
     width: var(--giant);
   }
+  margin-right: 20px;
 `;
 
-export const Menu = styled.a`
-  &:hover {
-    display: ${(props) => (props.hover ? 'block' : 'none')};
+export const Menu = styled.a``;
+
+export const Logo = styled.div`
+  background: url('../../assets/neonHearts.svg') left center;
+  background-size: cover;
+  display: inline-block;
+  width: var(--giant);
+  animation: play 2s steps(11) infinite;
+`;
+
+export const LoginRegister = styled.div`
+  margin: 0;
+  padding: 0;
+  max-width: 190px;
+  width: 100%;
+  margin-left: auto;
+  background: var(--white);
+  display: flex;
+  i {
+    color: var(--white);
+  }
+  h5 {
+    padding: 0;
+    margin: 0;
+    font-family: var(--Merriweather);
+    color: var(--white);
   }
 `;
-// export const Logo = styled.div`
-//   background: url('../../assets/neonHearts.svg') left center;
-//   background-size: cover;
-//   display: inline-block;
-//   width: var(--giant);
-//   animation: play 2s steps(11) infinite;
-// `;

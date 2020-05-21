@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { StyledLink, NavContainer, Logo, Menu, MenuModal } from './Nav.styles';
+import { GifContext } from '../../context/GifContext';
+
+import { StyledLink, NavContainer, Menu, LoginRegister } from './Nav.styles';
+import MenuDropdown from '../menuDropdown/MenuDropdown';
 
 const Nav = () => {
+  const { openMenu, closeMenu } = useContext(GifContext);
   return (
     <>
       <NavContainer>
-        <StyledLink>
-          <img src={require('../../assets/neonHeartFull.svg')} alt="" />
+        <StyledLink to="/">
+          <img
+            src={require('../../assets/neonHeartFull.svg')}
+            alt="Jiffy Logo"
+          />
           JIFFY
         </StyledLink>
         <ul>
@@ -16,19 +23,49 @@ const Nav = () => {
             <Link to="/reactions">Reactions</Link>
           </li>
           <li>
-            <Link to="/entertainment">Animals</Link>
+            <Link to="/animals">Animals</Link>
           </li>
           <li>
             <Link to="/sports">Sports</Link>
           </li>
           <li>
-            <Link to="/artists">Gaming</Link>
+            <Link to="/gaming">Gaming</Link>
           </li>
           <li>
-            <Menu>&#8942;</Menu>
+            <Link to="/celebrities">Celebrities</Link>
+          </li>
+          <li>
+            <Menu onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+              &#8942;
+            </Menu>
           </li>
         </ul>
+        <LoginRegister>
+          <div
+            style={{
+              width: '20%',
+              backgroundColor: '#515151',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <i className="fas fa-user"></i>
+          </div>
+          <div
+            style={{
+              width: '80%',
+              backgroundColor: '#414141',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <h5>Login</h5>
+          </div>
+        </LoginRegister>
       </NavContainer>
+      <MenuDropdown />
     </>
   );
 };

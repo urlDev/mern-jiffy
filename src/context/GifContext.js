@@ -10,6 +10,8 @@ const GifContextProvider = (props) => {
   const [trending, setTrending] = useState({});
   const [emoji, setEmoji] = useState({});
   const [siliconValley, setSiliconValley] = useState({});
+  const [gif, setGif] = useState({});
+  const [related, setRelated] = useState({});
   const [menuDropdown, setMenuDropdown] = useState(false);
 
   useEffect(() => {
@@ -34,6 +36,13 @@ const GifContextProvider = (props) => {
     setSiliconValley(data.slice(6, 11));
   };
 
+  const getGif = async (gif) => {
+    setGif(gif);
+  };
+
+  const fetchGifs = (offset: number) =>
+    gifFetch.related(`${gif.id}`, { offset, limit: 10 });
+
   const openMenu = () => {
     setMenuDropdown(true);
   };
@@ -45,10 +54,13 @@ const GifContextProvider = (props) => {
       value={{
         trending,
         emoji,
+        gif,
+        fetchGifs,
         siliconValley,
         menuDropdown,
         openMenu,
         closeMenu,
+        getGif,
       }}
     >
       {props.children}

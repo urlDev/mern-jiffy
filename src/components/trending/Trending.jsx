@@ -8,7 +8,7 @@ import { Card, CardTitle, CardTime, CardUser } from '../card/Card.styles';
 import { Title } from '../title/Title.styles';
 
 const Trending = () => {
-  const { trending } = useContext(GifContext);
+  const { trending, getGif } = useContext(GifContext);
 
   return (
     <>
@@ -18,7 +18,7 @@ const Trending = () => {
           trending.map((gif) => {
             return (
               <React.Fragment key={gif.id}>
-                <Card href={gif.url}>
+                <Card to={`/${gif.slug}`} onClick={() => getGif(gif)}>
                   <CardUser>
                     <img src={gif.user && gif.user.avatar_url} alt={gif.user} />
                   </CardUser>

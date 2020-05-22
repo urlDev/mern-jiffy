@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
-export const WeCareContainer = styled.div`
+export const WeCareContainer = styled.a`
   margin-top: 10px;
+  cursor: pointer;
+  text-decoration: none;
   background: linear-gradient(
     0deg,
     rgba(82, 74, 208, 1) 0%,

@@ -7,7 +7,7 @@ import { Card, CardTitle, CardUser } from '../card/Card.styles';
 import { Title } from '../title/Title.styles';
 
 const SiliconValley = () => {
-  const { siliconValley } = useContext(GifContext);
+  const { siliconValley, getGif } = useContext(GifContext);
   return (
     <>
       <Title>Silicon Valley</Title>
@@ -16,7 +16,7 @@ const SiliconValley = () => {
           siliconValley.map((gif) => {
             return (
               <React.Fragment key={gif.id}>
-                <Card href={gif.url}>
+                <Card to={`/${gif.slug}`} onClick={() => getGif(gif)}>
                   <CardUser href={gif.user && gif.user.profile_url}>
                     <img src={gif.user && gif.user.avatar_url} alt="" />
                   </CardUser>

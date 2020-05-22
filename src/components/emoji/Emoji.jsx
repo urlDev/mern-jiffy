@@ -7,7 +7,7 @@ import { Card, CardTitle, CardUser } from '../card/Card.styles';
 import { Title } from '../title/Title.styles';
 
 const Emoji = () => {
-  const { emoji } = useContext(GifContext);
+  const { emoji, getGif } = useContext(GifContext);
   return (
     <>
       <Title>Emojis</Title>
@@ -16,7 +16,7 @@ const Emoji = () => {
           emoji.map((gif) => {
             return (
               <React.Fragment key={gif.id}>
-                <Card href={gif.url}>
+                <Card to={`/${gif.slug}`} onClick={() => getGif(gif)}>
                   <CardUser>
                     <img src={gif.user && gif.user.avatar_url} alt={gif.user} />
                   </CardUser>

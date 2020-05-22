@@ -1,13 +1,12 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import GifContextProvider from './context/GifContext';
 
 import Nav from './components/nav/Nav';
 import SearchBar from './components/searchBar/SearchBar';
-import WeCare from './components/weCare/WeCare';
-import Trending from './components/trending/Trending';
-import Emoji from './components/emoji/Emoji';
-import SiliconValley from './components/siliconValley/SiliconValley';
+import Home from './components/home/Home';
+import Gif from './components/gif/Gif';
 
 import { AppContainer } from './App.styles';
 
@@ -17,10 +16,10 @@ function App() {
       <GifContextProvider>
         <Nav />
         <SearchBar />
-        <WeCare />
-        <Trending />
-        <Emoji />
-        <SiliconValley />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/:id" component={Gif} />
+        </Switch>
       </GifContextProvider>
     </AppContainer>
   );

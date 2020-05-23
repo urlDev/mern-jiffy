@@ -1,17 +1,20 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import WeCare from '../weCare/WeCare';
-import Trending from '../trending/Trending';
-import Emoji from '../emoji/Emoji';
-import SiliconValley from '../siliconValley/SiliconValley';
+import Nav from '../nav/Nav';
+import SearchBar from '../searchBar/SearchBar';
+import HomeComponents from '../homeComponents/HomeComponents';
+import Gif from '../gif/Gif';
 
 const Home = () => {
   return (
     <>
-      <WeCare />
-      <Trending />
-      <Emoji />
-      <SiliconValley />
+      <Nav />
+      <SearchBar />
+      <Switch>
+        <Route path="/:id" component={Gif} />
+        <Route exact path="/" component={HomeComponents} />
+      </Switch>
     </>
   );
 };

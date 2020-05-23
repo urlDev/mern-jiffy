@@ -12,13 +12,26 @@ const GifContextProvider = (props) => {
   const [siliconValley, setSiliconValley] = useState({});
   const [gif, setGif] = useState({});
   const [related, setRelated] = useState({});
+  const [width, setWidth] = useState(window.innerWidth);
+  const [inLogin, setInLogin] = useState(false);
   const [menuDropdown, setMenuDropdown] = useState(false);
 
   useEffect(() => {
     getTrending();
     getEmoji();
     getSiliconValley();
+    window.addEventListener('resize', updateWidth);
+
+    return () => window.removeEventListener('resize', updateWidth);
   }, []);
+
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  const changeInLogin = () => {
+    setInLogin(!inLogin);
+  };
 
   const getTrending = async () => {
     const { data } = await gifFetch.trending({ limit: 5 });
@@ -27,7 +40,6 @@ const GifContextProvider = (props) => {
 
   const getEmoji = async () => {
     const { data } = await gifFetch.emoji({ limit: 5 });
-
     setEmoji(data);
   };
 
@@ -55,6 +67,9 @@ const GifContextProvider = (props) => {
         trending,
         emoji,
         gif,
+        width,
+        inLogin,
+        changeInLogin,
         fetchGifs,
         siliconValley,
         menuDropdown,

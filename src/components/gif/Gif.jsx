@@ -27,9 +27,8 @@ import {
 } from './Gif.styles';
 
 const Gif = () => {
-  const { gif, fetchGifs } = useContext(GifContext);
+  const { gif, fetchGifs, width } = useContext(GifContext);
   console.log(gif);
-
   return (
     <GifContainer>
       {gif.user && (
@@ -112,7 +111,12 @@ const Gif = () => {
         <h1>
           Related <span>GIFS</span>
         </h1>
-        <Grid fetchGifs={fetchGifs} width={710} columns={3} gutter={6} />
+        <Grid
+          fetchGifs={fetchGifs}
+          width={width < 1041 ? width : 720}
+          columns={3}
+          gutter={6}
+        />
       </IndividualGifContainer>
     </GifContainer>
   );

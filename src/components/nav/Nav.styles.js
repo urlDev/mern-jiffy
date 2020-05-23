@@ -81,26 +81,30 @@ export const StyledLink = styled(Link)`
   img {
     width: var(--giant);
   }
+  span {
+    font-family: var(--Merriweather);
+    font-weight: 400;
+  }
   margin-right: 20px;
 `;
 
 export const Menu = styled.a``;
 
 export const Logo = styled.div`
-  background: url('../../assets/neonHearts.svg') left center;
+  background: url(${require(`../../assets/neonHearts.svg`)}) left center;
   background-size: cover;
   display: inline-block;
-  width: var(--giant);
+  width: 40px;
+  height: 30px;
   animation: play 2s steps(11) infinite;
 `;
 
-export const LoginRegister = styled.div`
-  margin: 0;
-  padding: 0;
+export const LoginRegister = styled(Link)`
   max-width: 190px;
   width: 100%;
+  height: 36px;
+  margin-top: auto;
   margin-left: auto;
-  background: var(--white);
   display: flex;
   i {
     color: var(--white);

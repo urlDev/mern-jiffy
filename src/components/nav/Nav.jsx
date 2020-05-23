@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 
 import { GifContext } from '../../context/GifContext';
 
-import { StyledLink, NavContainer, Menu, LoginRegister } from './Nav.styles';
+import {
+  StyledLink,
+  NavContainer,
+  Menu,
+  Logo,
+  LoginRegister,
+} from './Nav.styles';
 import MenuDropdown from '../menuDropdown/MenuDropdown';
 
 const Nav = () => {
@@ -12,10 +18,7 @@ const Nav = () => {
     <>
       <NavContainer>
         <StyledLink to="/">
-          <img
-            src={require('../../assets/neonHeartFull.svg')}
-            alt="Jiffy Logo"
-          />
+          <Logo />
           JIFFY
         </StyledLink>
         <ul>
@@ -40,7 +43,7 @@ const Nav = () => {
             </Menu>
           </li>
         </ul>
-        <LoginRegister>
+        <LoginRegister to="/profile">
           <div
             style={{
               width: '20%',
@@ -61,7 +64,7 @@ const Nav = () => {
               alignItems: 'center',
             }}
           >
-            <h5>Login</h5>
+            <h5>Log in</h5>
           </div>
         </LoginRegister>
       </NavContainer>

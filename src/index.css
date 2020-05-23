@@ -12,6 +12,8 @@
     --indian-red: #d05656;
     --white: #ffffff;
     --smoke-black: #121212;
+    --dark-gray: #414141;
+    --light-gray: #515151;
     --green: #429708;
     --light-green: #2aff7c;
     /* fonts */
@@ -25,6 +27,8 @@
     --mid: 1.2rem;
     --normal: 1rem;
     --text: 0.8rem;
+    min-height: 100vh;
+    overflow-y: scroll;
 }
 
 body {
@@ -53,7 +57,7 @@ code {
 
 @keyframes play {
     100% {
-        background-position: calc(-10 * var(--giant));
+        background-position: -407px;
     }
 }
 

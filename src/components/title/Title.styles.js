@@ -6,4 +6,10 @@ export const Title = styled.h1`
   font-size: var(--big);
   font-weight: 900;
   color: var(--white);
+  span {
+    color: var(--light-green);
+    font-weight: 800;
+    opacity: 1;
+    font-size: var(--big);
+  }
 `;

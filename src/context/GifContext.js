@@ -12,6 +12,8 @@ const GifContextProvider = (props) => {
   const [siliconValley, setSiliconValley] = useState({});
   const [gif, setGif] = useState({});
   const [related, setRelated] = useState({});
+  const [category, setCategory] = useState({});
+  const [searchCategoryResult, setSearchCategoryResult] = useState({});
   const [width, setWidth] = useState(window.innerWidth);
   const [inLogin, setInLogin] = useState(false);
   const [menuDropdown, setMenuDropdown] = useState(false);
@@ -45,11 +47,29 @@ const GifContextProvider = (props) => {
 
   const getSiliconValley = async () => {
     const { data } = await gifFetch.gifs('tv', 'silicon-valley');
-    setSiliconValley(data.slice(6, 11));
+    const random = Math.floor(Math.random() * 3);
+    setSiliconValley(data.slice(random, random + 5));
   };
 
   const getGif = async (gif) => {
     setGif(gif);
+  };
+
+  const getCategory = async (topic) => {
+    const { data } = await gifFetch.subcategories(`${topic}`);
+    setCategory({
+      title: topic,
+      data,
+    });
+  };
+
+  const searchCategory = async (topic) => {
+    setSearchCategoryResult({});
+    const { data } = await gifFetch.search(`${topic}`, { sort: 'recent' });
+    setSearchCategoryResult({
+      title: topic,
+      data,
+    });
   };
 
   const fetchGifs = (offset: number) =>
@@ -69,6 +89,10 @@ const GifContextProvider = (props) => {
         gif,
         width,
         inLogin,
+        category,
+        getCategory,
+        searchCategory,
+        searchCategoryResult,
         changeInLogin,
         fetchGifs,
         siliconValley,

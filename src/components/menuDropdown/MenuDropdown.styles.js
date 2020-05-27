@@ -28,10 +28,15 @@ export const MenuDropdownContainer = styled.div`
     li {
       cursor: pointer;
       list-style-type: none;
-      font-family: var(--Raleway);
-      font-size: var(--normal);
-      font-weight: 600;
+
       margin-bottom: 10px;
+      a {
+        text-decoration: none;
+        color: var(--white);
+        font-family: var(--Raleway);
+        font-size: var(--normal);
+        font-weight: 600;
+      }
     }
   }
 `;

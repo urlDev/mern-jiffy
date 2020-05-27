@@ -28,7 +28,6 @@ import {
 
 const Gif = () => {
   const { gif, fetchGifs, width } = useContext(GifContext);
-  console.log(gif);
   return (
     <GifContainer>
       {gif.user && (
@@ -109,7 +108,7 @@ const Gif = () => {
           </Social>
         </InnerContainer>
         <h1>
-          Related <span>GIFS</span>
+          Related <span>GIFs</span>
         </h1>
         <Grid
           fetchGifs={fetchGifs}

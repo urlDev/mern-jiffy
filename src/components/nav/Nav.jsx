@@ -13,29 +13,43 @@ import {
 import MenuDropdown from '../menuDropdown/MenuDropdown';
 
 const Nav = () => {
-  const { openMenu, closeMenu } = useContext(GifContext);
+  const { openMenu, closeMenu, getCategory, menuDropdown } = useContext(
+    GifContext
+  );
   return (
     <>
-      <NavContainer>
+      <NavContainer
+        style={menuDropdown ? { marginBottom: '0' } : { marginBottom: '15px' }}
+      >
         <StyledLink to="/">
           <Logo />
           JIFFY
         </StyledLink>
         <ul>
           <li>
-            <Link to="/reactions">Reactions</Link>
+            <Link to="/reactions" onClick={() => getCategory('reactions')}>
+              Reactions
+            </Link>
           </li>
           <li>
-            <Link to="/animals">Animals</Link>
+            <Link to="/animals" onClick={() => getCategory('animals')}>
+              Animals
+            </Link>
           </li>
           <li>
-            <Link to="/sports">Sports</Link>
+            <Link to="/sports" onClick={() => getCategory('sports')}>
+              Sports
+            </Link>
           </li>
           <li>
-            <Link to="/gaming">Gaming</Link>
+            <Link to="/gaming" onClick={() => getCategory('gaming')}>
+              Gaming
+            </Link>
           </li>
           <li>
-            <Link to="/celebrities">Celebrities</Link>
+            <Link to="/celebrities" onClick={() => getCategory('celebrities')}>
+              Celebrities
+            </Link>
           </li>
           <li>
             <Menu onMouseEnter={openMenu} onMouseLeave={closeMenu}>

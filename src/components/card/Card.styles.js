@@ -5,7 +5,7 @@ export const Card = styled(Link)`
   position: relative;
   text-decoration: none;
   overflow: hidden;
-  width: calc((1040px - 455px - 40px) / 2);
+  width: 100%;
   height: 300px;
   &:hover {
     &:after {
@@ -122,7 +122,7 @@ export const Card = styled(Link)`
     }
   }
   img {
-    width: calc((1040px - 455px - 40px) / 2);
+    width: 100%;
     height: 300px;
     opacity: 0.8;
     object-fit: cover;
@@ -177,7 +177,7 @@ export const Card = styled(Link)`
   }
 
   &:first-child {
-    width: 455px;
+    grid-column: span 2;
     -webkit-box-shadow: 0px 26px 0px -14px rgba(215, 82, 160, 1),
       0px 26px 0px -14px rgba(215, 82, 160, 0.7),
       0px 52px 0px -32px rgba(215, 82, 160, 0.5);
@@ -188,7 +188,10 @@ export const Card = styled(Link)`
       0px 26px 0px -14px rgba(215, 82, 160, 0.7),
       0px 52px 0px -32px rgba(215, 82, 160, 0.5);
     img {
-      width: 455px;
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      grid-column: 1/1;
     }
   }
   &:hover {

@@ -71,6 +71,11 @@ export const NavContainer = styled.nav`
       }
     }
   }
+  @media (max-width: 1050px) {
+    ul {
+      display: none;
+    }
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -89,9 +94,55 @@ export const StyledLink = styled(Link)`
     font-weight: 400;
   }
   margin-right: 20px;
+  @media (max-width: 1050px) {
+    img {
+      width: var(--mid);
+    }
+    margin-right: 0;
+  }
 `;
 
 export const Menu = styled.a``;
+
+export const ResponsiveMenu = styled.a`
+  color: var(--white);
+  position: relative;
+  display: none;
+  margin-left: auto;
+  width: var(--whaat);
+  height: 36px;
+  margin-top: auto;
+  animation: gradient 3s ease infinite;
+  background: linear-gradient(-45deg, var(--blue-violet) 0%, var(--pink) 100%);
+  background-size: 300% 300%;
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: var(--smoke-black);
+    opacity: 1;
+    top: 0px;
+    bottom: 4px;
+    z-index: 1;
+    left: -1px;
+    right: -1px;
+    transition: all 0.5s ease-in;
+  }
+  &:hover:before {
+    opacity: 0.4;
+  }
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: var(--normal);
+    font-weight: bold;
+    z-index: 2;
+  }
+  @media (max-width: 1050px) {
+    display: flex;
+  }
+`;
 
 export const Logo = styled.div`
   background: url(${require(`../../assets/neonHearts.svg`)}) left center;
@@ -117,5 +168,8 @@ export const LoginRegister = styled(Link)`
     margin: 0;
     font-family: var(--Merriweather);
     color: var(--white);
+  }
+  @media (max-width: 1050px) {
+    margin-left: var(--normal);
   }
 `;

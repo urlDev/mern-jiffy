@@ -29,7 +29,7 @@ export const SearchContainer = styled.form`
       var(--pink) 100%
     );
     background-size: 300% 300%;
-    animation: gradient 3s ease infinite;
+    animation: gradient 3s ease infinite reverse;
     color: var(--white);
   }
 `;

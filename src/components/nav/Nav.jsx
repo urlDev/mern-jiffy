@@ -9,6 +9,7 @@ import {
   Menu,
   Logo,
   LoginRegister,
+  ResponsiveMenu,
 } from './Nav.styles';
 import MenuDropdown from '../menuDropdown/MenuDropdown';
 
@@ -91,6 +92,10 @@ const Nav = () => {
             </Menu>
           </li>
         </ul>
+
+        <ResponsiveMenu onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+          <span>&#8942;</span>
+        </ResponsiveMenu>
         <LoginRegister to="/profile">
           <div
             style={{

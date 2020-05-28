@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MenuDropdownContainer = styled.div`
   max-width: 1040px;
-  width: 100%;
+  width: calc(100% - 30.5px);
   padding: 30px 50px;
   background: linear-gradient(135deg, var(--blue-violet) 0%, var(--pink) 100%);
   position: absolute;

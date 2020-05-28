@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 
 export const CategoryContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   grid-gap: 10px;
   margin-bottom: var(--big);
+  @media (min-width: );
 `;
 
 export const SubCategoryContainer = styled(Link)`
@@ -16,7 +17,6 @@ export const SubCategoryContainer = styled(Link)`
     width: 100%;
     height: 200px;
     object-fit: cover;
-    opacity: 0.8;
   }
   h4 {
     margin: 0 10px;

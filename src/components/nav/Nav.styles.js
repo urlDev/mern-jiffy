@@ -6,6 +6,8 @@ export const NavContainer = styled.nav`
   // justify-content: space-between;
   margin-top: 10px;
   margin-bottom: 15px;
+  position: relative;
+  z-index: 4;
   ul {
     width: 65%;
     padding: 0;

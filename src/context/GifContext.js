@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { GiphyFetch } from '@giphy/js-fetch-api';
+import axios from 'axios';
 require('dotenv').config();
 
 export const GifContext = createContext();
@@ -17,15 +18,19 @@ const GifContextProvider = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [inLogin, setInLogin] = useState(false);
   const [menuDropdown, setMenuDropdown] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState({});
+  const [input, setInput] = useState('');
 
   useEffect(() => {
     getTrending();
     getEmoji();
     getSiliconValley();
+    getNoResultSearchTerm();
     window.addEventListener('resize', updateWidth);
 
     return () => window.removeEventListener('resize', updateWidth);
-  }, []);
+  }, [searchCategoryResult]);
 
   const updateWidth = () => {
     setWidth(window.innerWidth);
@@ -56,20 +61,35 @@ const GifContextProvider = (props) => {
   };
 
   const getCategory = async (topic) => {
-    const { data } = await gifFetch.subcategories(`${topic}`);
+    const result = await gifFetch.subcategories(`${topic}`, { limit: 200 });
     setCategory({
       title: topic,
-      data,
+      data: result.data,
     });
   };
 
   const searchCategory = async (topic) => {
     setSearchCategoryResult({});
-    const { data } = await gifFetch.search(`${topic}`, { sort: 'recent' });
+    const result = await gifFetch.search(`${topic}`, {
+      sort: 'recent',
+      limit: 100,
+    });
     setSearchCategoryResult({
       title: topic,
-      data,
+      data: result.data,
     });
+  };
+
+  const searchTerm = async (topic) => {
+    const result = await axios.get(
+      `https://api.giphy.com/v1/gifs/search/tags?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=${topic}&limit=25&offset=0&rating=G&lang=en`
+    );
+    setSearch(result.data.data);
+  };
+
+  const clearInput = () => {
+    setInput(``);
+    setSearch({});
   };
 
   const fetchGifs = (offset: number) =>
@@ -80,6 +100,22 @@ const GifContextProvider = (props) => {
   };
   const closeMenu = () => {
     setMenuDropdown(false);
+  };
+
+  const openModal = () => {
+    setModal(true);
+  };
+  const closeModal = () => {
+    setModal(false);
+  };
+
+  const getNoResultSearchTerm = () => {
+    if (
+      searchCategoryResult.data &&
+      !Object.entries(searchCategoryResult.data).length
+    ) {
+      searchCategory(`${search[1].name}`);
+    }
   };
   return (
     <GifContext.Provider
@@ -93,12 +129,21 @@ const GifContextProvider = (props) => {
         getCategory,
         searchCategory,
         searchCategoryResult,
+        searchTerm,
+        getNoResultSearchTerm,
+        search,
+        input,
+        setInput,
+        clearInput,
         changeInLogin,
         fetchGifs,
         siliconValley,
         menuDropdown,
         openMenu,
         closeMenu,
+        modal,
+        openModal,
+        closeModal,
         getGif,
       }}
     >

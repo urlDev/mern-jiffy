@@ -6,9 +6,13 @@ import { GifContext } from '../../context/GifContext';
 import { MenuDropdownContainer, Black } from './MenuDropdown.styles';
 
 const MenuDropdown = () => {
-  const { menuDropdown, openMenu, closeMenu, getCategory } = useContext(
-    GifContext
-  );
+  const {
+    menuDropdown,
+    openMenu,
+    closeMenu,
+    getCategory,
+    clearInput,
+  } = useContext(GifContext);
   return (
     <div onMouseEnter={openMenu} onMouseLeave={closeMenu}>
       {menuDropdown && (
@@ -21,14 +25,23 @@ const MenuDropdown = () => {
               <div style={{ display: 'flex' }}>
                 <ul>
                   <li>
-                    <Link to="/actions" onClick={() => getCategory('actions')}>
+                    <Link
+                      to="/actions"
+                      onClick={() => {
+                        getCategory('actions');
+                        clearInput();
+                      }}
+                    >
                       Actions
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/adjectives"
-                      onClick={() => getCategory('adjectives')}
+                      onClick={() => {
+                        getCategory('adjectives');
+                        clearInput();
+                      }}
                     >
                       Adjectives
                     </Link>
@@ -36,7 +49,10 @@ const MenuDropdown = () => {
                   <li>
                     <Link
                       to="/artdesign"
-                      onClick={() => getCategory('art-design')}
+                      onClick={() => {
+                        getCategory('art-design');
+                        clearInput();
+                      }}
                     >
                       Art & Design
                     </Link>
@@ -44,20 +60,32 @@ const MenuDropdown = () => {
                   <li>
                     <Link
                       to="/cartoonscomics"
-                      onClick={() => getCategory('cartoons-comics')}
+                      onClick={() => {
+                        getCategory('cartoons-comics');
+                        clearInput();
+                      }}
                     >
                       Cartoons & Comics
                     </Link>
                   </li>
                   <li>
-                    <Link to="/decades" onClick={() => getCategory('decades')}>
+                    <Link
+                      to="/decades"
+                      onClick={() => {
+                        getCategory('decades');
+                        clearInput();
+                      }}
+                    >
                       Decades
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/emotions"
-                      onClick={() => getCategory('emotions')}
+                      onClick={() => {
+                        getCategory('emotions');
+                        clearInput();
+                      }}
                     >
                       Emotions
                     </Link>
@@ -67,28 +95,55 @@ const MenuDropdown = () => {
                   <li>
                     <Link
                       to="/fashionbeauty"
-                      onClick={() => getCategory('fashion-beauty')}
+                      onClick={() => {
+                        getCategory('fashion-beauty');
+                        clearInput();
+                      }}
                     >
                       Fashion & Beauty
                     </Link>
                   </li>
                   <li>
-                    <Link to="/music" onClick={() => getCategory('music')}>
+                    <Link
+                      to="/music"
+                      onClick={() => {
+                        getCategory('music');
+                        clearInput();
+                      }}
+                    >
                       Music
                     </Link>
                   </li>
                   <li>
-                    <Link to="/nature" onClick={() => getCategory('nature')}>
+                    <Link
+                      to="/nature"
+                      onClick={() => {
+                        getCategory('nature');
+                        clearInput();
+                      }}
+                    >
                       Nature
                     </Link>
                   </li>
                   <li>
-                    <Link to="/tv" onClick={() => getCategory('tv')}>
+                    <Link
+                      to="/tv"
+                      onClick={() => {
+                        getCategory('tv');
+                        clearInput();
+                      }}
+                    >
                       TV
                     </Link>
                   </li>
                   <li>
-                    <Link to="/weird" onClick={() => getCategory('weird')}>
+                    <Link
+                      to="/weird"
+                      onClick={() => {
+                        getCategory('weird');
+                        clearInput();
+                      }}
+                    >
                       Weird
                     </Link>
                   </li>

@@ -30,7 +30,7 @@ const Gif = () => {
   const { gif, fetchGifs, width } = useContext(GifContext);
   return (
     <GifContainer>
-      {gif.user && (
+      {gif.user ? (
         <UserContainer>
           <div
             style={{
@@ -62,6 +62,23 @@ const Gif = () => {
           >
             Check out <span>{gif.user.username}</span>'s profile!
           </a>
+        </UserContainer>
+      ) : (
+        <UserContainer>
+          <div
+            style={{
+              display: 'flex',
+              marginBottom: '20px',
+            }}
+          >
+            <img
+              src={require('../../assets/notFound.gif')}
+              alt="user not found gif"
+            />
+            <h4>
+              Could not find <br /> <span>@user</span>
+            </h4>
+          </div>
         </UserContainer>
       )}
       <IndividualGifContainer>

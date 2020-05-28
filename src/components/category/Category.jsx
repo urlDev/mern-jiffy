@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { GifContext } from '../../context/GifContext';
 
+import Placeholder from '../placeholder/Placeholder';
 import { CategoryContainer, SubCategoryContainer } from './Category.styles';
 import { Title } from '../title/Title.styles';
 
 const Category = () => {
   const { category, searchCategory } = useContext(GifContext);
-  console.log(category);
   return (
     <>
       <Title>
@@ -25,7 +27,16 @@ const Category = () => {
               key={uuidv4()}
             >
               <h4>{topic.name.toUpperCase()}</h4>
-              <img src={topic.gif.images.downsized.url} alt="" />
+              <LazyLoadImage
+                src={topic.gif.images.fixed_width.url}
+                height={'200px'}
+                width={'100%'}
+                threshold={5}
+                effect="blur"
+                style={{ opacity: '0.8' }}
+                placeholder={<Placeholder />}
+                alt=""
+              />
             </SubCategoryContainer>
           ))}
       </CategoryContainer>

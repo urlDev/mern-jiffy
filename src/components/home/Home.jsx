@@ -7,12 +7,14 @@ import HomeComponents from '../homeComponents/HomeComponents';
 import Gif from '../gif/Gif';
 import Category from '../category/Category';
 import SearchResult from '../searchResult/SearchResult';
+import SearchModal from '../searchModal/SearchModal';
 
 const Home = () => {
   return (
     <>
       <Nav />
       <SearchBar />
+      <SearchModal />
       <Switch>
         {/* 
       In here, I am using regex to match only words.

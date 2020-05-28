@@ -19,14 +19,17 @@ export const SearchContainer = styled.form`
     }
   }
   button {
+    cursor: pointer;
     height: var(--whaat);
     width: var(--whaat);
     border: none;
     background: linear-gradient(
-      135deg,
+      -45deg,
       var(--blue-violet) 0%,
       var(--pink) 100%
     );
+    background-size: 300% 300%;
+    animation: gradient 3s ease infinite;
     color: var(--white);
   }
 `;

@@ -13,41 +13,75 @@ import {
 import MenuDropdown from '../menuDropdown/MenuDropdown';
 
 const Nav = () => {
-  const { openMenu, closeMenu, getCategory, menuDropdown } = useContext(
-    GifContext
-  );
+  const {
+    openMenu,
+    closeMenu,
+    getCategory,
+    menuDropdown,
+    clearInput,
+  } = useContext(GifContext);
   return (
     <>
       <NavContainer
         style={menuDropdown ? { marginBottom: '0' } : { marginBottom: '15px' }}
       >
-        <StyledLink to="/">
+        <StyledLink to="/" onClick={clearInput}>
           <Logo />
           JIFFY
         </StyledLink>
         <ul>
           <li>
-            <Link to="/reactions" onClick={() => getCategory('reactions')}>
+            <Link
+              to="/reactions"
+              onClick={() => {
+                getCategory('reactions');
+                clearInput();
+              }}
+            >
               Reactions
             </Link>
           </li>
           <li>
-            <Link to="/animals" onClick={() => getCategory('animals')}>
+            <Link
+              to="/animals"
+              onClick={() => {
+                getCategory('animals');
+                clearInput();
+              }}
+            >
               Animals
             </Link>
           </li>
           <li>
-            <Link to="/sports" onClick={() => getCategory('sports')}>
+            <Link
+              to="/sports"
+              onClick={() => {
+                getCategory('sports');
+                clearInput();
+              }}
+            >
               Sports
             </Link>
           </li>
           <li>
-            <Link to="/gaming" onClick={() => getCategory('gaming')}>
+            <Link
+              to="/gaming"
+              onClick={() => {
+                getCategory('gaming');
+                clearInput();
+              }}
+            >
               Gaming
             </Link>
           </li>
           <li>
-            <Link to="/celebrities" onClick={() => getCategory('celebrities')}>
+            <Link
+              to="/celebrities"
+              onClick={() => {
+                getCategory('celebrities');
+                clearInput();
+              }}
+            >
               Celebrities
             </Link>
           </li>

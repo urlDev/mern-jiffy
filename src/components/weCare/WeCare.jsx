@@ -13,7 +13,7 @@ const WeCare = () => {
       <img src={require('../../assets/V.gif')} alt="" />
       <img src={require('../../assets/heart.gif')} alt="" />
       <h3>
-        <span>Jiffy / urlDev</span> Cares
+        <span>Jiffy</span> Cares
       </h3>
     </WeCareContainer>
   );

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SearchContainer = styled.form`
   display: flex;
+  position: relative;
   input {
     height: var(--whaat);
     width: calc(100% - var(--whaat));

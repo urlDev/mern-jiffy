@@ -10,11 +10,12 @@ export const NavContainer = styled.nav`
   z-index: 4;
   ul {
     width: 65%;
+    height: 36px;
     padding: 0;
     display: flex;
     list-style-type: none;
     transform: translateZ(0px);
-    margin: 0px;
+    margin: auto 0 0 0;
     animation: gradient 3s ease infinite;
     background: linear-gradient(
         to right,
@@ -25,7 +26,7 @@ export const NavContainer = styled.nav`
         rgb(0, 255, 153),
         rgb(0, 204, 255)
       )
-      0% 50% / 200% 50%;
+      0% 100% / 500% 100%;
     background-position: 0% 50%;
     li {
       cursor: pointer;
@@ -71,7 +72,7 @@ export const NavContainer = styled.nav`
       }
     }
   }
-  @media (max-width: 1050px) {
+  @media (max-width: 1080px) {
     ul {
       display: none;
     }
@@ -94,10 +95,7 @@ export const StyledLink = styled(Link)`
     font-weight: 400;
   }
   margin-right: 20px;
-  @media (max-width: 1050px) {
-    img {
-      width: var(--mid);
-    }
+  @media (max-width: 1080px) {
     margin-right: 0;
   }
 `;
@@ -112,9 +110,18 @@ export const ResponsiveMenu = styled.a`
   width: var(--whaat);
   height: 36px;
   margin-top: auto;
-  animation: gradient 3s ease infinite;
-  background: linear-gradient(-45deg, var(--blue-violet) 0%, var(--pink) 100%);
-  background-size: 300% 300%;
+  animation: gradient 10s ease infinite;
+  background: linear-gradient(
+      to right,
+      rgb(0, 204, 255),
+      rgb(153, 51, 255) 31%,
+      rgb(230, 70, 182) 52%,
+      rgb(255, 249, 170) 77%,
+      rgb(0, 255, 153),
+      rgb(0, 204, 255)
+    )
+    0% 50% / 500% 50%;
+  background-position: 0% 50%;
   &::before {
     content: '';
     position: absolute;
@@ -139,18 +146,18 @@ export const ResponsiveMenu = styled.a`
     font-weight: bold;
     z-index: 2;
   }
-  @media (max-width: 1050px) {
+  @media (max-width: 1080px) {
     display: flex;
   }
 `;
 
 export const Logo = styled.div`
-  background: url(${require(`../../assets/neonHearts.svg`)}) left center;
+  background: url(${require(`../../assets/neonHeartsFull.svg`)}) left center;
   background-size: cover;
   display: inline-block;
   width: 40px;
   height: 30px;
-  animation: play 2s steps(11) infinite;
+  animation: play 4s steps(18) infinite;
 `;
 
 export const LoginRegister = styled(Link)`
@@ -169,7 +176,7 @@ export const LoginRegister = styled(Link)`
     font-family: var(--Merriweather);
     color: var(--white);
   }
-  @media (max-width: 1050px) {
+  @media (max-width: 1080px) {
     margin-left: var(--normal);
   }
 `;

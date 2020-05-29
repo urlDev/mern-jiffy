@@ -1,36 +1,5 @@
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
-
-export const SearchModalContainer = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 128px);
-  max-width: 1040px;
-  width: calc(100% - 30.5px);
-  height: 300px;
-  overflow-y: scroll;
-  background: var(--white);
-  color: var(--smoke-black);
-  hr {
-    margin: 0;
-    color: var(--smoke-black);
-    opacity: 0.3;
-  }
-`;
-
-export const Modal = styled.div`
-  position: fixed;
-  top: 0em;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  //   background: rgba(0, 0, 0, 0.9);
-  z-index: 2;
-  //   margin-left: -2em;
-`;
 
 export const Results = styled(Link)`
   padding: 0 20px;
@@ -46,4 +15,36 @@ export const Results = styled(Link)`
   display: flex;
   align-items: center;
   height: 80px;
+`;
+
+export const Modal = styled.div`
+  position: absolute;
+  top: 0em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  //   background: rgba(0, 0, 0, 0.9);
+  z-index: 6;
+  //   margin-left: -2em;
+  display: flex;
+  justify-content: center;
+  margin-top: 128px;
+`;
+
+export const SearchModalContainer = styled.div`
+  position: absolute;
+  z-index: 6;
+  max-width: 1040px;
+  width: calc(100% - 30.5px);
+  height: 300px;
+  overflow-y: scroll;
+  background: var(--white);
+  color: var(--smoke-black);
+  hr {
+    margin: 0;
+    color: var(--smoke-black);
+    opacity: 0.3;
+  }
 `;

@@ -8,6 +8,8 @@ import Gif from '../gif/Gif';
 import Category from '../category/Category';
 import SearchResult from '../searchResult/SearchResult';
 import SearchModal from '../searchModal/SearchModal';
+import FixedSearchBar from '../fixedSearchBar/FixedSearchBar';
+import FixedNavWithSearch from '../fixedNavWithSearch/FixedNavWithSearch';
 
 const Home = () => {
   return (
@@ -15,6 +17,8 @@ const Home = () => {
       <Nav />
       <SearchBar />
       <SearchModal />
+      <FixedSearchBar />
+      <FixedNavWithSearch />
       <Switch>
         {/* 
       In here, I am using regex to match only words.

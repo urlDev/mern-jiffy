@@ -16,6 +16,7 @@ const GifContextProvider = (props) => {
   const [category, setCategory] = useState({});
   const [searchCategoryResult, setSearchCategoryResult] = useState({});
   const [width, setWidth] = useState(window.innerWidth);
+  const [scroll, setScroll] = useState(0);
   const [inLogin, setInLogin] = useState(false);
   const [menuDropdown, setMenuDropdown] = useState(false);
   const [modal, setModal] = useState(false);
@@ -28,9 +29,23 @@ const GifContextProvider = (props) => {
     getSiliconValley();
     getNoResultSearchTerm();
     window.addEventListener('resize', updateWidth);
+    document.addEventListener('scroll', updateScroll);
+    updateScroll();
 
-    return () => window.removeEventListener('resize', updateWidth);
+    return () => {
+      window.removeEventListener('resize', updateWidth);
+      document.removeEventListener('scroll', updateScroll);
+    };
   }, [searchCategoryResult]);
+
+  const updateScroll = () => {
+    if (window.scrollY <= 62) {
+      setScroll(0);
+    }
+    if (window.scrollY > 62) {
+      setScroll(window.scrollY);
+    }
+  };
 
   const updateWidth = () => {
     setWidth(window.innerWidth);
@@ -124,6 +139,7 @@ const GifContextProvider = (props) => {
         emoji,
         gif,
         width,
+        scroll,
         inLogin,
         category,
         getCategory,

@@ -3,17 +3,31 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { GifContext } from '../../context/GifContext';
 
-import { SearchModalContainer, Modal, Results } from './SearchModal.styles';
+import { Results, Modal, SearchModalContainer } from './SearchModal.styles';
 
 const SearchModal = () => {
-  const { modal, closeModal, search, searchCategory, setInput } = useContext(
-    GifContext
-  );
+  const {
+    modal,
+    width,
+    closeModal,
+    search,
+    searchCategory,
+    setInput,
+    scroll,
+  } = useContext(GifContext);
+
+  console.log(width);
+
   return (
     <>
       {modal && search.length ? (
-        <Modal onClick={closeModal}>
-          <SearchModalContainer>
+        <Modal
+          onClick={closeModal}
+          className={scroll > 0 && width >= 1080 ? 'position' : ''}
+        >
+          <SearchModalContainer
+            className={scroll > 0 && width >= 1080 ? 'modal' : ''}
+          >
             {search &&
               Object.values(search).map((term) => (
                 <React.Fragment key={uuidv4()}>

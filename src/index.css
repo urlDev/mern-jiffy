@@ -43,6 +43,49 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.come-down {
+    animation: comeDown 0.5s linear forwards;
+}
+
+.go-right {
+    margin-left: auto;
+    animation: goRight 0.2s linear forwards;
+}
+
+.position {
+    position: fixed !important;
+    margin-top: 64px !important;
+    margin-left: 88.4px !important;
+}
+
+.modal {
+    max-width: calc(0.83 * 1040px) !important;
+    width: calc(0.84 * 1040px) !important;
+}
+
+@keyframes goRight {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 83%;
+    }
+}
+
+@keyframes comeDown {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -57,7 +100,7 @@ code {
 
 @keyframes play {
     100% {
-        background-position: -407px;
+        background-position: -791px;
     }
 }
 

@@ -14,7 +14,12 @@ const MenuDropdown = () => {
     clearInput,
   } = useContext(GifContext);
   return (
-    <div onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+    <div
+      onMouseEnter={openMenu}
+      onTouchStart={openMenu}
+      onMouseLeave={closeMenu}
+      onTouchEnd={closeMenu}
+    >
       {menuDropdown && (
         <>
           <Black />

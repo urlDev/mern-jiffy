@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import { GiphyFetch } from '@giphy/js-fetch-api';
 import axios from 'axios';
 require('dotenv').config();
@@ -23,6 +23,15 @@ const GifContextProvider = (props) => {
   const [search, setSearch] = useState({});
   const [input, setInput] = useState('');
 
+  const getNoResultSearchTerm = useCallback(() => {
+    if (
+      searchCategoryResult.data &&
+      !Object.entries(searchCategoryResult.data).length
+    ) {
+      searchCategory(`${search[1].name}`);
+    }
+  }, [search, searchCategoryResult]);
+
   useEffect(() => {
     getTrending();
     getEmoji();
@@ -36,7 +45,7 @@ const GifContextProvider = (props) => {
       window.removeEventListener('resize', updateWidth);
       document.removeEventListener('scroll', updateScroll);
     };
-  }, [searchCategoryResult]);
+  }, [searchCategoryResult, getNoResultSearchTerm]);
 
   const updateScroll = () => {
     if (window.scrollY <= 62) {
@@ -61,8 +70,9 @@ const GifContextProvider = (props) => {
   };
 
   const getEmoji = async () => {
-    const { data } = await gifFetch.emoji({ limit: 5 });
-    setEmoji(data);
+    const { data } = await gifFetch.emoji();
+    const random = Math.floor(Math.random() * 3);
+    setEmoji(data.slice(random, random + 5));
   };
 
   const getSiliconValley = async () => {
@@ -124,14 +134,6 @@ const GifContextProvider = (props) => {
     setModal(false);
   };
 
-  const getNoResultSearchTerm = () => {
-    if (
-      searchCategoryResult.data &&
-      !Object.entries(searchCategoryResult.data).length
-    ) {
-      searchCategory(`${search[1].name}`);
-    }
-  };
   return (
     <GifContext.Provider
       value={{

@@ -16,8 +16,6 @@ const SearchModal = () => {
     scroll,
   } = useContext(GifContext);
 
-  console.log(width);
-
   return (
     <>
       {modal && search.length ? (

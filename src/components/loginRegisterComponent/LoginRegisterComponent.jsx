@@ -12,7 +12,13 @@ const LoginRegisterComponent = () => {
   const { inLogin } = useContext(GifContext);
   return (
     <>
-      <Video preload="auto" autoPlay muted loop>
+      <Video
+        preload="auto"
+        poster={require('../../assets/backgroundPoster.png')}
+        autoPlay
+        muted
+        loop
+      >
         <source
           src={require('../../assets/backgroundVideo.mp4')}
           type="video/mp4"

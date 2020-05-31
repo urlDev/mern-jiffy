@@ -109,3 +109,11 @@ code {
         opacity: 1;
     }
 }
+
+@media (max-width: 500px) {
+    @keyframes play {
+        100% {
+            background-position: -518px;
+        }
+    }
+}

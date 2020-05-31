@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const NavContainer = styled.nav`
   display: flex;
   // justify-content: space-between;
+  align-items: center;
   margin-top: 10px;
   margin-bottom: 15px;
   position: relative;
@@ -15,7 +16,7 @@ export const NavContainer = styled.nav`
     display: flex;
     list-style-type: none;
     transform: translateZ(0px);
-    margin: auto 0 0 0;
+    margin: 0;
     animation: gradient 3s ease infinite;
     background: linear-gradient(
         to right,
@@ -86,7 +87,6 @@ export const StyledLink = styled(Link)`
   color: var(--white);
   font-size: var(--giant);
   position: relative;
-  top: 8px;
   img {
     width: var(--giant);
   }
@@ -97,6 +97,12 @@ export const StyledLink = styled(Link)`
   margin-right: 20px;
   @media (max-width: 1080px) {
     margin-right: 0;
+  }
+  @media (max-width: 500px) {
+    font-size: var(--big);
+    img {
+      width: var(--big);
+    }
   }
 `;
 
@@ -109,7 +115,6 @@ export const ResponsiveMenu = styled.a`
   margin-left: auto;
   width: var(--whaat);
   height: 36px;
-  margin-top: auto;
   animation: gradient 10s ease infinite;
   background: linear-gradient(
       to right,
@@ -158,17 +163,22 @@ export const Logo = styled.div`
   width: 40px;
   height: 30px;
   animation: play 4s steps(18) infinite;
+  @media (max-width: 500px) {
+    width: var(--big);
+    height: 20px;
+  }
 `;
 
 export const LoginRegister = styled(Link)`
   max-width: 190px;
   width: 100%;
   height: 36px;
-  margin-top: auto;
   margin-left: auto;
   display: flex;
+  position: relative;
   i {
     color: var(--white);
+    margin: 0;
   }
   h5 {
     padding: 0;
@@ -178,5 +188,10 @@ export const LoginRegister = styled(Link)`
   }
   @media (max-width: 1080px) {
     margin-left: var(--normal);
+  }
+
+  @media (max-width: 500px) {
+    max-width: 80px;
+    width: 100%;
   }
 `;

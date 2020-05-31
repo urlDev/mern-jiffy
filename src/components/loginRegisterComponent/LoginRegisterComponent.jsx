@@ -9,7 +9,7 @@ import { StyledLink, LoginRegister } from '../nav/Nav.styles';
 import { LoginRegisterNav, FormContainer, Video } from './LoginRegister.styles';
 
 const LoginRegisterComponent = () => {
-  const { inLogin } = useContext(GifContext);
+  const { inLogin, width } = useContext(GifContext);
   return (
     <>
       <Video
@@ -33,32 +33,49 @@ const LoginRegisterComponent = () => {
           />
           JIFFY <span>Login</span>
         </StyledLink>
-        <LoginRegister
-          style={{ position: 'relative', top: '-2px' }}
-          to="/profile"
-        >
-          <div
-            style={{
-              width: '20%',
-              backgroundColor: '#515151',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <i className="fas fa-user"></i>
-          </div>
-          <div
-            style={{
-              width: '80%',
-              backgroundColor: '#414141',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            {inLogin ? <h5>Register</h5> : <h5>Log in</h5>}
-          </div>
+        <LoginRegister to="/profile">
+          {width > 500 ? (
+            <>
+              <div
+                style={{
+                  width: '20%',
+                  backgroundColor: '#515151',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginTop: '-1px',
+                }}
+                className="right"
+              >
+                <i className="fas fa-user"></i>
+              </div>
+              <div
+                style={{
+                  width: '80%',
+                  backgroundColor: '#414141',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                className="responsive"
+              >
+                {inLogin ? <h5>Register</h5> : <h5>Log in</h5>}
+              </div>
+            </>
+          ) : (
+            <div
+              style={{
+                width: '100%',
+                backgroundColor: '#414141',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              className="responsive"
+            >
+              {inLogin ? <h5>Register</h5> : <h5>Log in</h5>}
+            </div>
+          )}
         </LoginRegister>
       </LoginRegisterNav>
       <FormContainer>

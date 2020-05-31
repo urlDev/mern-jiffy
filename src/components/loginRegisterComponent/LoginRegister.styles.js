@@ -4,6 +4,7 @@ export const LoginRegisterNav = styled.div`
   margin-top: 9px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const FormContainer = styled.div`
@@ -12,6 +13,7 @@ export const FormContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--white);
+  padding: 0 15px;
 `;
 
 export const Video = styled.video`

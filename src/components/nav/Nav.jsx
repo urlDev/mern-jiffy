@@ -15,6 +15,7 @@ import MenuDropdown from '../menuDropdown/MenuDropdown';
 
 const Nav = () => {
   const {
+    width,
     openMenu,
     closeMenu,
     getCategory,
@@ -93,32 +94,55 @@ const Nav = () => {
           </li>
         </ul>
 
-        <ResponsiveMenu onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+        <ResponsiveMenu
+          onMouseEnter={openMenu}
+          onMouseLeave={closeMenu}
+          className="right"
+        >
           <span>&#8942;</span>
         </ResponsiveMenu>
         <LoginRegister to="/profile">
-          <div
-            style={{
-              width: '20%',
-              backgroundColor: '#515151',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <i className="fas fa-user"></i>
-          </div>
-          <div
-            style={{
-              width: '80%',
-              backgroundColor: '#414141',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <h5>Log in</h5>
-          </div>
+          {width > 500 ? (
+            <>
+              <div
+                style={{
+                  width: '20%',
+                  backgroundColor: '#515151',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                className="right"
+              >
+                <i className="fas fa-user"></i>
+              </div>
+              <div
+                style={{
+                  width: '80%',
+                  backgroundColor: '#414141',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                className="responsive"
+              >
+                <h5>Log in</h5>
+              </div>{' '}
+            </>
+          ) : (
+            <div
+              style={{
+                width: '100%',
+                backgroundColor: '#515151',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              className="right"
+            >
+              <i className="fas fa-user"></i>
+            </div>
+          )}
         </LoginRegister>
       </NavContainer>
       <MenuDropdown />

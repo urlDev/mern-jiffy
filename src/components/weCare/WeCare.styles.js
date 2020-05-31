@@ -32,4 +32,28 @@ export const WeCareContainer = styled.a`
     width: 70px;
     margin-left: -40px;
   }
+  @media (max-width: 500px) {
+    h3 {
+      font-size: var(--normal);
+      padding-left: 10px;
+      text-align: center;
+    }
+
+    h3 ~ h3 {
+      padding-left: 0;
+      padding-right: 10px;
+    }
+    img {
+      width: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    img ~ img {
+      width: var(--giant);
+      margin-left: -30px;
+      position: relative;
+      z-index: 0;
+    }
+  }
 `;

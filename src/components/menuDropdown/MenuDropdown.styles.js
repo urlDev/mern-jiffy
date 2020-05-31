@@ -39,6 +39,21 @@ export const MenuDropdownContainer = styled.div`
       }
     }
   }
+
+  @media (max-width: 800px) {
+    position: fixed;
+    z-index: 7;
+    flex-direction: column;
+    padding: 20px 30px;
+
+    div {
+      width: 100% !important;
+    }
+
+    div ~ div {
+      margin-top: 30px;
+    }
+  }
 `;
 
 export const Black = styled.div`

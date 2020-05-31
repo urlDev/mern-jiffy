@@ -43,11 +43,13 @@ export const MenuDropdownContainer = styled.div`
   @media (max-width: 800px) {
     position: fixed;
     z-index: 7;
+    height: 100%;
     flex-direction: column;
     padding: 20px 30px;
-
+    animation: rotate 0.2s linear forwards, fade 0.5s linear forwards;
     div {
       width: 100% !important;
+      height: 100%;
     }
 
     div ~ div {

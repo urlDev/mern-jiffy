@@ -58,6 +58,11 @@ code {
     margin-left: 88.4px !important;
 }
 
+.fixed {
+    position: fixed !important;
+    z-index: 7 !important;
+}
+
 .modal {
     max-width: calc(0.83 * 1040px) !important;
     width: calc(0.84 * 1040px) !important;
@@ -107,6 +112,15 @@ code {
 @keyframes fade {
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateX(-20deg);
+    }
+    100% {
+        transform: rotateX(0deg);
     }
 }
 

@@ -31,6 +31,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('actions');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Actions
@@ -42,6 +43,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('adjectives');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Adjectives
@@ -53,6 +55,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('art-design');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Art & Design
@@ -64,6 +67,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('cartoons-comics');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Cartoons & Comics
@@ -75,6 +79,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('decades');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Decades
@@ -86,6 +91,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('emotions');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Emotions
@@ -99,6 +105,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('fashion-beauty');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Fashion & Beauty
@@ -110,6 +117,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('music');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Music
@@ -121,6 +129,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('nature');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Nature
@@ -132,6 +141,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('tv');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       TV
@@ -143,6 +153,7 @@ const MenuDropdown = () => {
                       onClick={() => {
                         getCategory('weird');
                         clearInput();
+                        closeMenu();
                       }}
                     >
                       Weird
@@ -155,9 +166,36 @@ const MenuDropdown = () => {
               <h1>About</h1>
               <hr />
               <ul>
-                <li>Twitter</li>
-                <li>Github</li>
-                <li>Portfolio</li>
+                <li>
+                  <a
+                    href="https://twitter.com/urlDev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMenu}
+                  >
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/urlDev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMenu}
+                  >
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.can-ural.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMenu}
+                  >
+                    Portfolio
+                  </a>
+                </li>
               </ul>
             </div>
           </MenuDropdownContainer>

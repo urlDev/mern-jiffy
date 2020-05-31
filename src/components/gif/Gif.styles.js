@@ -6,13 +6,9 @@ export const GifContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
-  h1 {
-    font-family: var(--Merriweather);
-    font-size: var(--mid);
-    margin-top: 40px;
-    span {
-      color: var(--light-green);
-    }
+  @media (max-width: 1080px) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -72,6 +68,37 @@ export const IndividualGifContainer = styled.div`
     text-transform: capitalize;
     margin-bottom: 15px;
   }
+
+  @media (max-width: 1080px) {
+    margin-top: 30px;
+  }
+`;
+
+export const GifGrid = styled.div`
+  color: var(--white);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  h1 {
+    display: block;
+    width: 736px;
+    text-align: left !important;
+    font-family: var(--Merriweather);
+    font-size: var(--mid);
+    margin-top: 40px;
+    span {
+      color: var(--light-green);
+    }
+  }
+
+  @media (max-width: 1080px) {
+    align-items: center;
+    h1 {
+      width: 100%;
+    }
+  }
 `;
 
 export const InnerContainer = styled.div`
@@ -80,6 +107,13 @@ export const InnerContainer = styled.div`
     max-width: 500px;
     width: 100%;
     height: 100%;
+  }
+  @media (max-width: 1080px) {
+    display: flex;
+    flex-direction: column;
+    img {
+      max-width: 100%;
+    }
   }
 `;
 
@@ -95,6 +129,10 @@ export const Social = styled.div`
 
   i {
     margin-right: 10px;
+  }
+
+  @media (max-width: 1080px) {
+    margin: 30px 0 0 0;
   }
 `;
 

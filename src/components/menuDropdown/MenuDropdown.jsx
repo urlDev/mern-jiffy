@@ -7,7 +7,6 @@ import { MenuDropdownContainer, Black } from './MenuDropdown.styles';
 
 const MenuDropdown = () => {
   const {
-    scroll,
     menuDropdown,
     openMenu,
     closeMenu,

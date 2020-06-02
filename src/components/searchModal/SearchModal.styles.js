@@ -37,7 +37,7 @@ export const SearchModalContainer = styled.div`
   position: absolute;
   z-index: 6;
   max-width: 1040px;
-  width: calc(100% - 30.5px);
+  width: calc(100% - 10px);
   height: 300px;
   overflow-y: scroll;
   background: var(--white);

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MenuDropdownContainer = styled.div`
   max-width: 1040px;
-  width: calc(100% - 30.5px);
+  width: calc(100% - 10px);
   padding: 30px 50px;
   background: linear-gradient(135deg, var(--blue-violet) 0%, var(--pink) 100%);
   position: absolute;
@@ -42,7 +42,7 @@ export const MenuDropdownContainer = styled.div`
 
   @media (max-width: 800px) {
     position: fixed;
-    z-index: 7;
+    z-index: 8;
     height: 100%;
     flex-direction: column;
     padding: 20px 30px;
@@ -59,7 +59,9 @@ export const MenuDropdownContainer = styled.div`
 `;
 
 export const Black = styled.div`
+  position: relative;
+  top: -7px;
   height: 15px;
   width: 100%;
-  background: var(--smoke-black);
+  z-index: 7;
 `;

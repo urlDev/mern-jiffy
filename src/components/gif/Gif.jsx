@@ -134,7 +134,7 @@ const Gif = () => {
         </h1>
         <Grid
           fetchGifs={fetchGifs}
-          width={width < 1080 ? width - 30 : 736}
+          width={width < 1080 ? width - 10 : 736}
           columns={width < 821 && width > 521 ? 2 : width < 521 ? 1 : 3}
           gutter={10}
         />

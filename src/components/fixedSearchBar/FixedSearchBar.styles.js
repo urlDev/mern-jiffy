@@ -7,7 +7,7 @@ export const FixedContainer = styled.div`
   color: var(--white);
   position: fixed;
   top: 0;
-  width: calc(100% - 30px);
+  width: calc(100% - 10px);
   max-width: 1040px;
   z-index: 5;
   height: calc(20px + var(--whaat));

@@ -20,6 +20,7 @@ const Nav = () => {
     closeMenu,
     getCategory,
     menuDropdown,
+    openAndCloseMenu,
     clearInput,
   } = useContext(GifContext);
   return (
@@ -31,74 +32,72 @@ const Nav = () => {
           <Logo />
           JIFFY
         </StyledLink>
-        <ul>
-          <li>
-            <Link
-              to="/reactions"
-              onClick={() => {
-                getCategory('reactions');
-                clearInput();
-              }}
-            >
-              Reactions
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/animals"
-              onClick={() => {
-                getCategory('animals');
-                clearInput();
-              }}
-            >
-              Animals
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/sports"
-              onClick={() => {
-                getCategory('sports');
-                clearInput();
-              }}
-            >
-              Sports
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/gaming"
-              onClick={() => {
-                getCategory('gaming');
-                clearInput();
-              }}
-            >
-              Gaming
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/celebrities"
-              onClick={() => {
-                getCategory('celebrities');
-                clearInput();
-              }}
-            >
-              Celebrities
-            </Link>
-          </li>
-          <li>
-            <Menu onMouseEnter={openMenu} onMouseLeave={closeMenu}>
-              &#8942;
-            </Menu>
-          </li>
-        </ul>
+        {width > 1080 && (
+          <ul>
+            <li>
+              <Link
+                to="/reactions"
+                onClick={() => {
+                  getCategory('reactions');
+                  clearInput();
+                }}
+              >
+                Reactions
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/animals"
+                onClick={() => {
+                  getCategory('animals');
+                  clearInput();
+                }}
+              >
+                Animals
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/sports"
+                onClick={() => {
+                  getCategory('sports');
+                  clearInput();
+                }}
+              >
+                Sports
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/gaming"
+                onClick={() => {
+                  getCategory('gaming');
+                  clearInput();
+                }}
+              >
+                Gaming
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/celebrities"
+                onClick={() => {
+                  getCategory('celebrities');
+                  clearInput();
+                }}
+              >
+                Celebrities
+              </Link>
+            </li>
+            <li>
+              <Menu onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+                &#8942;
+              </Menu>
+            </li>
+          </ul>
+        )}
 
-        <ResponsiveMenu
-          onMouseEnter={openMenu}
-          onMouseLeave={closeMenu}
-          className="right"
-        >
+        <ResponsiveMenu onClick={openAndCloseMenu} className="right">
           <span>&#8942;</span>
         </ResponsiveMenu>
         <LoginRegister to="/profile">

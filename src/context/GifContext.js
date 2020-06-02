@@ -127,6 +127,10 @@ const GifContextProvider = (props) => {
     setMenuDropdown(false);
   };
 
+  const openAndCloseMenu = () => {
+    setMenuDropdown(!menuDropdown);
+  };
+
   const openModal = () => {
     setModal(true);
   };
@@ -159,6 +163,7 @@ const GifContextProvider = (props) => {
         menuDropdown,
         openMenu,
         closeMenu,
+        openAndCloseMenu,
         modal,
         openModal,
         closeModal,

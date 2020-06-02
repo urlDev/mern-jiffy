@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FixedContainer = styled.div`
-  width: calc(100% - 30px);
+  width: calc(100% - 10px);
   background: var(--smoke-black);
   position: fixed;
   top: 0;

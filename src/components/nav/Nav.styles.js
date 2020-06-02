@@ -27,7 +27,7 @@ export const NavContainer = styled.nav`
         rgb(0, 255, 153),
         rgb(0, 204, 255)
       )
-      0% 100% / 500% 100%;
+      0% 50% / 200% 50%;
     background-position: 0% 50%;
     li {
       cursor: pointer;
@@ -71,11 +71,6 @@ export const NavContainer = styled.nav`
         -webkit-box-pack: center;
         justify-content: center;
       }
-    }
-  }
-  @media (max-width: 1080px) {
-    ul {
-      display: none;
     }
   }
 `;
@@ -125,7 +120,7 @@ export const ResponsiveMenu = styled.a`
       rgb(0, 255, 153),
       rgb(0, 204, 255)
     )
-    0% 50% / 500% 50%;
+    0% 50% / 1000% 50%;
   background-position: 0% 50%;
   &::before {
     content: '';

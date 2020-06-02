@@ -13,7 +13,7 @@ import {
 } from '../nav/Nav.styles';
 
 const FixedNavWithSearch = () => {
-  const { width, scroll, clearInput, openMenu, closeMenu } = useContext(
+  const { width, scroll, clearInput, openAndCloseMenu } = useContext(
     GifContext
   );
   return (
@@ -25,7 +25,7 @@ const FixedNavWithSearch = () => {
               <img src={require('../../assets/neonHeartFull.svg')} alt="" />
               JIFFY
             </StyledLink>
-            <ResponsiveMenu onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+            <ResponsiveMenu onClick={openAndCloseMenu}>
               <span>&#8942;</span>
             </ResponsiveMenu>
             <LoginRegister to="/profile">

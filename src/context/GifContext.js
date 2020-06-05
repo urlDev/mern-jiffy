@@ -12,7 +12,6 @@ const GifContextProvider = (props) => {
   const [emoji, setEmoji] = useState({});
   const [siliconValley, setSiliconValley] = useState({});
   const [gif, setGif] = useState({});
-  const [related, setRelated] = useState({});
   const [category, setCategory] = useState({});
   const [searchCategoryResult, setSearchCategoryResult] = useState({});
   const [width, setWidth] = useState(window.innerWidth);
@@ -99,6 +98,7 @@ const GifContextProvider = (props) => {
       sort: 'recent',
       limit: 100,
     });
+
     setSearchCategoryResult({
       title: topic,
       data: result.data,
@@ -161,6 +161,7 @@ const GifContextProvider = (props) => {
         fetchGifs,
         siliconValley,
         menuDropdown,
+        setMenuDropdown,
         openMenu,
         closeMenu,
         openAndCloseMenu,

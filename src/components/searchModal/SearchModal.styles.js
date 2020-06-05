@@ -31,12 +31,21 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 128px;
+
+  @media (max-width: 500px) {
+    margin-top: 116px;
+  }
+
+  @media (max-width: 1080px) {
+    position: fixed !important;
+    z-index: 7 !important;
+  }
 `;
 
 export const SearchModalContainer = styled.div`
   position: absolute;
   z-index: 6;
-  max-width: 1040px;
+  max-width: 1060px;
   width: calc(100% - 10px);
   height: 300px;
   overflow-y: scroll;

@@ -4,7 +4,13 @@ import moment from 'moment';
 import { GifContext } from '../../context/GifContext';
 
 import { TrendingContainer } from './Trending.styles';
-import { Card, CardTitle, CardTime, CardUser } from '../card/Card.styles';
+import {
+  Card,
+  CardTitle,
+  CardTime,
+  CardUser,
+  CardContainer,
+} from '../card/Card.styles';
 import { Title } from '../title/Title.styles';
 
 const Trending = () => {
@@ -17,7 +23,7 @@ const Trending = () => {
         {trending.length &&
           trending.map((gif) => {
             return (
-              <React.Fragment key={gif.id}>
+              <CardContainer key={gif.id}>
                 <Card to={`/${gif.slug}`} onClick={() => getGif(gif)}>
                   <CardUser>
                     <img src={gif.user && gif.user.avatar_url} alt={gif.user} />
@@ -28,7 +34,7 @@ const Trending = () => {
                     {moment(gif.trending_datetime, 'YYYYMMDD').fromNow()}
                   </CardTime>
                 </Card>
-              </React.Fragment>
+              </CardContainer>
             );
           })}
       </TrendingContainer>

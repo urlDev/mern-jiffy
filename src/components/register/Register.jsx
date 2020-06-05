@@ -1,18 +1,63 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
+import { UserContext } from '../../context/UserContext';
 import { GifContext } from '../../context/GifContext';
 
 import { Form, DirectLink } from '../form/Form.styles';
 
 const Register = () => {
+  const [input, setInput] = useState({});
   const { changeInLogin } = useContext(GifContext);
+  const { url, setUser, token, setToken } = useContext(UserContext);
+
+  let history = useHistory();
+
+  const handleChange = (e) =>
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${url}/profile/register`, input);
+      const { data } = await response;
+      console.log(data);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('userToken', JSON.stringify(data.token));
+      setUser(data.user);
+      setToken(data.token);
+      history.push('/profile');
+      // e.target.reset();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <>
-      <Form>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email address" />
-        <input type="password" placeholder="Password" />
+      <Form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email address"
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
         <button>Register</button>
       </Form>
       <DirectLink>

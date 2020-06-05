@@ -83,7 +83,7 @@ export const GifGrid = styled.div`
 
   h1 {
     display: block;
-    width: 736px;
+    width: 756px;
     text-align: left !important;
     font-family: var(--Merriweather);
     font-size: var(--mid);
@@ -129,6 +129,11 @@ export const Social = styled.div`
 
   i {
     margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+    &:hover {
+      transform: scale(1.3);
+    }
   }
 
   @media (max-width: 1080px) {

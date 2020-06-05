@@ -15,6 +15,7 @@ import {
   PinterestIcon,
 } from 'react-share';
 
+import { UserContext } from '../../context/UserContext';
 import { GifContext } from '../../context/GifContext';
 
 import {
@@ -27,8 +28,25 @@ import {
   GifGrid,
 } from './Gif.styles';
 
+const Added = (
+  <i
+    className="fas fa-heart"
+    aria-hidden="true"
+    style={{ color: 'rgb(208, 86, 86)' }}
+  ></i>
+);
+
+const Add = (
+  <i
+    className="far fa-heart"
+    aria-hidden="true"
+    style={{ color: 'rgb(208, 86, 86)' }}
+  ></i>
+);
+
 const Gif = () => {
   const { gif, fetchGifs, width } = useContext(GifContext);
+  const { favorite, addDeleteFavorite } = useContext(UserContext);
   return (
     <>
       <GifContainer>
@@ -89,7 +107,14 @@ const Gif = () => {
             <img src={gif.images && gif.images.original.webp} alt={gif.title} />
             <Social>
               <h5>
-                <i className="far fa-heart"></i>Favorite
+                <span onClick={() => addDeleteFavorite(gif)}>
+                  {favorite.some(
+                    (addedGif) => addedGif.gif && addedGif.gif[0].id === gif.id
+                  )
+                    ? Added
+                    : Add}
+                </span>
+                Favorite
               </h5>
               <p style={{ marginTop: '50px' }}>Share it!</p>
               <SocialIcons>
@@ -134,7 +159,7 @@ const Gif = () => {
         </h1>
         <Grid
           fetchGifs={fetchGifs}
-          width={width < 1080 ? width - 10 : 736}
+          width={width < 1080 ? width - 10 : 756}
           columns={width < 821 && width > 521 ? 2 : width < 521 ? 1 : 3}
           gutter={10}
         />

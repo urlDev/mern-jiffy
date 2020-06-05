@@ -13,7 +13,7 @@ export const WeCareContainer = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1040px;
+  max-width: 1070px;
   width: 100%;
   color: var(--white);
   h3 {

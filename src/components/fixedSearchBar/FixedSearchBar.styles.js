@@ -8,7 +8,7 @@ export const FixedContainer = styled.div`
   position: fixed;
   top: 0;
   width: calc(100% - 10px);
-  max-width: 1040px;
+  max-width: 1060px;
   z-index: 5;
   height: calc(20px + var(--whaat));
   @media (max-width: 1080px) {

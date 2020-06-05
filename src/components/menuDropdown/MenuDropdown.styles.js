@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MenuDropdownContainer = styled.div`
-  max-width: 1040px;
+  max-width: 1060px;
   width: calc(100% - 10px);
   padding: 30px 50px;
   background: linear-gradient(135deg, var(--blue-violet) 0%, var(--pink) 100%);
@@ -40,7 +40,24 @@ export const MenuDropdownContainer = styled.div`
     }
   }
 
-  @media (max-width: 800px) {
+  @media (min-width: 768px) and (max-width: 1080px) {
+    position: fixed;
+    z-index: 8;
+    height: 600px;
+    flex-direction: column;
+    padding: 20px 30px;
+    animation: rotate 0.2s linear forwards, fade 0.5s linear forwards;
+    div {
+      width: 100% !important;
+      height: 100%;
+    }
+
+    div ~ div {
+      margin-top: 30px;
+    }
+  }
+
+  @media (max-width: 767.9px) {
     position: fixed;
     z-index: 8;
     height: 100%;
@@ -64,4 +81,16 @@ export const Black = styled.div`
   height: 15px;
   width: 100%;
   z-index: 7;
+`;
+
+export const Dropdown = styled.div`
+  position: fixed;
+  top: 0em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  //   background: rgba(0, 0, 0, 0.9);
+  z-index: 3;
 `;

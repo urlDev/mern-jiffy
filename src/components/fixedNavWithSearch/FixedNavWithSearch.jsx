@@ -13,12 +13,11 @@ import {
 } from '../nav/Nav.styles';
 
 const FixedNavWithSearch = () => {
-  const { width, scroll, clearInput, openAndCloseMenu } = useContext(
-    GifContext
-  );
+  const { width, clearInput, openAndCloseMenu } = useContext(GifContext);
+
   return (
     <>
-      {scroll > 0 && width <= 1080 ? (
+      {width <= 1080 ? (
         <FixedContainer>
           <NavContainer>
             <StyledLink to="/" onClick={clearInput}>

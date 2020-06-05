@@ -4,18 +4,18 @@
 
 :root {
     /* colors */
-    --sky-blue: #5ecce4;
-    --cosmic-cobalt: #383387;
-    --iris: #524ad0;
-    --blue-violet: #8931e0;
-    --pink: #d752a0;
-    --indian-red: #d05656;
-    --white: #ffffff;
-    --smoke-black: #121212;
-    --dark-gray: #414141;
-    --light-gray: #515151;
-    --green: #429708;
-    --light-green: #2aff7c;
+    --sky-blue: rgb(94, 204, 228);
+    --cosmic-cobalt: rgb(56, 51, 135);
+    --iris: rgb(82, 73, 208);
+    --blue-violet: rgb(138, 51, 225);
+    --pink: rgb(215, 82, 160);
+    --indian-red: rgb(208, 86, 86);
+    --white: rgb(255, 255, 255);
+    --smoke-black: rgb(18, 18, 18);
+    --dark-gray: rgb(64, 64, 64);
+    --light-gray: rgb(81, 81, 81);
+    --green: rgb(66, 151, 8);
+    --light-green: rgb(42, 255, 124);
     /* fonts */
     --Merriweather: 'Merriweather Sans', sans-serif;
     --Raleway: 'Raleway', sans-serif;
@@ -54,18 +54,13 @@ code {
 
 .position {
     position: fixed !important;
-    margin-top: 64px !important;
-    margin-left: 88.4px !important;
-}
-
-.fixed {
-    position: fixed !important;
-    z-index: 7 !important;
+    margin-top: 66px !important;
+    margin-left: 90px !important;
 }
 
 .modal {
-    max-width: calc(0.83 * 1040px) !important;
-    width: calc(0.84 * 1040px) !important;
+    max-width: calc(0.83 * 1060px) !important;
+    width: calc(0.83 * 1060px) !important;
 }
 
 @keyframes goRight {

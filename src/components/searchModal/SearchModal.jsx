@@ -21,7 +21,7 @@ const SearchModal = () => {
       {modal && search.length ? (
         <Modal
           onClick={closeModal}
-          className={scroll > 0 && width >= 1080 ? 'position' : 'fixed'}
+          className={scroll > 0 && width >= 1080 ? 'position' : ''}
         >
           <SearchModalContainer
             className={scroll > 0 && width >= 1080 ? 'modal' : ''}

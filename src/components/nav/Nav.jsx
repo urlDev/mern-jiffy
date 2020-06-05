@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import { UserContext } from '../../context/UserContext';
 import { GifContext } from '../../context/GifContext';
 
 import {
@@ -12,6 +13,7 @@ import {
   ResponsiveMenu,
 } from './Nav.styles';
 import MenuDropdown from '../menuDropdown/MenuDropdown';
+import UserMenuDropdown from '../userMenuDropdown/UserMenuDropdown';
 
 const Nav = () => {
   const {
@@ -23,6 +25,7 @@ const Nav = () => {
     openAndCloseMenu,
     clearInput,
   } = useContext(GifContext);
+  const { user, openUserDropdown, closeUserDropdown } = useContext(UserContext);
   return (
     <>
       <NavContainer
@@ -100,7 +103,11 @@ const Nav = () => {
         <ResponsiveMenu onClick={openAndCloseMenu} className="right">
           <span>&#8942;</span>
         </ResponsiveMenu>
-        <LoginRegister to="/profile">
+        <LoginRegister
+          to="/profile/favorites"
+          onMouseEnter={openUserDropdown}
+          onMouseLeave={closeUserDropdown}
+        >
           {width > 500 ? (
             <>
               <div
@@ -125,8 +132,8 @@ const Nav = () => {
                 }}
                 className="responsive"
               >
-                <h5>Log in</h5>
-              </div>{' '}
+                {user.name ? <h5>{user.name}</h5> : <h5>Log in</h5>}
+              </div>
             </>
           ) : (
             <div
@@ -143,6 +150,7 @@ const Nav = () => {
             </div>
           )}
         </LoginRegister>
+        <UserMenuDropdown />
       </NavContainer>
       <MenuDropdown />
     </>

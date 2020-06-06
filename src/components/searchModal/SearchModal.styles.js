@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export const Results = styled(Link)`
   padding: 0 20px;
   text-decoration: none;
-
   font-family: var(--Merriweather);
   font-size: var(--normal);
   font-weight: 400;

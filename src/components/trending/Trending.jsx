@@ -24,7 +24,19 @@ const Trending = () => {
           trending.map((gif) => {
             return (
               <CardContainer key={gif.id}>
-                <Card to={`/${gif.slug}`} onClick={() => getGif(gif)}>
+                <Card
+                  to={
+                    // because I made the router check for only words for certain slugs
+                    // if gifs' slug has only word, router doesn't show the gif component
+                    // so if gif has a one word slug, I am changing link with title
+                    gif.slug.split('-').length === 1
+                      ? `/${gif.title.toLowerCase().split(' ').join('-')}-${
+                          gif.slug
+                        }`
+                      : `/${gif.slug}`
+                  }
+                  onClick={() => getGif(gif)}
+                >
                   <CardUser>
                     <img src={gif.user && gif.user.avatar_url} alt={gif.user} />
                   </CardUser>

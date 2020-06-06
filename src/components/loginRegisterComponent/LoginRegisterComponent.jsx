@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { GifContext } from '../../context/GifContext';
 import { UserContext } from '../../context/UserContext';
 
-import Profile from '../profile/Profile';
+import ProfileComponents from '../profileComponents/ProfileComponents';
 import Login from '../login/Login';
 import Register from '../register/Register';
 
@@ -17,7 +17,7 @@ const LoginRegisterComponent = () => {
   return (
     <>
       {user.name ? (
-        <Profile />
+        <ProfileComponents />
       ) : (
         <>
           <Video

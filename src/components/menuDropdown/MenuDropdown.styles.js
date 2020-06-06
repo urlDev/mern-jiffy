@@ -6,7 +6,7 @@ export const MenuDropdownContainer = styled.div`
   padding: 30px 50px;
   background: linear-gradient(135deg, var(--blue-violet) 0%, var(--pink) 100%);
   position: absolute;
-  z-index: 3;
+  z-index: 8;
   display: flex;
   justify-content: space-between;
   opacity: 0;

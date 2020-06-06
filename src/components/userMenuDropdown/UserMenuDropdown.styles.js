@@ -6,10 +6,12 @@ export const UserDropdownContainer = styled.div`
   position: absolute;
   right: 0;
   top: 50px;
-  z-index: 8;
+  // z-index: 20;
   height: 100px;
   width: 190px;
   padding: 0;
+  opacity: 0;
+  animation: fade 0.3s ease-in forwards;
 `;
 
 export const UserDropdownBlack = styled.div`
@@ -34,10 +36,16 @@ export const LinkContainer = styled(Link)`
   text-decoration: none;
 
   ${UserDropdownContainer} > &:nth-child(odd) {
-    background: #414141;
+    background: var(--dark-gray);
+    &:hover {
+      background: var(--blue-violet);
+    }
   }
 
   ${UserDropdownContainer} > &:nth-child(even) {
-    background: #515151;
+    background: var(--light-gray);
+    &:hover {
+      background: var(--blue-violet);
+    }
   }
 `;

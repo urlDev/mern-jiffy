@@ -243,7 +243,7 @@ export const CardFavorite = styled.div`
   top: 0;
   right: 0;
   padding: 10px 10px 0 0;
-  z-index: 5;
+  z-index: 2;
   i {
     color: var(--indian-red);
     font-size: var(--mid);

@@ -1,20 +1,24 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
+import { useHistory } from 'react-router-dom';
+
 export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
+  let history = useHistory();
   const url = 'https://urldev-mern-jiffy-api.herokuapp.com';
   const [user, setUser] = useState({});
   const [token, setToken] = useState({});
   const [favorite, setFavorite] = useState([]);
   const [userDropdown, setUserDropdown] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
-    getFavorites();
     if (user) {
       setUser(user);
+      getFavorites();
     }
   }, []);
 
@@ -45,7 +49,7 @@ const UserContextProvider = (props) => {
     };
 
     try {
-      const response = await axios.post(`${url}/`, favoriteGif, config);
+      await axios.post(`${url}/`, favoriteGif, config);
       setFavorite([...favorite, gif]);
       getFavorites();
     } catch (error) {
@@ -79,6 +83,39 @@ const UserContextProvider = (props) => {
     }
   };
 
+  const logOut = async () => {
+    const token = JSON.parse(localStorage.getItem('userToken'));
+
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    try {
+      await axios.post(`${url}/profile/logout`, null, config);
+      setUser({});
+      localStorage.clear();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteAccount = async () => {
+    const token = JSON.parse(localStorage.getItem('userToken'));
+
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    try {
+      await axios.delete(`${url}/profile`, config);
+      setUser({});
+      setFavorite([]);
+      localStorage.clear();
+      history.push('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const openAndCloseUserDropdown = () => {
     setUserDropdown(!userDropdown);
   };
@@ -89,6 +126,10 @@ const UserContextProvider = (props) => {
 
   const closeUserDropdown = () => {
     setUserDropdown(false);
+  };
+
+  const openAndCloseDeleteModal = () => {
+    setDeleteModal(!deleteModal);
   };
 
   return (
@@ -104,10 +145,15 @@ const UserContextProvider = (props) => {
         addFavorite,
         deleteFavorite,
         addDeleteFavorite,
+        history,
+        logOut,
+        deleteAccount,
         userDropdown,
         openAndCloseUserDropdown,
         openUserDropdown,
         closeUserDropdown,
+        deleteModal,
+        openAndCloseDeleteModal,
       }}
     >
       {props.children}

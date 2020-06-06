@@ -80,7 +80,7 @@ const GifContextProvider = (props) => {
     setSiliconValley(data.slice(random, random + 5));
   };
 
-  const getGif = async (gif) => {
+  const getGif = (gif) => {
     setGif(gif);
   };
 

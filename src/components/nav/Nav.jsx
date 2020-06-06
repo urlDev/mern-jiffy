@@ -104,8 +104,8 @@ const Nav = () => {
           <span>&#8942;</span>
         </ResponsiveMenu>
         <LoginRegister
-          to="/profile/favorites"
-          onMouseEnter={openUserDropdown}
+          to={user.name ? '/profile/details' : '/profile'}
+          onMouseEnter={user.name && openUserDropdown}
           onMouseLeave={closeUserDropdown}
         >
           {width > 500 ? (

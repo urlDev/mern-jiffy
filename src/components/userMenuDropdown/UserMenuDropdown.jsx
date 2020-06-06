@@ -9,18 +9,34 @@ import {
 } from './UserMenuDropdown.styles';
 
 const UserMenuDropdown = () => {
-  const { userDropdown, openUserDropdown, closeUserDropdown } = useContext(
-    UserContext
-  );
+  const {
+    userDropdown,
+    openUserDropdown,
+    closeUserDropdown,
+    logOut,
+  } = useContext(UserContext);
   return (
     <div onMouseEnter={openUserDropdown} onMouseLeave={closeUserDropdown}>
       {userDropdown && (
         <>
           <UserDropdownBlack />
           <UserDropdownContainer>
-            <LinkContainer to="/profile/favorites">Favorites</LinkContainer>
-            <LinkContainer to="/profile/details">Profile</LinkContainer>
-            <LinkContainer to="/profile">Log out</LinkContainer>
+            <LinkContainer to="/profile/details" onClick={closeUserDropdown}>
+              Profile
+            </LinkContainer>
+            <LinkContainer to="/profile/favorites" onClick={closeUserDropdown}>
+              Favorites
+            </LinkContainer>
+
+            <LinkContainer
+              to="/"
+              onClick={() => {
+                logOut();
+                closeUserDropdown();
+              }}
+            >
+              Log out
+            </LinkContainer>
           </UserDropdownContainer>
         </>
       )}

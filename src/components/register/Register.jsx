@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { UserContext } from '../../context/UserContext';
@@ -10,9 +10,7 @@ import { Form, DirectLink } from '../form/Form.styles';
 const Register = () => {
   const [input, setInput] = useState({});
   const { changeInLogin } = useContext(GifContext);
-  const { url, setUser, token, setToken } = useContext(UserContext);
-
-  let history = useHistory();
+  const { url, setUser, setToken, history } = useContext(UserContext);
 
   const handleChange = (e) =>
     setInput({
@@ -25,12 +23,11 @@ const Register = () => {
     try {
       const response = await axios.post(`${url}/profile/register`, input);
       const { data } = await response;
-      console.log(data);
       localStorage.setItem('user', JSON.stringify(data.user));
       localStorage.setItem('userToken', JSON.stringify(data.token));
       setUser(data.user);
       setToken(data.token);
-      history.push('/profile');
+      history.push('/');
       // e.target.reset();
     } catch (error) {
       console.log(error.message);

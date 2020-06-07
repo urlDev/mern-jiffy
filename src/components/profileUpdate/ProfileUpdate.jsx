@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
+import toaster from 'toasted-notes';
 
 import { UserContext } from '../../context/UserContext';
 
+import NotificationComponent from '../notificationComponent/NotificationComponent';
+
 import { Form } from '../form/Form.styles';
 import { UpdateContainer } from './ProfileUpdate.styles';
+import 'toasted-notes/src/styles.css';
 
 const ProfileUpdate = () => {
   const [input, setInput] = useState({});
@@ -17,6 +21,7 @@ const ProfileUpdate = () => {
     });
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const token = JSON.parse(localStorage.getItem('userToken'));
 
     const config = {
@@ -28,9 +33,40 @@ const ProfileUpdate = () => {
       const { data } = await response;
       localStorage.setItem('user', JSON.stringify(data));
       setUser(data);
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={'Your account is updated successfully! :)'}
+            color={'var(--light-green)'}
+          />
+        ),
+        { duration: 3000 }
+      );
     } catch (error) {
       console.log(error);
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={'Oops! Something went wrong!'}
+            color={'var(--indian-red)'}
+          />
+        ),
+        { duration: 3000 }
+      );
     }
+  };
+
+  const openToast = () => {
+    !input.password &&
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={'Please enter your password'}
+            color={'var(--indian-red)'}
+          />
+        ),
+        { duration: 3000 }
+      );
   };
 
   return (
@@ -63,7 +99,7 @@ const ProfileUpdate = () => {
             required
           />
         </div>
-        <button>Save</button>
+        <button onClick={openToast}>Save</button>
       </Form>
     </UpdateContainer>
   );

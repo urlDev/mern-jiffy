@@ -1,7 +1,12 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import toaster from 'toasted-notes';
 
 import { useHistory } from 'react-router-dom';
+
+import NotificationComponent from '../components/notificationComponent/NotificationComponent';
+
+import 'toasted-notes/src/styles.css';
 
 export const UserContext = createContext();
 
@@ -111,8 +116,26 @@ const UserContextProvider = (props) => {
       setFavorite([]);
       localStorage.clear();
       history.push('/');
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={'Sad to see you go! Account is deleted :('}
+            color={'var(--light-green)'}
+          />
+        ),
+        { duration: 3000 }
+      );
     } catch (error) {
       console.log(error);
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={'Oops! Something went wrong!'}
+            color={'var(--indian-red)'}
+          />
+        ),
+        { duration: 3000 }
+      );
     }
   };
 

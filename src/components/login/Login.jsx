@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import toaster from 'toasted-notes';
 
 import { GifContext } from '../../context/GifContext';
 import { UserContext } from '../../context/UserContext';
+
+import NotificationComponent from '../notificationComponent/NotificationComponent';
 
 import { Form, DirectLink } from '../form/Form.styles';
 
@@ -27,9 +30,27 @@ const Login = () => {
       localStorage.setItem('userToken', JSON.stringify(data.token));
       setUser(data.user);
       setToken(data.token);
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={`Welcome! Enjoy your time`}
+            color={'var(--light-green)'}
+          />
+        ),
+        { duration: 3000 }
+      );
       history.push('/');
     } catch (error) {
       console.log(error);
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={'Oops! Something went wrong!'}
+            color={'var(--indian-red)'}
+          />
+        ),
+        { duration: 3000 }
+      );
     }
   };
 

@@ -29,7 +29,13 @@ const ProfileDetails = () => {
 
         <PrivacyContainer>
           <p>Account privacy</p>
-          <button onClick={openAndCloseDeleteModal}>Delete Account</button>
+          <button
+            onClick={() => {
+              openAndCloseDeleteModal();
+            }}
+          >
+            Delete Account
+          </button>
         </PrivacyContainer>
         <DeleteAccountModal />
       </AccountSettingsContainer>

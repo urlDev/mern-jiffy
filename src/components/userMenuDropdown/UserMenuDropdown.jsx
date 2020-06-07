@@ -21,7 +21,12 @@ const UserMenuDropdown = () => {
         <>
           <UserDropdownBlack />
           <UserDropdownContainer>
-            <LinkContainer to="/profile/details" onClick={closeUserDropdown}>
+            <LinkContainer
+              to="/profile/details"
+              onClick={() => {
+                closeUserDropdown();
+              }}
+            >
               Profile
             </LinkContainer>
             <LinkContainer to="/profile/favorites" onClick={closeUserDropdown}>

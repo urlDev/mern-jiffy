@@ -12,10 +12,15 @@ const DeleteAccountModal = () => {
     logOut,
     deleteAccount,
   } = useContext(UserContext);
+
   return (
     <>
       {deleteModal && (
-        <ModalContainer onClick={openAndCloseDeleteModal}>
+        <ModalContainer
+          onClick={() => {
+            openAndCloseDeleteModal();
+          }}
+        >
           <DeleteModal>
             <h3>Are you sure you want to delete your account? </h3>
             <p>
@@ -35,7 +40,13 @@ const DeleteAccountModal = () => {
               instead?
             </p>
             <div>
-              <button onClick={openAndCloseDeleteModal}>Cancel</button>
+              <button
+                onClick={() => {
+                  openAndCloseDeleteModal();
+                }}
+              >
+                Cancel
+              </button>
               <button
                 onClick={() => {
                   deleteAccount();

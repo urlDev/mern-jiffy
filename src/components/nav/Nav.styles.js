@@ -175,6 +175,11 @@ export const LoginRegister = styled(Link)`
     color: var(--white);
     margin: 0;
   }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   h5 {
     padding: 0;
     margin: 0;

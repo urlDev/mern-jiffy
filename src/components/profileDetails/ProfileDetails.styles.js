@@ -5,7 +5,7 @@ export const ProfileDetailsContainer = styled.div`
   margin: var(--sub-header) 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
+  grid-gap: 20px;
   p,
   label {
     font-family: var(--Merriweather);
@@ -15,12 +15,6 @@ export const ProfileDetailsContainer = styled.div`
 
 export const AccountSettingsContainer = styled.div`
   grid-column: span 3;
-`;
-
-export const AvatarContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
 `;
 
 export const PrivacyContainer = styled.div`

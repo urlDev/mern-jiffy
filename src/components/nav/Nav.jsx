@@ -25,7 +25,9 @@ const Nav = () => {
     openAndCloseMenu,
     clearInput,
   } = useContext(GifContext);
-  const { user, openUserDropdown, closeUserDropdown } = useContext(UserContext);
+  const { user, url, openUserDropdown, closeUserDropdown } = useContext(
+    UserContext
+  );
   return (
     <>
       <NavContainer
@@ -120,7 +122,11 @@ const Nav = () => {
                 }}
                 className="right"
               >
-                <i className="fas fa-user"></i>
+                {user.name ? (
+                  <img src={`${url}/profile/${user._id}/avatar`} alt="avatar" />
+                ) : (
+                  <i className="fas fa-user"></i>
+                )}
               </div>
               <div
                 style={{

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import moment from 'moment';
 
 import { GifContext } from '../../context/GifContext';
 import { UserContext } from '../../context/UserContext';
@@ -10,6 +11,7 @@ import {
   CardUser,
   CardFavorite,
   CardContainer,
+  CardTime,
 } from '../card/Card.styles';
 import { Title } from '../title/Title.styles';
 
@@ -33,6 +35,7 @@ const ProfileFavorites = () => {
                 </CardUser>
                 <img src={images.downsized.url} alt={title} />
                 <CardTitle>{title}</CardTitle>
+                <CardTime>{moment(gif.added, 'HH:mm:ss').fromNow()}</CardTime>
               </Card>
               <CardFavorite>
                 <i

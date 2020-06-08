@@ -244,6 +244,7 @@ export const CardFavorite = styled.div`
   right: 0;
   padding: 10px 10px 0 0;
   z-index: 2;
+  cursor: pointer;
   i {
     color: var(--indian-red);
     font-size: var(--mid);

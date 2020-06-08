@@ -1,6 +1,7 @@
-import React, { createContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import toaster from 'toasted-notes';
+import moment from 'moment';
 
 import { useHistory } from 'react-router-dom';
 
@@ -44,8 +45,10 @@ const UserContextProvider = (props) => {
   };
 
   const addFavorite = async (gif) => {
+    const now = moment().format();
     const favoriteGif = {
       gif: gif,
+      added: now,
     };
     const token = JSON.parse(localStorage.getItem('userToken'));
 

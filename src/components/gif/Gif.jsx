@@ -47,6 +47,7 @@ const Add = (
 const Gif = () => {
   const { gif, fetchGifs, width } = useContext(GifContext);
   const { favorite, addDeleteFavorite } = useContext(UserContext);
+
   return (
     <>
       <GifContainer>

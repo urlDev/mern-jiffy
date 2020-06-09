@@ -52,14 +52,9 @@ code {
     animation: goRight 0.2s linear forwards;
 }
 
-.position {
-    position: fixed !important;
-    margin-top: 66px !important;
-    margin-left: 90px !important;
-}
-
 .modal {
-    max-width: calc(0.83 * 1060px) !important;
+    margin-left: 90px !important;
+    margin-top: 64px !important;
     width: calc(0.83 * 1060px) !important;
 }
 

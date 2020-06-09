@@ -40,7 +40,7 @@ const ProfileUpdate = () => {
             color={'var(--light-green)'}
           />
         ),
-        { duration: 3000 }
+        { duration: 1500 }
       );
     } catch (error) {
       console.log(error);
@@ -51,7 +51,7 @@ const ProfileUpdate = () => {
             color={'var(--indian-red)'}
           />
         ),
-        { duration: 3000 }
+        { duration: 1500 }
       );
     }
   };
@@ -65,7 +65,7 @@ const ProfileUpdate = () => {
             color={'var(--indian-red)'}
           />
         ),
-        { duration: 3000 }
+        { duration: 1500 }
       );
   };
 

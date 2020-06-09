@@ -193,5 +193,10 @@ export const LoginRegister = styled(Link)`
   @media (max-width: 500px) {
     max-width: 80px;
     width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 `;

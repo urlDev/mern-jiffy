@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import LazyLoad from 'react-lazyload';
 
 import { GifContext } from '../../context/GifContext';
 
@@ -29,16 +28,13 @@ const SearchResult = () => {
               to={`/${result.slug}`}
               onClick={() => getGif(result)}
             >
-              <LazyLoadImage
-                src={result.images.fixed_width.url}
-                height={'200px'}
-                width={'100%'}
-                threshold={5}
-                placeholder={<Placeholder />}
-                effect="blur"
-                alt=""
-                style={{ opacity: '1' }}
-              />
+              <LazyLoad height={200} offset={200} placeholder={<Placeholder />}>
+                <img
+                  src={result.images.original.webp}
+                  style={{ opacity: '0.8' }}
+                  alt={result.title}
+                />
+              </LazyLoad>
             </SubCategoryContainer>
           ))}
       </CategoryContainer>

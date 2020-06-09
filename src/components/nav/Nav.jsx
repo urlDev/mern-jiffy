@@ -12,8 +12,6 @@ import {
   LoginRegister,
   ResponsiveMenu,
 } from './Nav.styles';
-import MenuDropdown from '../menuDropdown/MenuDropdown';
-import UserMenuDropdown from '../userMenuDropdown/UserMenuDropdown';
 
 const Nav = () => {
   const {
@@ -152,13 +150,15 @@ const Nav = () => {
               }}
               className="right"
             >
-              <i className="fas fa-user"></i>
+              {user.name ? (
+                <img src={`${url}/profile/${user._id}/avatar`} alt="avatar" />
+              ) : (
+                <i className="fas fa-user"></i>
+              )}
             </div>
           )}
         </LoginRegister>
-        <UserMenuDropdown />
       </NavContainer>
-      <MenuDropdown />
     </>
   );
 };

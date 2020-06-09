@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
+import LazyLoad from 'react-lazyload';
 
 import { GifContext } from '../../context/GifContext';
+
+import Placeholder from '../placeholder/Placeholder';
 
 import { TrendingContainer } from '../trending/Trending.styles';
 import { Card, CardTitle, CardUser, CardContainer } from '../card/Card.styles';
@@ -20,7 +23,13 @@ const Emoji = () => {
                   <CardUser>
                     <img src={gif.user && gif.user.avatar_url} alt={gif.user} />
                   </CardUser>
-                  <img src={gif.images.downsized.url} alt={gif.title} />
+                  <LazyLoad
+                    height={300}
+                    offset={100}
+                    placeholder={<Placeholder />}
+                  >
+                    <img src={gif.images.original.webp} alt={gif.title} />
+                  </LazyLoad>
                   <CardTitle>{gif.title}</CardTitle>
                 </Card>
               </CardContainer>

@@ -34,4 +34,14 @@ export const AvatarContainer = styled.div`
       background: var(--blue-violet);
     }
   }
+
+  @media (max-width: 800px) {
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+    form {
+      width: 100%;
+    }
+  }
 `;

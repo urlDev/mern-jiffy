@@ -24,7 +24,6 @@ const UserContextProvider = (props) => {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
       setUser(user);
-      getFavorites();
     }
   }, []);
 
@@ -45,10 +44,9 @@ const UserContextProvider = (props) => {
   };
 
   const addFavorite = async (gif) => {
-    const now = moment().format();
     const favoriteGif = {
       gif: gif,
-      added: now,
+      added: moment().format(),
     };
     const token = JSON.parse(localStorage.getItem('userToken'));
 
@@ -81,7 +79,9 @@ const UserContextProvider = (props) => {
   };
 
   const addDeleteFavorite = async (gif) => {
-    if (!favorite.some((addedGif) => addedGif.gif[0].id === gif.id)) {
+    if (
+      !favorite.some((addedGif) => addedGif && addedGif.gif[0].id === gif.id)
+    ) {
       await addFavorite(gif);
     } else {
       favorite.filter(
@@ -126,7 +126,7 @@ const UserContextProvider = (props) => {
             color={'var(--light-green)'}
           />
         ),
-        { duration: 3000 }
+        { duration: 1500 }
       );
     } catch (error) {
       console.log(error);
@@ -137,7 +137,7 @@ const UserContextProvider = (props) => {
             color={'var(--indian-red)'}
           />
         ),
-        { duration: 3000 }
+        { duration: 1500 }
       );
     }
   };
@@ -167,6 +167,7 @@ const UserContextProvider = (props) => {
         token,
         setToken,
         favorite,
+        getFavorites,
         setFavorite,
         addFavorite,
         deleteFavorite,

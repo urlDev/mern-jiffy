@@ -38,7 +38,7 @@ const Register = () => {
             color={'var(--light-green)'}
           />
         ),
-        { duration: 3000 }
+        { duration: 1500 }
       );
       history.push('/');
     } catch (error) {
@@ -50,7 +50,7 @@ const Register = () => {
             color={'var(--indian-red)'}
           />
         ),
-        { duration: 3000 }
+        { duration: 1500 }
       );
     }
   };

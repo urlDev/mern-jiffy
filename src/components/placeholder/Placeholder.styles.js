@@ -1,10 +1,23 @@
 import styled from 'styled-components';
 
+import { SubCategoryContainer } from '../category/Category.styles';
+
 export const PlaceholderContainer = styled.div`
-  background-color: var(--blue-violet);
   height: 200px;
   width: 100%;
-  & > &:nth-child(2) {
-    background: var(--sky-blue);
+  ${SubCategoryContainer}:nth-child(5n + 1) > {
+    background: var(--pink);
+  }
+  ${SubCategoryContainer}:nth-child(5n + 2) > & {
+    background-color: var(--iris);
+  }
+  ${SubCategoryContainer}:nth-child(5n + 3) > & {
+    background-color: var(--indian-red);
+  }
+  ${SubCategoryContainer}:nth-child(5n + 4) > & {
+    background-color: var(--light-green);
+  }
+  ${SubCategoryContainer}:nth-child(5n + 5) > & {
+    background-color: var(--sky-blue);
   }
 `;

@@ -11,10 +11,16 @@ export const ProfileDetailsContainer = styled.div`
     font-family: var(--Merriweather);
     font-size: var(--text);
   }
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const AccountSettingsContainer = styled.div`
   grid-column: span 3;
+  @media (max-width: 800px) {
+    grid-column: 1/1;
+  }
 `;
 
 export const PrivacyContainer = styled.div`
@@ -36,10 +42,16 @@ export const PrivacyContainer = styled.div`
     font-weight: 600;
     cursor: pointer;
   }
+  @media (max-width: 800px) {
+    padding: 20px;
+  }
 `;
 
 export const AccountContainer = styled.div`
   background: var(--dark-gray);
   padding: 1px var(--whaat);
   padding-bottom: var(--big);
+  @media (max-width: 800px) {
+    padding: 20px;
+  }
 `;

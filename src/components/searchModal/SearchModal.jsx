@@ -14,6 +14,7 @@ const SearchModal = () => {
     searchCategory,
     setInput,
     scroll,
+    scrollY,
   } = useContext(GifContext);
 
   return (
@@ -25,22 +26,22 @@ const SearchModal = () => {
         >
           <SearchModalContainer
             className={scroll > 0 && width >= 1080 ? 'modal' : ''}
+            style={{ marginTop: `calc(124px - ${scrollY}px)` }}
           >
-            {search &&
-              Object.values(search).map((term) => (
-                <React.Fragment key={uuidv4()}>
-                  <Results
-                    to={`/search/${term.name.split(' ').join('-')}`}
-                    onClick={() => {
-                      searchCategory(`${term.name}`);
-                      setInput(`${term.name}`);
-                    }}
-                  >
-                    {term.name}
-                  </Results>
-                  <hr />
-                </React.Fragment>
-              ))}
+            {Object.values(search).map((term) => (
+              <React.Fragment key={uuidv4()}>
+                <Results
+                  to={`/search/${term.name.split(' ').join('-')}`}
+                  onClick={() => {
+                    searchCategory(`${term.name}`);
+                    setInput(`${term.name}`);
+                  }}
+                >
+                  {term.name}
+                </Results>
+                <hr />
+              </React.Fragment>
+            ))}
           </SearchModalContainer>
         </Modal>
       ) : null}

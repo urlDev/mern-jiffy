@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
+
+import { GifContext } from '../../context/GifContext';
 
 import Nav from '../nav/Nav';
 import SearchBar from '../searchBar/SearchBar';
@@ -10,15 +12,20 @@ import SearchResult from '../searchResult/SearchResult';
 import SearchModal from '../searchModal/SearchModal';
 import FixedSearchBar from '../fixedSearchBar/FixedSearchBar';
 import FixedNavWithSearch from '../fixedNavWithSearch/FixedNavWithSearch';
+import UserMenuDropdown from '../userMenuDropdown/UserMenuDropdown';
+import MenuDropdown from '../menuDropdown/MenuDropdown';
 
 const Home = () => {
+  const { width } = useContext(GifContext);
   return (
-    <>
-      <Nav />
-      <SearchBar />
+    <div style={{ position: 'relative' }}>
+      {width < 1080 ? <FixedNavWithSearch /> : <Nav />}
+      {width > 1080 && <SearchBar />}
       <SearchModal />
       <FixedSearchBar />
-      <FixedNavWithSearch />
+      <UserMenuDropdown />
+      <MenuDropdown />
+      {width < 1080 && <div style={{ height: '127px' }}></div>}
       <Switch>
         {/* 
       In here, I am using regex to match only words.
@@ -29,7 +36,7 @@ const Home = () => {
         <Route path="/:slug" render={() => <Gif />} />
         <Route exact path="/" component={HomeComponents} />
       </Switch>
-    </>
+    </div>
   );
 };
 

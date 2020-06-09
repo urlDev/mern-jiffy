@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import { GifContext } from '../../context/GifContext';
+import { UserContext } from '../../context/UserContext';
 
 import SearchBar from '../searchBar/SearchBar';
 
@@ -13,21 +14,35 @@ import {
 } from '../nav/Nav.styles';
 
 const FixedNavWithSearch = () => {
-  const { width, clearInput, openAndCloseMenu } = useContext(GifContext);
-
+  const { width, clearInput, openAndCloseMenu, closeMenu } = useContext(
+    GifContext
+  );
+  const { user, url, openAndCloseUserDropdown, closeUserDropdown } = useContext(
+    UserContext
+  );
   return (
     <>
       {width <= 1080 ? (
         <FixedContainer>
           <NavContainer>
-            <StyledLink to="/" onClick={clearInput}>
+            <StyledLink
+              to="/"
+              onClick={() => {
+                closeMenu();
+                closeUserDropdown();
+                clearInput();
+              }}
+            >
               <img src={require('../../assets/neonHeartFull.svg')} alt="" />
               JIFFY
             </StyledLink>
             <ResponsiveMenu onClick={openAndCloseMenu}>
               <span>&#8942;</span>
             </ResponsiveMenu>
-            <LoginRegister to="/profile">
+            <LoginRegister
+              to={user.name ? '/profile/details' : '/profile'}
+              onClick={user.name && openAndCloseUserDropdown}
+            >
               {width > 500 ? (
                 <>
                   <div
@@ -40,7 +55,14 @@ const FixedNavWithSearch = () => {
                     }}
                     className="right"
                   >
-                    <i className="fas fa-user"></i>
+                    {user.name ? (
+                      <img
+                        src={`${url}/profile/${user._id}/avatar`}
+                        alt="avatar"
+                      />
+                    ) : (
+                      <i className="fas fa-user"></i>
+                    )}
                   </div>
                   <div
                     style={{
@@ -52,8 +74,8 @@ const FixedNavWithSearch = () => {
                     }}
                     className="responsive"
                   >
-                    <h5>Log in</h5>
-                  </div>{' '}
+                    {user.name ? <h5>{user.name}</h5> : <h5>Log in</h5>}
+                  </div>
                 </>
               ) : (
                 <div
@@ -66,7 +88,14 @@ const FixedNavWithSearch = () => {
                   }}
                   className="right"
                 >
-                  <i className="fas fa-user"></i>
+                  {user.name ? (
+                    <img
+                      src={`${url}/profile/${user._id}/avatar`}
+                      alt="avatar"
+                    />
+                  ) : (
+                    <i className="fas fa-user"></i>
+                  )}
                 </div>
               )}
             </LoginRegister>

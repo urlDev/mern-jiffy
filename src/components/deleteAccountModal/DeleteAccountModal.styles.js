@@ -52,6 +52,7 @@ export const DeleteModal = styled.div`
     font-weight: 600;
     cursor: pointer;
     width: 40%;
+    margin: 0;
     outline: none;
     &:focus {
       outline: none;
@@ -59,5 +60,16 @@ export const DeleteModal = styled.div`
   }
   button ~ button {
     background: var(--indian-red);
+  }
+
+  @media (max-width: 500px) {
+    div {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
   }
 `;

@@ -16,6 +16,7 @@ const GifContextProvider = (props) => {
   const [searchCategoryResult, setSearchCategoryResult] = useState({});
   const [width, setWidth] = useState(window.innerWidth);
   const [scroll, setScroll] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
   const [inLogin, setInLogin] = useState(false);
   const [menuDropdown, setMenuDropdown] = useState(false);
   const [modal, setModal] = useState(false);
@@ -53,6 +54,7 @@ const GifContextProvider = (props) => {
     if (window.scrollY > 62) {
       setScroll(window.scrollY);
     }
+    setScrollY(window.scrollY);
   };
 
   const updateWidth = () => {
@@ -146,6 +148,7 @@ const GifContextProvider = (props) => {
         gif,
         width,
         scroll,
+        scrollY,
         inLogin,
         category,
         getCategory,

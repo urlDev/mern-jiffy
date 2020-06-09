@@ -33,7 +33,7 @@ const ProfileImage = () => {
             color={'var(--light-green)'}
           />
         ),
-        { duration: 2000 }
+        { duration: 1500 }
       );
     } catch (error) {
       toaster.notify(
@@ -43,7 +43,7 @@ const ProfileImage = () => {
             color={'var(--indian-red)'}
           />
         ),
-        { duration: 2000 }
+        { duration: 1500 }
       );
       console.log(error.message);
     }

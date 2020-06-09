@@ -10,6 +10,7 @@ import { FixedContainer } from './FixedSearchBar.styles';
 const FixedSearchBar = () => {
   const {
     scroll,
+    width,
     clearInput,
     openModal,
     searchCategory,
@@ -31,7 +32,7 @@ const FixedSearchBar = () => {
   };
   return (
     <>
-      {scroll > 0 && (
+      {width > 1080 && scroll > 0 && (
         <>
           <FixedContainer>
             <StyledLink to="/" onClick={clearInput} className="come-down">

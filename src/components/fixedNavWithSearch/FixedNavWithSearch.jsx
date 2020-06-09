@@ -11,6 +11,7 @@ import {
   NavContainer,
   LoginRegister,
   ResponsiveMenu,
+  Logo,
 } from '../nav/Nav.styles';
 
 const FixedNavWithSearch = () => {
@@ -33,14 +34,14 @@ const FixedNavWithSearch = () => {
                 clearInput();
               }}
             >
-              <img src={require('../../assets/neonHeartFull.svg')} alt="" />
+              <Logo />
               JIFFY
             </StyledLink>
             <ResponsiveMenu onClick={openAndCloseMenu}>
               <span>&#8942;</span>
             </ResponsiveMenu>
             <LoginRegister
-              to={user.name ? '/profile/details' : '/profile'}
+              to={!user.name && '/profile'}
               onClick={user.name && openAndCloseUserDropdown}
             >
               {width > 500 ? (

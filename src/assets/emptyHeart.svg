@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="110" height="90" viewBox="0 0 110 90">
+  <g id="emptyHeart" transform="translate(-450 -320)">
+    <rect id="Rectangle_1" data-name="Rectangle 1" width="10" height="10" transform="translate(450 340)" fill="red"/>
+    <rect id="Rectangle_2" data-name="Rectangle 2" width="10" height="10" transform="translate(460 330)" fill="red"/>
+    <rect id="Rectangle_3" data-name="Rectangle 3" width="10" height="10" transform="translate(480 320)" fill="red"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="10" height="10" transform="translate(490 330)" fill="red"/>
+    <rect id="Rectangle_5" data-name="Rectangle 5" width="10" height="10" transform="translate(500 340)" fill="red"/>
+    <rect id="Rectangle_6" data-name="Rectangle 6" width="10" height="10" transform="translate(510 330)" fill="red"/>
+    <rect id="Rectangle_7" data-name="Rectangle 7" width="10" height="10" transform="translate(520 320)" fill="red"/>
+    <rect id="Rectangle_8" data-name="Rectangle 8" width="10" height="10" transform="translate(530 320)" fill="red"/>
+    <rect id="Rectangle_9" data-name="Rectangle 9" width="10" height="10" transform="translate(470 320)" fill="red"/>
+    <rect id="Rectangle_10" data-name="Rectangle 10" width="10" height="10" transform="translate(540 330)" fill="red"/>
+    <rect id="Rectangle_11" data-name="Rectangle 11" width="10" height="10" transform="translate(550 340)" fill="red"/>
+    <rect id="Rectangle_12" data-name="Rectangle 12" width="10" height="10" transform="translate(450 350)" fill="red"/>
+    <rect id="Rectangle_13" data-name="Rectangle 13" width="10" height="10" transform="translate(550 350)" fill="red"/>
+    <rect id="Rectangle_14" data-name="Rectangle 14" width="10" height="10" transform="translate(460 360)" fill="red"/>
+    <rect id="Rectangle_15" data-name="Rectangle 15" width="10" height="10" transform="translate(470 370)" fill="red"/>
+    <rect id="Rectangle_16" data-name="Rectangle 16" width="10" height="10" transform="translate(480 380)" fill="red"/>
+    <rect id="Rectangle_17" data-name="Rectangle 17" width="10" height="10" transform="translate(490 390)" fill="red"/>
+    <rect id="Rectangle_18" data-name="Rectangle 18" width="10" height="10" transform="translate(500 400)" fill="red"/>
+    <rect id="Rectangle_19" data-name="Rectangle 19" width="10" height="10" transform="translate(510 390)" fill="red"/>
+    <rect id="Rectangle_20" data-name="Rectangle 20" width="10" height="10" transform="translate(520 380)" fill="red"/>
+    <rect id="Rectangle_21" data-name="Rectangle 21" width="10" height="10" transform="translate(530 370)" fill="red"/>
+    <g id="Component_1_1" data-name="Component 1 – 1" transform="translate(540 360)">
+      <rect id="Rectangle_22" data-name="Rectangle 22" width="10" height="10" fill="red"/>
+    </g>
+  </g>
+</svg>

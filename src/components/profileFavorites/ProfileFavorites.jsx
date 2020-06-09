@@ -63,12 +63,7 @@ const ProfileFavorites = () => {
                 <CardTitle>{title}</CardTitle>
                 <CardTime>{moment(gif.added).fromNow()}</CardTime>
               </Card>
-              <CardFavorite>
-                <i
-                  onClick={() => deleteFavorite(gif)}
-                  className="fas fa-heart"
-                ></i>
-              </CardFavorite>
+              <CardFavorite onClick={() => deleteFavorite(gif)} />
             </CardContainer>
           );
         })}

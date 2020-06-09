@@ -58,6 +58,23 @@ code {
     width: calc(0.83 * 1060px) !important;
 }
 
+.added {
+    background: url('./assets/favoriteHearts.svg') left center;
+    background-size: cover;
+    display: inline-block;
+    width: var(--mid);
+    height: 100%;
+    animation: favorite 0.5s steps(6) forwards;
+}
+
+.add {
+    background: url('./assets/emptyHeart.svg') center no-repeat;
+    background-size: contain;
+    display: inline-block;
+    position: relative;
+    left: -1.5px;
+}
+
 @keyframes goRight {
     0% {
         width: 100%;
@@ -96,6 +113,12 @@ code {
 @keyframes play {
     100% {
         background-position: -791px;
+    }
+}
+
+@keyframes favorite {
+    100% {
+        background-position: -127.5px;
     }
 }
 

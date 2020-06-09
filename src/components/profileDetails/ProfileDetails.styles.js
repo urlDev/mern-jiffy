@@ -13,6 +13,7 @@ export const ProfileDetailsContainer = styled.div`
   }
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
+    grid-gap: 0;
   }
 `;
 
@@ -20,6 +21,7 @@ export const AccountSettingsContainer = styled.div`
   grid-column: span 3;
   @media (max-width: 800px) {
     grid-column: 1/1;
+    margin-top: var(--sub-header);
   }
 `;
 

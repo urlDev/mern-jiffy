@@ -25,7 +25,8 @@ const UserContextProvider = (props) => {
     if (user) {
       setUser(user);
     }
-  }, []);
+    getFavorites();
+  }, [favorite]);
 
   const getFavorites = async () => {
     const token = JSON.parse(localStorage.getItem('userToken'));

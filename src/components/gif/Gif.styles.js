@@ -125,12 +125,15 @@ export const Social = styled.div`
     margin: 0;
     font-family: var(--Merriweather);
     font-size: var(--normal);
+    cursor: pointer;
   }
 
-  i {
-    margin-right: 10px;
-    cursor: pointer;
+  span {
+    width: var(--mid);
+    height: var(--text);
+    margin-right: 5px;
     transition: transform 0.5s ease-in-out;
+
     &:hover {
       transform: scale(1.3);
     }

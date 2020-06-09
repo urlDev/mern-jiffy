@@ -239,18 +239,18 @@ export const CardUser = styled.div`
 `;
 
 export const CardFavorite = styled.div`
+  background: url(${require(`../../assets/favoriteHeartFull.svg`)}) center
+    no-repeat;
+  width: var(--big);
+  height: var(--mid);
+  background-size: contain;
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px 10px 0 0;
+  top: 10px;
+  right: 10px;
   z-index: 2;
   cursor: pointer;
-  i {
-    color: var(--indian-red);
-    font-size: var(--mid);
-    transition: transform 0.5s ease-in-out;
-    &:hover {
-      transform: scale(1.3);
-    }
+  transition: transform 0.5s ease-in;
+  &:hover {
+    transform: scale(1.2);
   }
 `;

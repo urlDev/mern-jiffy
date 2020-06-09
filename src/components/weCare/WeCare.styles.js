@@ -33,6 +33,8 @@ export const WeCareContainer = styled.a`
     margin-left: -40px;
   }
   @media (max-width: 500px) {
+    height: 100px;
+    margin-top: 0;
     h3 {
       font-size: var(--normal);
       padding-left: 10px;

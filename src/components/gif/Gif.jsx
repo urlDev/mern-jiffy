@@ -28,22 +28,6 @@ import {
   GifGrid,
 } from './Gif.styles';
 
-const Added = (
-  <i
-    className="fas fa-heart"
-    aria-hidden="true"
-    style={{ color: 'rgb(208, 86, 86)' }}
-  ></i>
-);
-
-const Add = (
-  <i
-    className="far fa-heart"
-    aria-hidden="true"
-    style={{ color: 'rgb(208, 86, 86)' }}
-  ></i>
-);
-
 const Gif = () => {
   const { gif, fetchGifs, width } = useContext(GifContext);
   const { favorite, addDeleteFavorite } = useContext(UserContext);
@@ -107,14 +91,17 @@ const Gif = () => {
           <InnerContainer>
             <img src={gif.images && gif.images.original.webp} alt={gif.title} />
             <Social>
-              <h5>
-                <span onClick={() => addDeleteFavorite(gif)}>
-                  {favorite.some(
-                    (addedGif) => addedGif.gif && addedGif.gif[0].id === gif.id
-                  )
-                    ? Added
-                    : Add}
-                </span>
+              <h5 onClick={() => addDeleteFavorite(gif)}>
+                <span
+                  className={
+                    favorite.some(
+                      (addedGif) =>
+                        addedGif.gif && addedGif.gif[0].id === gif.id
+                    )
+                      ? 'added'
+                      : 'add'
+                  }
+                ></span>
                 Favorite
               </h5>
               <p style={{ marginTop: '50px' }}>Share it!</p>

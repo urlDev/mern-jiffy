@@ -48,8 +48,12 @@ export const SearchModalContainer = styled.div`
     color: var(--smoke-black);
     opacity: 0.3;
   }
-  @media (max-width: 1080px) {
-    margin-top: 127px !important;
-    width: calc(100% - 7.5px);
+  @media (max-width: 500px) {
+    margin-top: 117px !important;
+    width: calc(100% - 10px);
+  }
+  @media (min-width: 500.1px) and (max-width: 1080px) {
+    margin-top: 124px !important;
+    width: calc(100% - 10px);
   }
 `;

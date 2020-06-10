@@ -1,41 +1,18 @@
 import React, { useContext } from 'react';
-import LazyLoad from 'react-lazyload';
 
 import { GifContext } from '../../context/GifContext';
 
-import Placeholder from '../placeholder/Placeholder';
-
-import { TrendingContainer } from '../trending/Trending.styles';
-import { Card, CardTitle, CardUser, CardContainer } from '../card/Card.styles';
-import { Title } from '../title/Title.styles';
+import DefaultHomeGifComponent from '../defaultHomeGifComponent/DefaultHomeGifComponent';
 
 const Emoji = () => {
-  const { emoji, getGif } = useContext(GifContext);
+  const { emoji } = useContext(GifContext);
   return (
     <>
-      <Title>Emojis</Title>
-      <TrendingContainer>
-        {emoji.length &&
-          emoji.map((gif) => {
-            return (
-              <CardContainer key={gif.id}>
-                <Card to={`/${gif.slug}`} onClick={() => getGif(gif)}>
-                  <CardUser>
-                    <img src={gif.user && gif.user.avatar_url} alt={gif.user} />
-                  </CardUser>
-                  <LazyLoad
-                    height={300}
-                    offset={100}
-                    placeholder={<Placeholder />}
-                  >
-                    <img src={gif.images.original.webp} alt={gif.title} />
-                  </LazyLoad>
-                  <CardTitle>{gif.title}</CardTitle>
-                </Card>
-              </CardContainer>
-            );
-          })}
-      </TrendingContainer>
+      <DefaultHomeGifComponent
+        title={`Emojis`}
+        gifType={emoji}
+        visible={false}
+      />
     </>
   );
 };

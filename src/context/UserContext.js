@@ -14,19 +14,20 @@ export const UserContext = createContext();
 const UserContextProvider = (props) => {
   let history = useHistory();
   const url = 'https://urldev-mern-jiffy-api.herokuapp.com';
-  const [user, setUser] = useState({});
+  // Added an initial user function here that will run only once
+  const initialUser = () => JSON.parse(localStorage.getItem('user')) || {};
+  // if there is initial user, it will get from localStorage, if not, user is empty object
+  const [user, setUser] = useState(initialUser);
   const [token, setToken] = useState({});
   const [favorite, setFavorite] = useState([]);
   const [userDropdown, setUserDropdown] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-      setUser(user);
+    if (user.name) {
+      getFavorites();
     }
-    getFavorites();
-  }, [favorite]);
+  }, [user]);
 
   const getFavorites = async () => {
     const token = JSON.parse(localStorage.getItem('userToken'));
@@ -45,6 +46,9 @@ const UserContextProvider = (props) => {
   };
 
   const addFavorite = async (gif) => {
+    // On server side, I set gifs as arrays
+    // And each favorite gif has added time so I can show when user
+    // liked a gif
     const favoriteGif = {
       gif: gif,
       added: moment().format(),
@@ -80,15 +84,19 @@ const UserContextProvider = (props) => {
   };
 
   const addDeleteFavorite = async (gif) => {
-    if (
-      !favorite.some((addedGif) => addedGif && addedGif.gif[0].id === gif.id)
-    ) {
-      await addFavorite(gif);
+    if (user.name) {
+      if (
+        !favorite.some((addedGif) => addedGif && addedGif.gif[0].id === gif.id)
+      ) {
+        await addFavorite(gif);
+      } else {
+        favorite.filter(
+          async (addedGif) =>
+            addedGif.gif[0].id === gif.id && (await deleteFavorite(addedGif))
+        );
+      }
     } else {
-      favorite.filter(
-        async (addedGif) =>
-          addedGif.gif[0].id === gif.id && (await deleteFavorite(addedGif))
-      );
+      history.push('/profile');
     }
   };
 
@@ -124,7 +132,7 @@ const UserContextProvider = (props) => {
         () => (
           <NotificationComponent
             text={'Sad to see you go! Account is deleted :('}
-            color={'var(--light-green)'}
+            success={true}
           />
         ),
         { duration: 1500 }
@@ -135,7 +143,7 @@ const UserContextProvider = (props) => {
         () => (
           <NotificationComponent
             text={'Oops! Something went wrong!'}
-            color={'var(--indian-red)'}
+            success={false}
           />
         ),
         { duration: 1500 }

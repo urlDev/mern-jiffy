@@ -125,7 +125,8 @@ const Gif = () => {
                   <TumblrIcon size={35} />
                 </TumblrShareButton>
                 <PinterestShareButton
-                  media={gif.url}
+                  url={gif.url}
+                  media={gif.images && gif.images.original.webp}
                   description="Check out this awesome gif!"
                 >
                   <PinterestIcon size={35} />

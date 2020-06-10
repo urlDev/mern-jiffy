@@ -13,9 +13,13 @@ import { Form, DirectLink } from '../form/Form.styles';
 const Login = () => {
   const [input, setInput] = useState({});
   const { changeInLogin } = useContext(GifContext);
-  const { url, setUser, setToken, history, getFavorites } = useContext(
-    UserContext
-  );
+  const {
+    url,
+
+    setUser,
+    setToken,
+    history,
+  } = useContext(UserContext);
 
   const handleChange = (e) =>
     setInput({
@@ -36,12 +40,11 @@ const Login = () => {
         () => (
           <NotificationComponent
             text={`Welcome! Enjoy your time`}
-            color={'var(--light-green)'}
+            success={true}
           />
         ),
         { duration: 1500 }
       );
-      getFavorites();
       history.push('/');
     } catch (error) {
       console.log(error);
@@ -49,7 +52,7 @@ const Login = () => {
         () => (
           <NotificationComponent
             text={'Oops! Something went wrong!'}
-            color={'var(--indian-red)'}
+            success={false}
           />
         ),
         { duration: 1500 }

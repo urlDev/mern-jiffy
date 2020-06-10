@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { GiphyFetch } from '@giphy/js-fetch-api';
 import axios from 'axios';
 require('dotenv').config();
@@ -23,20 +23,10 @@ const GifContextProvider = (props) => {
   const [search, setSearch] = useState({});
   const [input, setInput] = useState('');
 
-  const getNoResultSearchTerm = useCallback(() => {
-    if (
-      searchCategoryResult.data &&
-      !Object.entries(searchCategoryResult.data).length
-    ) {
-      searchCategory(`${search[1].name}`);
-    }
-  }, [search, searchCategoryResult]);
-
   useEffect(() => {
     getTrending();
     getEmoji();
     getSiliconValley();
-    getNoResultSearchTerm();
     window.addEventListener('resize', updateWidth);
     document.addEventListener('scroll', updateScroll);
     updateScroll();
@@ -45,8 +35,10 @@ const GifContextProvider = (props) => {
       window.removeEventListener('resize', updateWidth);
       document.removeEventListener('scroll', updateScroll);
     };
-  }, [searchCategoryResult, getNoResultSearchTerm]);
+  }, [searchCategoryResult]);
 
+  // Scroll variable is for showing an animation of logo and search bar
+  // Based on how much user is scrolled
   const updateScroll = () => {
     if (window.scrollY <= 62) {
       setScroll(0);
@@ -57,6 +49,8 @@ const GifContextProvider = (props) => {
     setScrollY(window.scrollY);
   };
 
+  // Width variable is for updating Grid components width(they want it as a prop)
+  // and also showing components based it
   const updateWidth = () => {
     setWidth(window.innerWidth);
   };
@@ -66,20 +60,32 @@ const GifContextProvider = (props) => {
   };
 
   const getTrending = async () => {
-    const { data } = await gifFetch.trending({ limit: 5 });
-    setTrending(data);
+    try {
+      const { data } = await gifFetch.trending({ limit: 5 });
+      setTrending(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getEmoji = async () => {
-    const { data } = await gifFetch.emoji();
-    const random = Math.floor(Math.random() * 3);
-    setEmoji(data.slice(random, random + 5));
+    try {
+      const { data } = await gifFetch.emoji();
+      const random = Math.floor(Math.random() * 3);
+      setEmoji(data.slice(random, random + 5));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getSiliconValley = async () => {
-    const { data } = await gifFetch.gifs('tv', 'silicon-valley');
-    const random = Math.floor(Math.random() * 3);
-    setSiliconValley(data.slice(random, random + 5));
+    try {
+      const { data } = await gifFetch.gifs('tv', 'silicon-valley');
+      const random = Math.floor(Math.random() * 3);
+      setSiliconValley(data.slice(random, random + 5));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getGif = (gif) => {
@@ -87,31 +93,67 @@ const GifContextProvider = (props) => {
   };
 
   const getCategory = async (topic) => {
-    const result = await gifFetch.subcategories(`${topic}`, { limit: 200 });
-    setCategory({
-      title: topic,
-      data: result.data,
-    });
+    try {
+      const result = await gifFetch.subcategories(`${topic}`, { limit: 200 });
+      setCategory({
+        title: topic,
+        data: result.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
+  // if there is no search result to what user is searching(e.g. long search terms)
+  // App will show them results of first word from their search term
   const searchCategory = async (topic) => {
     setSearchCategoryResult({});
-    const result = await gifFetch.search(`${topic}`, {
-      sort: 'recent',
-      limit: 100,
-    });
+    try {
+      const result = await gifFetch.search(`${topic}`, {
+        sort: 'recent',
+        limit: 100,
+      });
 
-    setSearchCategoryResult({
-      title: topic,
-      data: result.data,
-    });
+      let newResult = undefined;
+      if (!result.data.length) {
+        newResult = await gifFetch.search(
+          `${topic.split(' ').slice(0, 1).join(' ')}`,
+          {
+            sort: 'recent',
+            limit: 100,
+          }
+        );
+      }
+
+      setSearchCategoryResult(
+        !result.data.length
+          ? {
+              title: topic.split(' ').slice(0, 1).join(' '),
+              data: newResult.data,
+            }
+          : {
+              title: topic,
+              data: result.data,
+            }
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
+  // search term is Giphy's endpoint
+  // With that, I can only show similar search terms to what user is searching
+  // And fetch data based on those terms
+  // So I dont have to fetch 100s of gifs while search is being made
   const searchTerm = async (topic) => {
-    const result = await axios.get(
-      `https://api.giphy.com/v1/gifs/search/tags?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=${topic}&limit=25&offset=0&rating=G&lang=en`
-    );
-    setSearch(result.data.data);
+    try {
+      const result = await axios.get(
+        `https://api.giphy.com/v1/gifs/search/tags?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=${topic}&limit=25&offset=0&rating=G&lang=en`
+      );
+      setSearch(result.data.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const clearInput = () => {
@@ -119,9 +161,14 @@ const GifContextProvider = (props) => {
     setSearch({});
   };
 
+  // fetchGifs syntax should be like this in order for
+  // individual gif Grid component to work properly.
+  // Its Giphy's own component
   const fetchGifs = (offset: number) =>
     gifFetch.related(`${gif.id}`, { offset, limit: 10 });
 
+  // I made seperate functions like this to open and close modals
+  // because those components perform differently on screen sizes
   const openMenu = () => {
     setMenuDropdown(true);
   };
@@ -155,7 +202,6 @@ const GifContextProvider = (props) => {
         searchCategory,
         searchCategoryResult,
         searchTerm,
-        getNoResultSearchTerm,
         search,
         input,
         setInput,

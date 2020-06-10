@@ -2,10 +2,16 @@ import React from 'react';
 
 import { NotificationContainer } from './NotificationComponent.styles';
 
-const NotificationComponent = ({ text, color }) => {
+const NotificationComponent = ({ text, success }) => {
   return (
     <>
-      <NotificationContainer style={{ backgroundColor: `${color}` }}>
+      <NotificationContainer
+        style={
+          success
+            ? { backgroundColor: 'var(--light-green)' }
+            : { backgroundColor: 'var(--indian-red)' }
+        }
+      >
         <p>{text}</p>
       </NotificationContainer>
     </>

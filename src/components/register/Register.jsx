@@ -35,7 +35,7 @@ const Register = () => {
         () => (
           <NotificationComponent
             text={`Welcome! Enjoy your time`}
-            color={'var(--light-green)'}
+            success={true}
           />
         ),
         { duration: 1500 }
@@ -47,7 +47,7 @@ const Register = () => {
         () => (
           <NotificationComponent
             text={'Oops! Something went wrong!'}
-            color={'var(--indian-red)'}
+            success={false}
           />
         ),
         { duration: 1500 }

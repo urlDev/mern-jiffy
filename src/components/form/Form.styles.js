@@ -13,7 +13,7 @@ export const Form = styled.form`
     font-family: var(--Merriweather);
     &:active,
     &:focus {
-      outline: none;
+      outline: 2px solid var(--blue-violet);
     }
   }
 
@@ -25,6 +25,17 @@ export const Form = styled.form`
     font-family: var(--Merriweather);
     font-size: var(--text);
     font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in;
+    &:hover {
+      background-color: var(--blue-violet);
+    }
+    &:active,
+    &:focus {
+      text-decoration: none;
+      background-color: var(--blue-violet);
+      outline: none;
+    }
   }
 `;
 

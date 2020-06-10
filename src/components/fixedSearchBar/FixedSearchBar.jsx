@@ -18,7 +18,6 @@ const FixedSearchBar = () => {
     closeModal,
     input,
     setInput,
-    getNoResultSearchTerm,
   } = useContext(GifContext);
 
   let history = useHistory();
@@ -51,7 +50,7 @@ const FixedSearchBar = () => {
                 }}
                 required
               />
-              <button onClick={getNoResultSearchTerm}>
+              <button>
                 <i className="fas fa-search fa-2x"></i>
               </button>
             </SearchContainer>

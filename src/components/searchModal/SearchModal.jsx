@@ -20,10 +20,7 @@ const SearchModal = () => {
   return (
     <>
       {modal && search.length ? (
-        <Modal
-          onClick={closeModal}
-          className={scroll > 0 && width >= 1080 ? 'position' : ''}
-        >
+        <Modal onClick={closeModal}>
           <SearchModalContainer
             className={scroll > 0 && width >= 1080 ? 'modal' : ''}
             style={{ marginTop: `calc(124px - ${scrollY}px)` }}

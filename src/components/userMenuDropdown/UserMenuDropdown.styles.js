@@ -2,20 +2,16 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-// export const UserModal = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   // background: transparent;
-//   width: 100%;
-//   height: 100%;
-//   // display: flex;
-//   // justify-content: center;
-//   // align-items: center;
-//   z-index: 20;
-// `;
+export const UserModal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+`;
 
 export const UserDropdownContainer = styled.div`
   position: absolute;

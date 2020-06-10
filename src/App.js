@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import GifContextProvider from './context/GifContext';
 import UserContextProvider from './context/UserContext';
 
-import Home from './components/home/Home';
+import HomeComponents from './components/homeComponents/HomeComponents';
 import LoginRegisterComponent from './components/loginRegisterComponent/LoginRegisterComponent';
 
 import { AppContainer } from './App.styles';
@@ -16,7 +16,7 @@ function App() {
         <GifContextProvider>
           <Switch>
             <Route path="/profile" component={LoginRegisterComponent} />
-            <Route path="/" component={Home} />
+            <Route path="/" component={HomeComponents} />
           </Switch>
         </GifContextProvider>
       </UserContextProvider>

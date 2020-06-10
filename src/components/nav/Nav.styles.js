@@ -186,6 +186,10 @@ export const LoginRegister = styled(Link)`
     font-family: var(--Merriweather);
     color: var(--white);
   }
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
   @media (max-width: 1080px) {
     margin-left: var(--normal);
   }
@@ -197,6 +201,7 @@ export const LoginRegister = styled(Link)`
       width: 100%;
       height: 100%;
       object-fit: cover;
+      // object-position: top center;
     }
   }
 `;

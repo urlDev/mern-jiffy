@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// reusable card component. I made it like this because its used many times
+
 export const CardContainer = styled.div`
   position: relative;
   text-decoration: none;

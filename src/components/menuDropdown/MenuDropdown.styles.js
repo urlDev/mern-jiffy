@@ -6,6 +6,7 @@ export const MenuDropdownContainer = styled.div`
   padding: 30px 50px;
   background: linear-gradient(135deg, var(--blue-violet) 0%, var(--pink) 100%);
   position: absolute;
+  top: 62px;
   z-index: 8;
   display: flex;
   justify-content: space-between;
@@ -64,6 +65,7 @@ export const MenuDropdownContainer = styled.div`
     z-index: 8;
     top: 61px;
     height: 100%;
+    width: calc(100% - 10px);
     flex-direction: column;
     padding: 20px 30px;
     animation: rotate 0.2s linear forwards, fade 0.5s linear forwards;
@@ -79,9 +81,9 @@ export const MenuDropdownContainer = styled.div`
 `;
 
 export const Black = styled.div`
-  position: relative;
-  top: -7px;
-  height: 15px;
+  position: absolute;
+  top: 38px;
+  height: 25px;
   width: 100%;
   z-index: 7;
   @media (max-width: 1080px) {
@@ -91,12 +93,14 @@ export const Black = styled.div`
 
 export const Dropdown = styled.div`
   position: fixed;
-  top: 0em;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  //   background: rgba(0, 0, 0, 0.9);
-  z-index: 3;
+  // border: 1px solid red;
+  z-index: 7;
 `;

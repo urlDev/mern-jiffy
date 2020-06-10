@@ -37,7 +37,7 @@ const ProfileUpdate = () => {
         () => (
           <NotificationComponent
             text={'Your account is updated successfully! :)'}
-            color={'var(--light-green)'}
+            success={true}
           />
         ),
         { duration: 1500 }
@@ -48,7 +48,7 @@ const ProfileUpdate = () => {
         () => (
           <NotificationComponent
             text={'Oops! Something went wrong!'}
-            color={'var(--indian-red)'}
+            success={false}
           />
         ),
         { duration: 1500 }
@@ -62,7 +62,7 @@ const ProfileUpdate = () => {
         () => (
           <NotificationComponent
             text={'Please enter your password'}
-            color={'var(--indian-red)'}
+            success={false}
           />
         ),
         { duration: 1500 }

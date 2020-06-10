@@ -43,7 +43,7 @@ const ProfileFavorites = () => {
                   // because I made the router check for only words for certain slugs
                   // if gifs' slug has only word, router doesn't show the gif component
                   // so if gif has a one word slug, I am changing link with title
-                  slug.split('-').length === 1
+                  slug && slug.split('-').length === 1
                     ? `/${title.toLowerCase().split(' ').join('-')}-${slug}`
                     : `/${slug}`
                 }
@@ -57,7 +57,7 @@ const ProfileFavorites = () => {
                   offset={100}
                   placeholder={<Placeholder />}
                 >
-                  <img src={images.original.webp} alt={title} />
+                  <img src={images && images.original.webp} alt={title} />
                 </LazyLoad>
 
                 <CardTitle>{title}</CardTitle>

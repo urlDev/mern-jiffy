@@ -13,7 +13,6 @@ const ProfileImage = () => {
   const { user, url } = useContext(UserContext);
 
   const handleChange = async (e) => {
-    console.log(e.target.files[0]);
     const token = JSON.parse(localStorage.getItem('userToken'));
 
     const config = {
@@ -30,7 +29,7 @@ const ProfileImage = () => {
         () => (
           <NotificationComponent
             text={'Avatar is changed! Wow, that looks amazing! ;)'}
-            color={'var(--light-green)'}
+            success={true}
           />
         ),
         { duration: 1500 }
@@ -40,7 +39,7 @@ const ProfileImage = () => {
         () => (
           <NotificationComponent
             text={'Oops! Something went wrong!'}
-            color={'var(--indian-red)'}
+            success={false}
           />
         ),
         { duration: 1500 }

@@ -10,6 +10,7 @@ import {
   StyledLink,
   NavContainer,
   LoginRegister,
+  LoginRegisterResponsive,
   ResponsiveMenu,
   Logo,
 } from '../nav/Nav.styles';
@@ -39,16 +40,46 @@ const FixedNavWithSearch = () => {
           <ResponsiveMenu onClick={openAndCloseMenu}>
             <span>&#8942;</span>
           </ResponsiveMenu>
-          <LoginRegister
-            to={!user.name ? '/profile' : '/profile/details'}
-            onClick={user.name && openAndCloseUserDropdown}
-            aria-label="log in / register"
-          >
-            {width > 500 ? (
-              <>
+          {user.name ? (
+            <LoginRegisterResponsive onClick={openAndCloseUserDropdown}>
+              {width > 500 ? (
+                <>
+                  <div
+                    style={{
+                      width: '20%',
+                      backgroundColor: '#515151',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                    className="right"
+                  >
+                    {user.name ? (
+                      <img
+                        src={`${url}/profile/${user._id}/avatar`}
+                        alt="avatar"
+                      />
+                    ) : (
+                      <i className="fas fa-user"></i>
+                    )}
+                  </div>
+                  <div
+                    style={{
+                      width: '80%',
+                      backgroundColor: '#414141',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                    className="responsive"
+                  >
+                    {user.name ? <h5>{user.name}</h5> : <h5>Log in</h5>}
+                  </div>
+                </>
+              ) : (
                 <div
                   style={{
-                    width: '20%',
+                    width: '100%',
                     backgroundColor: '#515151',
                     display: 'flex',
                     justifyContent: 'center',
@@ -65,38 +96,67 @@ const FixedNavWithSearch = () => {
                     <i className="fas fa-user"></i>
                   )}
                 </div>
+              )}
+            </LoginRegisterResponsive>
+          ) : (
+            <LoginRegister to="/profile" aria-label="log in / register">
+              {width > 500 ? (
+                <>
+                  <div
+                    style={{
+                      width: '20%',
+                      backgroundColor: '#515151',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                    className="right"
+                  >
+                    {user.name ? (
+                      <img
+                        src={`${url}/profile/${user._id}/avatar`}
+                        alt="avatar"
+                      />
+                    ) : (
+                      <i className="fas fa-user"></i>
+                    )}
+                  </div>
+                  <div
+                    style={{
+                      width: '80%',
+                      backgroundColor: '#414141',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                    className="responsive"
+                  >
+                    {user.name ? <h5>{user.name}</h5> : <h5>Log in</h5>}
+                  </div>
+                </>
+              ) : (
                 <div
                   style={{
-                    width: '80%',
-                    backgroundColor: '#414141',
+                    width: '100%',
+                    backgroundColor: '#515151',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}
-                  className="responsive"
+                  className="right"
                 >
-                  {user.name ? <h5>{user.name}</h5> : <h5>Log in</h5>}
+                  {user.name ? (
+                    <img
+                      src={`${url}/profile/${user._id}/avatar`}
+                      alt="avatar"
+                    />
+                  ) : (
+                    <i className="fas fa-user"></i>
+                  )}
                 </div>
-              </>
-            ) : (
-              <div
-                style={{
-                  width: '100%',
-                  backgroundColor: '#515151',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-                className="right"
-              >
-                {user.name ? (
-                  <img src={`${url}/profile/${user._id}/avatar`} alt="avatar" />
-                ) : (
-                  <i className="fas fa-user"></i>
-                )}
-              </div>
-            )}
-          </LoginRegister>
+              )}
+            </LoginRegister>
+          )}
         </NavContainer>
 
         <SearchBar />

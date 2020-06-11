@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import toaster from 'toasted-notes';
 import moment from 'moment';
@@ -23,13 +23,30 @@ const UserContextProvider = (props) => {
   const [userDropdown, setUserDropdown] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState({});
+
+  // to get images after uploading with their latest, I am fetching them from
+  // endpoint I created. Then converting it to binary to show as image
+  const getImage = useCallback(async () => {
+    try {
+      const response = await axios.get(`${url}/profile/${user._id}/avatar`, {
+        responseType: 'arraybuffer',
+      });
+      const data = await Buffer.from(response.data, 'binary').toString(
+        'base64'
+      );
+      setImage(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [user]);
 
   useEffect(() => {
     if (user.name) {
       getFavorites();
-      setLoading(true);
+      getImage();
     }
-  }, [user]);
+  }, [user, getImage]);
 
   const getFavorites = async () => {
     const token = JSON.parse(localStorage.getItem('userToken'));
@@ -196,6 +213,8 @@ const UserContextProvider = (props) => {
         openAndCloseDeleteModal,
         loading,
         setLoading,
+        image,
+        getImage,
       }}
     >
       {props.children}

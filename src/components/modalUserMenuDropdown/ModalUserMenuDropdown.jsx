@@ -12,7 +12,7 @@ const ModalUserMenuDropdown = () => {
     <>
       {userDropdown && (
         <UserModal onClick={openAndCloseUserDropdown}>
-          <DefaultUserMenuDropdown visible={false} />
+          <DefaultUserMenuDropdown />
         </UserModal>
       )}
     </>

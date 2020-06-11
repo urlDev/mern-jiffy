@@ -15,7 +15,7 @@ const UserMenuDropdown = () => {
       {userDropdown && (
         <>
           <UserDropdownBlack />
-          <DefaultUserMenuDropdown visible={true} />
+          <DefaultUserMenuDropdown />
         </>
       )}
     </div>

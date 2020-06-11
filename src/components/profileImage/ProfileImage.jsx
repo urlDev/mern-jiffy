@@ -10,7 +10,7 @@ import { AvatarContainer } from './ProfileImage.styles';
 import 'toasted-notes/src/styles.css';
 
 const ProfileImage = () => {
-  const { user, url, history } = useContext(UserContext);
+  const { url, history, image, getImage } = useContext(UserContext);
 
   const handleChange = async (e) => {
     const token = JSON.parse(localStorage.getItem('userToken'));
@@ -32,8 +32,9 @@ const ProfileImage = () => {
             success={true}
           />
         ),
-        { duration: 1500 }
+        { duration: 2000 }
       );
+      getImage();
     } catch (error) {
       toaster.notify(
         () => (
@@ -50,7 +51,7 @@ const ProfileImage = () => {
 
   return (
     <AvatarContainer>
-      <img src={`${url}/profile/${user._id}/avatar`} alt="avatar" />
+      <img src={`data:image/webp;base64,${image}`} alt="avatar" />
       <form>
         <label htmlFor="single">Change Avatar*</label>
         <input type="file" id="single" onChange={handleChange} />

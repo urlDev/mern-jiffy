@@ -7,20 +7,19 @@ import {
   LinkContainer,
 } from '../userMenuDropdown/UserMenuDropdown.styles';
 
-const DefaultUserMenuDropdown = ({ visible }) => {
+const DefaultUserMenuDropdown = () => {
   const { closeUserDropdown, logOut } = useContext(UserContext);
   return (
     <UserDropdownContainer>
-      {visible && (
-        <LinkContainer
-          to="/profile/details"
-          onClick={() => {
-            closeUserDropdown();
-          }}
-        >
-          Profile
-        </LinkContainer>
-      )}
+      <LinkContainer
+        to="/profile/details"
+        onClick={() => {
+          closeUserDropdown();
+        }}
+      >
+        Profile
+      </LinkContainer>
+
       <LinkContainer to="/profile/favorites" onClick={closeUserDropdown}>
         Favorites
       </LinkContainer>

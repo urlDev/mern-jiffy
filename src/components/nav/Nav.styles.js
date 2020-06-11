@@ -207,3 +207,47 @@ export const LoginRegister = styled(Link)`
     }
   }
 `;
+
+export const LoginRegisterResponsive = styled.div`
+  max-width: 190px;
+  width: 100%;
+  height: 36px;
+  margin-left: auto;
+  display: flex;
+  position: relative;
+  text-decoration: none;
+  i {
+    color: var(--white);
+    margin: 0;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  h5 {
+    padding: 0;
+    margin: 0;
+    font-family: var(--Merriweather);
+    color: var(--white);
+  }
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+  @media (max-width: 1080px) {
+    margin-left: var(--normal);
+    // pointer-events: none;
+  }
+
+  @media (max-width: 500px) {
+    max-width: 80px;
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      // object-position: top center;
+    }
+  }
+`;

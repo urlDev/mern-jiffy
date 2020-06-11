@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// reusable card component. I made it like this because its used many times
+// reusable card component. I made it like this because its used many times thr
 
 export const CardContainer = styled.div`
   position: relative;
@@ -232,11 +232,18 @@ export const CardTime = styled.h5`
 
 export const CardUser = styled.div`
   position: absolute;
+  top: 10px;
+  left: 10px;
   z-index: 1;
+  width: 30px;
+  height: 30px;
+  // gif user images come from GIPHY
+  // with object fit, I crop them to smaller size
+  // better lighthouse performance
   img {
-    width: 30px !important;
+    width: 30px;
     height: 100%;
-    margin: 10px 0 0 10px;
+    object-fit: contain;
   }
 `;
 

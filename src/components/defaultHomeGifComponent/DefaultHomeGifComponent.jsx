@@ -39,7 +39,7 @@ const DefaultHomeGifComponent = ({ title, gifType, visible }) => {
                   onClick={() => getGif(gif)}
                 >
                   <CardUser>
-                    <img src={gif.user && gif.user.avatar_url} alt={gif.user} />
+                    <img src={gif.user && gif.user.avatar_url} alt="gif user" />
                   </CardUser>
                   <LazyLoad
                     height={300}
@@ -53,7 +53,10 @@ const DefaultHomeGifComponent = ({ title, gifType, visible }) => {
                       />
                     }
                   >
-                    <img src={gif.images.original.webp} alt={gif.title} />
+                    <img
+                      src={gif.images.original.webp}
+                      alt={gif.title ? gif.title : 'gif'}
+                    />
                   </LazyLoad>
 
                   <CardTitle>{gif.title}</CardTitle>

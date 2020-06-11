@@ -110,6 +110,12 @@ code {
     }
 }
 
+@keyframes login {
+    100% {
+        background-position: -768px;
+    }
+}
+
 @keyframes play {
     100% {
         background-position: -791px;

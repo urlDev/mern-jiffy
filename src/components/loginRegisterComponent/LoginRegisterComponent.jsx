@@ -7,12 +7,13 @@ import { UserContext } from '../../context/UserContext';
 import ProfileComponents from '../profileComponents/ProfileComponents';
 import Login from '../login/Login';
 import Register from '../register/Register';
+import Loading from '../loading/Loading';
 
 import { StyledLink, LoginRegister } from '../nav/Nav.styles';
 import { LoginRegisterNav, FormContainer, Video } from './LoginRegister.styles';
 
 const LoginRegisterComponent = () => {
-  const { user } = useContext(UserContext);
+  const { user, loading } = useContext(UserContext);
   const { inLogin, width } = useContext(GifContext);
   return (
     <>
@@ -86,11 +87,15 @@ const LoginRegisterComponent = () => {
             </LoginRegister>
           </LoginRegisterNav>
           <FormContainer>
-            <Switch>
-              <Route exact path="/profile" component={Login} />
-              <Route path="/profile/login" component={Login} />
-              <Route path="/profile/register" component={Register} />
-            </Switch>
+            {loading ? (
+              <Loading />
+            ) : (
+              <Switch>
+                <Route exact path="/profile" component={Login} />
+                <Route path="/profile/login" component={Login} />
+                <Route path="/profile/register" component={Register} />
+              </Switch>
+            )}
           </FormContainer>
         </>
       )}

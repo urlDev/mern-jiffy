@@ -22,10 +22,12 @@ const UserContextProvider = (props) => {
   const [favorite, setFavorite] = useState([]);
   const [userDropdown, setUserDropdown] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (user.name) {
       getFavorites();
+      setLoading(true);
     }
   }, [user]);
 
@@ -109,6 +111,7 @@ const UserContextProvider = (props) => {
     try {
       await axios.post(`${url}/profile/logout`, null, config);
       setUser({});
+      setLoading(false);
       localStorage.clear();
     } catch (error) {
       console.log(error);
@@ -128,6 +131,7 @@ const UserContextProvider = (props) => {
       setFavorite([]);
       localStorage.clear();
       history.push('/');
+      setLoading(false);
       toaster.notify(
         () => (
           <NotificationComponent
@@ -190,6 +194,8 @@ const UserContextProvider = (props) => {
         closeUserDropdown,
         deleteModal,
         openAndCloseDeleteModal,
+        loading,
+        setLoading,
       }}
     >
       {props.children}

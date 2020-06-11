@@ -10,8 +10,8 @@ const WeCare = () => {
       target="_blank"
     >
       <h3>Do you like the app?</h3>
-      <img src={require('../../assets/V.gif')} alt="" />
-      <img src={require('../../assets/heart.gif')} alt="" />
+      <img src={require('../../assets/V.gif')} alt="victory gif" />
+      <img src={require('../../assets/heart.gif')} alt="heart gif" />
       <h3>
         <span>Jiffy</span> Cares
       </h3>

@@ -59,24 +59,30 @@ const Register = () => {
     <>
       <Form onSubmit={handleSubmit}>
         <input
+          aria-label="name"
           type="text"
           name="name"
           placeholder="Name"
           onChange={handleChange}
         />
+
         <input
+          aria-label="email"
           type="email"
           name="email"
           placeholder="Email address"
           onChange={handleChange}
         />
+
         <input
+          aria-label="password"
           type="password"
           name="password"
           placeholder="Password"
+          autoComplete="off"
           onChange={handleChange}
         />
-        <button>Register</button>
+        <button aria-label="register account">Register</button>
       </Form>
       <DirectLink>
         Already have an account?

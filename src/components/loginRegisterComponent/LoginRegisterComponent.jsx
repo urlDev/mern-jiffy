@@ -28,8 +28,8 @@ const LoginRegisterComponent = () => {
             loop
           >
             <source
-              src={require('../../assets/backgroundVideo.mp4')}
-              type="video/mp4"
+              src={require('../../assets/backgroundVideo.webm')}
+              type="video/webm"
             />
           </Video>
           <LoginRegisterNav>

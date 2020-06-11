@@ -40,8 +40,9 @@ const FixedNavWithSearch = () => {
             <span>&#8942;</span>
           </ResponsiveMenu>
           <LoginRegister
-            to={!user.name ? '/profile' : ''}
+            to={!user.name ? '/profile' : '/profile/details'}
             onClick={user.name && openAndCloseUserDropdown}
+            aria-label="log in / register"
           >
             {width > 500 ? (
               <>

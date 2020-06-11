@@ -41,6 +41,7 @@ const DeleteAccountModal = () => {
             </p>
             <div>
               <button
+                aria-label="cancel deleting"
                 onClick={() => {
                   openAndCloseDeleteModal();
                 }}
@@ -48,6 +49,7 @@ const DeleteAccountModal = () => {
                 Cancel
               </button>
               <button
+                aria-label="delete account"
                 onClick={() => {
                   deleteAccount();
                   openAndCloseDeleteModal();

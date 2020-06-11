@@ -95,11 +95,14 @@ const ProfileUpdate = () => {
           <input
             type="password"
             name="password"
+            autoComplete="off"
             onChange={handleChange}
             required
           />
         </div>
-        <button onClick={openToast}>Save</button>
+        <button aria-label="save user details" onClick={openToast}>
+          Save
+        </button>
       </Form>
     </UpdateContainer>
   );

@@ -4,8 +4,18 @@ export const AvatarContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  text-align: center;
   img {
     width: 100%;
+  }
+
+  p {
+    opacity: 0.7;
+  }
+
+  span {
+    color: var(--light-green);
+    font-weight: bold;
   }
 
   input[type='file'] {

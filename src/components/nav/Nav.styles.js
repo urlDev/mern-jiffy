@@ -171,6 +171,7 @@ export const LoginRegister = styled(Link)`
   margin-left: auto;
   display: flex;
   position: relative;
+  text-decoration: none;
   i {
     color: var(--white);
     margin: 0;
@@ -192,6 +193,7 @@ export const LoginRegister = styled(Link)`
   }
   @media (max-width: 1080px) {
     margin-left: var(--normal);
+    // pointer-events: none;
   }
 
   @media (max-width: 500px) {

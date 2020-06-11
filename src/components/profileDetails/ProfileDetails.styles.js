@@ -43,6 +43,10 @@ export const PrivacyContainer = styled.div`
     font-size: var(--text);
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.5s ease-in;
+    &:hover {
+      background-color: var(--blue-violet);
+    }
   }
   @media (max-width: 800px) {
     padding: 20px;

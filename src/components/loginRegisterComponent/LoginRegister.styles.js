@@ -24,4 +24,5 @@ export const Video = styled.video`
   min-height: 100%;
   transform: translateX(calc((100% - 100vw) / 2));
   opacity: 0.4;
+  filter: blur(2px);
 `;

@@ -115,7 +115,11 @@ const GifContextProvider = (props) => {
       });
 
       let newResult = undefined;
-      if (!result.data.length) {
+      let newTitle = '';
+      // Result data is empty and search terms array is empty too
+      // which means theres no suggestion coming from api
+      // e.g. when search is long
+      if (!result.data.length && !search.length) {
         newResult = await gifFetch.search(
           `${topic.split(' ').slice(0, 1).join(' ')}`,
           {
@@ -123,12 +127,22 @@ const GifContextProvider = (props) => {
             limit: 100,
           }
         );
+        // result data is empty but there is search suggestion
+        // e.g. when search term is short but might have a typo
+      } else if (!result.data.length && search.length) {
+        newResult = await gifFetch.search(`${search[0].name}`, {
+          sort: 'recent',
+          limit: 100,
+        });
+        newTitle = search[0].name;
       }
 
       setSearchCategoryResult(
         !result.data.length
           ? {
-              title: topic.split(' ').slice(0, 1).join(' '),
+              title: search.length
+                ? newTitle
+                : topic.split(' ').slice(0, 1).join(' '),
               data: newResult.data,
             }
           : {

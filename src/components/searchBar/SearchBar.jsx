@@ -29,6 +29,7 @@ const SearchBar = () => {
       <SearchContainer onSubmit={handleSubmit}>
         <input
           type="search"
+          aria-label="search"
           placeholder="Search for all the GIFs"
           value={input}
           onClick={openModal}
@@ -38,7 +39,7 @@ const SearchBar = () => {
           }}
           required
         />
-        <button>
+        <button aria-label="search">
           <i className="fas fa-search fa-2x"></i>
         </button>
       </SearchContainer>

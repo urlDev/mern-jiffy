@@ -50,7 +50,7 @@ const FixedSearchBar = () => {
                 }}
                 required
               />
-              <button>
+              <button aria-label="search">
                 <i className="fas fa-search fa-2x"></i>
               </button>
             </SearchContainer>

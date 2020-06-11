@@ -28,6 +28,7 @@ const ProfileDetails = () => {
         <PrivacyContainer>
           <p>Account privacy</p>
           <button
+            aria-label="delete account"
             onClick={() => {
               openAndCloseDeleteModal();
             }}

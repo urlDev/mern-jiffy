@@ -65,17 +65,21 @@ const Login = () => {
       <Form onSubmit={handleSubmit}>
         <input
           type="email"
+          aria-label="email"
           name="email"
           placeholder="Email address"
           onChange={handleChange}
         />
+
         <input
+          aria-label="password"
           type="password"
           name="password"
           placeholder="Password"
+          autoComplete="off"
           onChange={handleChange}
         />
-        <button>Log in</button>
+        <button aria-label="log in">Log in</button>
       </Form>
       <DirectLink>
         Don't have an account?

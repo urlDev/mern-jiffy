@@ -10,7 +10,7 @@ import { AvatarContainer } from './ProfileImage.styles';
 import 'toasted-notes/src/styles.css';
 
 const ProfileImage = () => {
-  const { user, url } = useContext(UserContext);
+  const { user, url, history } = useContext(UserContext);
 
   const handleChange = async (e) => {
     const token = JSON.parse(localStorage.getItem('userToken'));
@@ -24,7 +24,7 @@ const ProfileImage = () => {
 
     try {
       await axios.post(`${url}/profile/avatar`, data, config);
-      window.location.reload(false);
+      history.push('/');
       toaster.notify(
         () => (
           <NotificationComponent
@@ -44,7 +44,7 @@ const ProfileImage = () => {
         ),
         { duration: 1500 }
       );
-      console.log(error.message);
+      console.log(error);
     }
   };
 
@@ -52,9 +52,12 @@ const ProfileImage = () => {
     <AvatarContainer>
       <img src={`${url}/profile/${user._id}/avatar`} alt="avatar" />
       <form>
-        <label htmlFor="single">Change Avatar</label>
+        <label htmlFor="single">Change Avatar*</label>
         <input type="file" id="single" onChange={handleChange} />
       </form>
+      <p>
+        *Should be smaller than <span>2MB</span>
+      </p>
     </AvatarContainer>
   );
 };

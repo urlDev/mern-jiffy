@@ -39,7 +39,9 @@ const DefaultHomeGifComponent = ({ title, gifType, visible }) => {
                   onClick={() => getGif(gif)}
                 >
                   <CardUser>
-                    <img src={gif.user && gif.user.avatar_url} alt="gif user" />
+                    {gif.user && (
+                      <img src={gif.user.avatar_url} alt="gif user" />
+                    )}
                   </CardUser>
                   <LazyLoad
                     height={300}

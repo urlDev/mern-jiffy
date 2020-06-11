@@ -22,7 +22,7 @@ const Nav = () => {
     openAndCloseMenu,
     clearInput,
   } = useContext(GifContext);
-  const { user, url, openUserDropdown, closeUserDropdown } = useContext(
+  const { user, openUserDropdown, closeUserDropdown, image } = useContext(
     UserContext
   );
   return (
@@ -117,7 +117,7 @@ const Nav = () => {
                 className="right"
               >
                 {user.name ? (
-                  <img src={`${url}/profile/${user._id}/avatar`} alt="avatar" />
+                  <img src={`data:image/webp;base64,${image}`} alt="avatar" />
                 ) : (
                   <i className="fas fa-user"></i>
                 )}
@@ -147,7 +147,7 @@ const Nav = () => {
               className="right"
             >
               {user.name ? (
-                <img src={`${url}/profile/${user._id}/avatar`} alt="avatar" />
+                <img src={`data:image/webp;base64,${image}`} alt="avatar" />
               ) : (
                 <i className="fas fa-user"></i>
               )}

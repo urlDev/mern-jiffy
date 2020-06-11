@@ -19,9 +19,12 @@ const FixedNavWithSearch = () => {
   const { width, clearInput, openAndCloseMenu, closeMenu } = useContext(
     GifContext
   );
-  const { user, url, openAndCloseUserDropdown, closeUserDropdown } = useContext(
-    UserContext
-  );
+  const {
+    user,
+    image,
+    openAndCloseUserDropdown,
+    closeUserDropdown,
+  } = useContext(UserContext);
   return (
     <>
       <FixedContainer>
@@ -56,7 +59,7 @@ const FixedNavWithSearch = () => {
                   >
                     {user.name ? (
                       <img
-                        src={`${url}/profile/${user._id}/avatar`}
+                        src={`data:image/webp;base64,${image}`}
                         alt="avatar"
                       />
                     ) : (
@@ -88,10 +91,7 @@ const FixedNavWithSearch = () => {
                   className="right"
                 >
                   {user.name ? (
-                    <img
-                      src={`${url}/profile/${user._id}/avatar`}
-                      alt="avatar"
-                    />
+                    <img src={`data:image/webp;base64,${image}`} alt="avatar" />
                   ) : (
                     <i className="fas fa-user"></i>
                   )}
@@ -114,7 +114,7 @@ const FixedNavWithSearch = () => {
                   >
                     {user.name ? (
                       <img
-                        src={`${url}/profile/${user._id}/avatar`}
+                        src={`data:image/webp;base64,${image}`}
                         alt="avatar"
                       />
                     ) : (
@@ -146,10 +146,7 @@ const FixedNavWithSearch = () => {
                   className="right"
                 >
                   {user.name ? (
-                    <img
-                      src={`${url}/profile/${user._id}/avatar`}
-                      alt="avatar"
-                    />
+                    <img src={`data:image/webp;base64,${image}`} alt="avatar" />
                   ) : (
                     <i className="fas fa-user"></i>
                   )}

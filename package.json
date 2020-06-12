@@ -16,7 +16,7 @@
     "moment": "^2.26.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-lazyload": "^2.6.7",
+    "react-lazyload": "^2.6.8",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",

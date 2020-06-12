@@ -11,6 +11,9 @@ export const FixedContainer = styled.div`
   max-width: 1060px;
   z-index: 5;
   height: calc(20px + var(--whaat));
+  form {
+    margin-bottom: 0;
+  }
   @media (max-width: 1080px) {
     display: none;
   }

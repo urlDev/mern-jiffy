@@ -6,7 +6,6 @@ export const FixedContainer = styled.div`
   position: fixed;
   top: 0;
   z-index: 6;
-  padding-bottom: 10px;
   @media (max-width: 1080px) {
     z-index: 4;
   }

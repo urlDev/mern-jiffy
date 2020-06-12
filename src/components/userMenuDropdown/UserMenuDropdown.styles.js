@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 
 import { Link } from 'react-router-dom';
 
@@ -58,14 +58,14 @@ export const LinkContainer = styled(Link)`
   color: var(--white);
   text-decoration: none;
 
-  ${UserDropdownContainer} > &:nth-child(odd) {
+  ${UserDropdownContainer} > &:nth-of-type(odd) {
     background: var(--dark-gray);
     &:hover {
       background: var(--blue-violet);
     }
   }
 
-  ${UserDropdownContainer} > &:nth-child(even) {
+  ${UserDropdownContainer} > &:nth-of-type(even) {
     background: var(--light-gray);
     &:hover {
       background: var(--blue-violet);

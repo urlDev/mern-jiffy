@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 
 export const NavContainer = styled.nav`
   display: flex;
@@ -33,9 +33,9 @@ export const NavContainer = styled.nav`
       cursor: pointer;
       position: relative;
       display: flex;
-      -webkit-box-flex: 1;
+      // -webkit-box-flex: 1;
       flex-grow: 1;
-      -webkit-box-align: center;
+      // -webkit-box-align: center;
       align-items: center;
       border-right: 4px solid var(--smoke-black);
       &::before {
@@ -64,11 +64,11 @@ export const NavContainer = styled.nav`
         height: 100%;
         position: relative;
         z-index: 2;
-        -webkit-font-smoothing: antialiased;
+        // -webkit-font-smoothing: antialiased;
         display: flex;
-        -webkit-box-align: center;
+        // -webkit-box-align: center;
         align-items: center;
-        -webkit-box-pack: center;
+        // -webkit-box-pack: center;
         justify-content: center;
       }
     }

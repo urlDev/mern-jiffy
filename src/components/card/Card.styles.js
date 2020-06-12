@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 import { Link } from 'react-router-dom';
 
 // reusable card component. I made it like this because its used many times thr
@@ -7,36 +7,36 @@ export const CardContainer = styled.div`
   position: relative;
   text-decoration: none;
   height: 300px;
-  &:nth-child(5n + 2) {
-    -webkit-box-shadow: 0px 26px 0px -14px rgba(126, 45, 208, 1),
-      0px 26px 0px -14px rgba(126, 45, 208, 0.7),
-      0px 52px 0px -32px rgba(126, 45, 208, 5);
-    -moz-box-shadow: 0px 26px 0px -14px rgba(126, 45, 208, 1),
-      0px 26px 0px -14px rgba(126, 45, 208, 0.7),
-      0px 52px 0px -32px rgba(126, 45, 208, 0.5);
+  &:nth-of-type(5n + 2) {
+    // -webkit-box-shadow: 0px 26px 0px -14px rgba(126, 45, 208, 1),
+    //   0px 26px 0px -14px rgba(126, 45, 208, 0.7),
+    //   0px 52px 0px -32px rgba(126, 45, 208, 5);
+    // -moz-box-shadow: 0px 26px 0px -14px rgba(126, 45, 208, 1),
+    //   0px 26px 0px -14px rgba(126, 45, 208, 0.7),
+    //   0px 52px 0px -32px rgba(126, 45, 208, 0.5);
     box-shadow: 0px 5px 0px 0px rgba(126, 45, 208, 1),
       0px 26px 0px -14px rgba(126, 45, 208, 0.7),
       0px 52px 0px -32px rgba(126, 45, 208, 0.5);
   }
-  &:nth-child(5n + 3) {
-    -webkit-box-shadow: 0px 26px 0px -14px rgba(208, 86, 86, 1),
-      0px 26px 0px -14px rgba(208, 86, 86, 0.7),
-      0px 52px 0px -32px rgba(208, 86, 86, 0.5);
-    -moz-box-shadow: 0px 26px 0px -14px rgba(208, 86, 86, 1),
-      0px 26px 0px -14px rgba(208, 86, 86, 0.7),
-      0px 52px 0px -32px rgba(208, 86, 86, 0.5);
+  &:nth-of-type(5n + 3) {
+    // -webkit-box-shadow: 0px 26px 0px -14px rgba(208, 86, 86, 1),
+    //   0px 26px 0px -14px rgba(208, 86, 86, 0.7),
+    //   0px 52px 0px -32px rgba(208, 86, 86, 0.5);
+    // -moz-box-shadow: 0px 26px 0px -14px rgba(208, 86, 86, 1),
+    //   0px 26px 0px -14px rgba(208, 86, 86, 0.7),
+    //   0px 52px 0px -32px rgba(208, 86, 86, 0.5);
     box-shadow: 0px 5px 0px 0px rgba(208, 86, 86, 1),
       0px 26px 0px -14px rgba(208, 86, 86, 0.7),
       0px 52px 0px -32px rgba(208, 86, 86, 0.5);
   }
-  &:nth-child(5n + 4) {
+  &:nth-of-type(5n + 4) {
     width: 100%;
-    -webkit-box-shadow: 0px 26px 0px -14px rgba(66, 151, 8, 1),
-      0px 26px 0px -14px rgba(66, 151, 8, 0.7),
-      0px 52px 0px -32px rgba(66, 151, 8, 0.5);
-    -moz-box-shadow: 0px 26px 0px -14px rgba(66, 151, 8, 1),
-      0px 26px 0px -14px rgba(66, 151, 8, 0.7),
-      0px 52px 0px -32px rgba(66, 151, 8, 0.5);
+    // -webkit-box-shadow: 0px 26px 0px -14px rgba(66, 151, 8, 1),
+    //   0px 26px 0px -14px rgba(66, 151, 8, 0.7),
+    //   0px 52px 0px -32px rgba(66, 151, 8, 0.5);
+    // -moz-box-shadow: 0px 26px 0px -14px rgba(66, 151, 8, 1),
+    //   0px 26px 0px -14px rgba(66, 151, 8, 0.7),
+    //   0px 52px 0px -32px rgba(66, 151, 8, 0.5);
     box-shadow: 0px 5px 0px 0px rgba(66, 151, 8, 1),
       0px 26px 0px -14px rgba(66, 151, 8, 0.7),
       0px 52px 0px -32px rgba(66, 151, 8, 0.5);
@@ -44,26 +44,26 @@ export const CardContainer = styled.div`
       width: 100%;
     }
   }
-  &:nth-child(5n + 5) {
-    -webkit-box-shadow: 0px 26px 0px -14px rgba(94, 204, 228, 1),
-      0px 26px 0px -14px rgba(94, 204, 228, 0.7),
-      0px 52px 0px -32px rgba(94, 204, 228, 0.5);
-    -moz-box-shadow: 0px 26px 0px -14px rgba(94, 204, 228, 1),
-      0px 26px 0px -14px rgba(94, 204, 228, 0.7),
-      0px 52px 0px -32px rgba(94, 204, 228, 0.5);
+  &:nth-of-type(5n + 5) {
+    // -webkit-box-shadow: 0px 26px 0px -14px rgba(94, 204, 228, 1),
+    //   0px 26px 0px -14px rgba(94, 204, 228, 0.7),
+    //   0px 52px 0px -32px rgba(94, 204, 228, 0.5);
+    // -moz-box-shadow: 0px 26px 0px -14px rgba(94, 204, 228, 1),
+    //   0px 26px 0px -14px rgba(94, 204, 228, 0.7),
+    //   0px 52px 0px -32px rgba(94, 204, 228, 0.5);
     box-shadow: 0px 5px 0px 0px rgba(94, 204, 228, 1),
       0px 26px 0px -14px rgba(94, 204, 228, 0.7),
       0px 52px 0px -32px rgba(94, 204, 228, 0.5);
   }
 
-  &:nth-child(5n + 1) {
+  &:nth-of-type(5n + 1) {
     grid-column: span 2;
-    -webkit-box-shadow: 0px 26px 0px -14px rgba(215, 82, 160, 1),
-      0px 26px 0px -14px rgba(215, 82, 160, 0.7),
-      0px 52px 0px -32px rgba(215, 82, 160, 0.5);
-    -moz-box-shadow: 0px 26px 0px -14px rgba(215, 82, 160, 1),
-      0px 26px 0px -14px rgba(215, 82, 160, 0.7),
-      0px 52px 0px -32px rgba(215, 82, 160, 0.5);
+    // -webkit-box-shadow: 0px 26px 0px -14px rgba(215, 82, 160, 1),
+    //   0px 26px 0px -14px rgba(215, 82, 160, 0.7),
+    //   0px 52px 0px -32px rgba(215, 82, 160, 0.5);
+    // -moz-box-shadow: 0px 26px 0px -14px rgba(215, 82, 160, 1),
+    //   0px 26px 0px -14px rgba(215, 82, 160, 0.7),
+    //   0px 52px 0px -32px rgba(215, 82, 160, 0.5);
     box-shadow: 0px 5px 0px 0px rgba(215, 82, 160, 1),
       0px 26px 0px -14px rgba(215, 82, 160, 0.7),
       0px 52px 0px -32px rgba(215, 82, 160, 0.5);
@@ -84,7 +84,7 @@ export const Card = styled(Link)`
   width: 100%;
   height: 300px;
   &:hover {
-    ${CardContainer}:nth-child(5n + 1) > &:after {
+    ${CardContainer}:nth-of-type(5n + 1) > &:after {
       content: ' ';
       position: absolute;
       left: 0;
@@ -105,7 +105,7 @@ export const Card = styled(Link)`
       z-index: 1;
     }
 
-    ${CardContainer}:nth-child(5n + 2) > &:after {
+    ${CardContainer}:nth-of-type(5n + 2) > &:after {
       content: ' ';
       position: absolute;
       left: 0;
@@ -127,7 +127,7 @@ export const Card = styled(Link)`
       z-index: 1;
     }
 
-    ${CardContainer}:nth-child(5n + 3) > &:after {
+    ${CardContainer}:nth-of-type(5n + 3) > &:after {
       content: ' ';
       position: absolute;
       left: 0;
@@ -148,7 +148,7 @@ export const Card = styled(Link)`
       );
       z-index: 1;
     }
-    ${CardContainer}:nth-child(5n + 4) >  &:after {
+    ${CardContainer}:nth-of-type(5n + 4) >  &:after {
       content: ' ';
       position: absolute;
       left: 0;
@@ -169,7 +169,7 @@ export const Card = styled(Link)`
       );
       z-index: 1;
     }
-    ${CardContainer}:nth-child(5n + 5) > &:after {
+    ${CardContainer}:nth-of-type(5n + 5) > &:after {
       content: ' ';
       position: absolute;
       left: 0;

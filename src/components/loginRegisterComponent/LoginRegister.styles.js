@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from 'styled-components';
 
 export const LoginRegisterNav = styled.div`
   margin-top: 9px;

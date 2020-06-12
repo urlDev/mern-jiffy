@@ -51,7 +51,9 @@ const ProfileImage = () => {
 
   return (
     <AvatarContainer>
-      <img src={`data:image/webp;base64,${image}`} alt="avatar" />
+      {image.length && (
+        <img src={`data:image/webp;base64,${image}`} alt="avatar" />
+      )}
       <form>
         <label htmlFor="single">Change Avatar*</label>
         <input type="file" id="single" onChange={handleChange} />

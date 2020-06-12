@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from 'styled-components';
 
 export const FixedContainer = styled.div`
   width: calc(100% - 10px);

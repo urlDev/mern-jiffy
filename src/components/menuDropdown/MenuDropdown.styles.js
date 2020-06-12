@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from 'styled-components';
 
 export const MenuDropdownContainer = styled.div`
   max-width: 1060px;

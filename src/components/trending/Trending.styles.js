@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from 'styled-components';
 
 export const TrendingContainer = styled.div`
   // max-width: 1040px;

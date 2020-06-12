@@ -117,7 +117,9 @@ const Nav = () => {
                 className="right"
               >
                 {user.name ? (
-                  <img src={`data:image/webp;base64,${image}`} alt="avatar" />
+                  image.length && (
+                    <img src={`data:image/webp;base64,${image}`} alt="avatar" />
+                  )
                 ) : (
                   <i className="fas fa-user"></i>
                 )}
@@ -147,7 +149,9 @@ const Nav = () => {
               className="right"
             >
               {user.name ? (
-                <img src={`data:image/webp;base64,${image}`} alt="avatar" />
+                image.length && (
+                  <img src={`data:image/webp;base64,${image}`} alt="avatar" />
+                )
               ) : (
                 <i className="fas fa-user"></i>
               )}

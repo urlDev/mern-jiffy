@@ -178,7 +178,9 @@ export const LoginRegister = styled(Link)`
   }
   img {
     width: 100%;
-    height: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
     object-fit: cover;
   }
   h5 {
@@ -195,16 +197,9 @@ export const LoginRegister = styled(Link)`
     margin-left: var(--normal);
     // pointer-events: none;
   }
-
   @media (max-width: 500px) {
     max-width: 80px;
     width: 100%;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      // object-position: top center;
-    }
   }
 `;
 
@@ -222,7 +217,9 @@ export const LoginRegisterResponsive = styled.div`
   }
   img {
     width: 100%;
-    height: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
     object-fit: cover;
   }
   h5 {
@@ -243,11 +240,5 @@ export const LoginRegisterResponsive = styled.div`
   @media (max-width: 500px) {
     max-width: 80px;
     width: 100%;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      // object-position: top center;
-    }
   }
 `;

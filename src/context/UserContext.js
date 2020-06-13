@@ -29,13 +29,17 @@ const UserContextProvider = (props) => {
   // endpoint I created. Then converting it to binary to show as image
   const getImage = useCallback(async () => {
     try {
-      const response = await axios.get(`${url}/profile/${user._id}/avatar`, {
-        responseType: 'arraybuffer',
-      });
-      const data = await Buffer.from(response.data, 'binary').toString(
+      const response = await axios.get(`${url}/profile/${user._id}/avatar`);
+      const png = await Buffer.from(response.data.png, 'binary').toString(
         'base64'
       );
-      setImage(data);
+      const webp =
+        response.data.webp &&
+        (await Buffer.from(response.data.webp, 'binary').toString('base64'));
+      setImage({
+        png,
+        webp,
+      });
     } catch (error) {
       console.log(error);
     }

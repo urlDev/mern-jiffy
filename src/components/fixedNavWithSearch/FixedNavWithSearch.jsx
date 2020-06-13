@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { GifContext } from '../../context/GifContext';
 import { UserContext } from '../../context/UserContext';
 
+import Picture from '../picture/Picture';
 import SearchBar from '../searchBar/SearchBar';
 
 import { FixedContainer } from './FixedNavWithSearch.styles';
@@ -19,12 +20,9 @@ const FixedNavWithSearch = () => {
   const { width, clearInput, openAndCloseMenu, closeMenu } = useContext(
     GifContext
   );
-  const {
-    user,
-    image,
-    openAndCloseUserDropdown,
-    closeUserDropdown,
-  } = useContext(UserContext);
+  const { user, openAndCloseUserDropdown, closeUserDropdown } = useContext(
+    UserContext
+  );
   return (
     <>
       <FixedContainer>
@@ -57,16 +55,7 @@ const FixedNavWithSearch = () => {
                     }}
                     className="right"
                   >
-                    {user.name ? (
-                      image.length && (
-                        <img
-                          src={`data:image/webp;base64,${image}`}
-                          alt="avatar"
-                        />
-                      )
-                    ) : (
-                      <i className="fas fa-user"></i>
-                    )}
+                    {user.name ? <Picture /> : <i className="fas fa-user"></i>}
                   </div>
                   <div
                     style={{
@@ -92,16 +81,7 @@ const FixedNavWithSearch = () => {
                   }}
                   className="right"
                 >
-                  {user.name ? (
-                    image.length && (
-                      <img
-                        src={`data:image/webp;base64,${image}`}
-                        alt="avatar"
-                      />
-                    )
-                  ) : (
-                    <i className="fas fa-user"></i>
-                  )}
+                  {user.name ? <Picture /> : <i className="fas fa-user"></i>}
                 </div>
               )}
             </LoginRegisterResponsive>
@@ -119,16 +99,7 @@ const FixedNavWithSearch = () => {
                     }}
                     className="right"
                   >
-                    {user.name ? (
-                      image.length && (
-                        <img
-                          src={`data:image/webp;base64,${image}`}
-                          alt="avatar"
-                        />
-                      )
-                    ) : (
-                      <i className="fas fa-user"></i>
-                    )}
+                    {user.name ? <Picture /> : <i className="fas fa-user"></i>}
                   </div>
                   <div
                     style={{
@@ -154,16 +125,7 @@ const FixedNavWithSearch = () => {
                   }}
                   className="right"
                 >
-                  {user.name ? (
-                    image.length && (
-                      <img
-                        src={`data:image/webp;base64,${image}`}
-                        alt="avatar"
-                      />
-                    )
-                  ) : (
-                    <i className="fas fa-user"></i>
-                  )}
+                  {user.name ? <Picture /> : <i className="fas fa-user"></i>}
                 </div>
               )}
             </LoginRegister>

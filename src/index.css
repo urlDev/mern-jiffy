@@ -39,12 +39,6 @@ body {
     background-color: var(--smoke-black);
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-}
-
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -125,6 +119,20 @@ code {
 @keyframes play {
     100% {
         background-position: -791px;
+    }
+}
+
+
+/* 
+in firefox, logo animation looks different
+so I am adding an extra here to make it look better
+*/
+
+@-moz-document url-prefix() {
+    @keyframes play {
+        100% {
+            background-position: -780.7px;
+        }
     }
 }
 

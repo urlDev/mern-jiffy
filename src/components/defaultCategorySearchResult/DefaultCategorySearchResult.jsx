@@ -41,15 +41,33 @@ const DefaultCategorySearchResult = ({ type, visible }) => {
                 placeholder={<Placeholder />}
                 once
               >
-                <img
-                  src={
-                    visible
-                      ? topic.gif.images.original.webp
-                      : topic.images.original.webp
-                  }
-                  style={{ opacity: '0.8' }}
-                  alt={topic.title}
-                />
+                <picture>
+                  <source
+                    srcSet={
+                      visible
+                        ? topic.gif.images.original.webp
+                        : topic.images.original.webp
+                    }
+                    type="image/webp"
+                  />
+                  <source
+                    srcSet={
+                      visible
+                        ? topic.gif.images.original.url
+                        : topic.images.original.url
+                    }
+                    type="image/gif"
+                  />
+                  <img
+                    src={
+                      visible
+                        ? topic.gif.images.original.url
+                        : topic.images.original.url
+                    }
+                    style={{ opacity: '0.8' }}
+                    alt={topic.title}
+                  />
+                </picture>
               </LazyLoad>
             </SubCategoryContainer>
           ))}

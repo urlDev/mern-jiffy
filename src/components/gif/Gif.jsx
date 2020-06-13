@@ -89,10 +89,17 @@ const Gif = () => {
         <IndividualGifContainer>
           <p>{gif.title}</p>
           <InnerContainer>
-            <img
-              src={gif.images && gif.images.original.webp}
-              alt={gif.title ? gif.title : 'gif'}
-            />
+            <picture>
+              <source
+                srcSet={gif.images && gif.images.original.webp}
+                type="image/webp"
+              />
+
+              <img
+                src={gif.images && gif.images.original.url}
+                alt={gif.title ? gif.title : 'gif'}
+              />
+            </picture>
             <Social>
               <h5 onClick={() => addDeleteFavorite(gif)}>
                 <span

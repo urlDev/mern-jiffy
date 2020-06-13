@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { GifContext } from '../../context/GifContext';
 
+import Picture from '../picture/Picture';
+
 import {
   StyledLink,
   NavContainer,
@@ -22,9 +24,7 @@ const Nav = () => {
     openAndCloseMenu,
     clearInput,
   } = useContext(GifContext);
-  const { user, openUserDropdown, closeUserDropdown, image } = useContext(
-    UserContext
-  );
+  const { user, openUserDropdown, closeUserDropdown } = useContext(UserContext);
   return (
     <>
       <NavContainer>
@@ -116,13 +116,7 @@ const Nav = () => {
                 }}
                 className="right"
               >
-                {user.name ? (
-                  image.length && (
-                    <img src={`data:image/webp;base64,${image}`} alt="avatar" />
-                  )
-                ) : (
-                  <i className="fas fa-user"></i>
-                )}
+                {user.name ? <Picture /> : <i className="fas fa-user"></i>}
               </div>
               <div
                 style={{
@@ -148,13 +142,7 @@ const Nav = () => {
               }}
               className="right"
             >
-              {user.name ? (
-                image.length && (
-                  <img src={`data:image/webp;base64,${image}`} alt="avatar" />
-                )
-              ) : (
-                <i className="fas fa-user"></i>
-              )}
+              {user.name ? <Picture /> : <i className="fas fa-user"></i>}
             </div>
           )}
         </LoginRegister>

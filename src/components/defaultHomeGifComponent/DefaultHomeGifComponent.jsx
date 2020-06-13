@@ -55,11 +55,20 @@ const DefaultHomeGifComponent = ({ title, gifType, visible }) => {
                         <img src={gif.user.avatar_url} alt="gif user" />
                       )}
                     </CardUser>
-
-                    <img
-                      src={gif.images.original.webp}
-                      alt={gif.title ? gif.title : 'gif'}
-                    />
+                    <picture>
+                      <source
+                        srcSet={gif.images.original.webp}
+                        type="image/webp"
+                      />
+                      <source
+                        srcSet={gif.images.original.url}
+                        type="image/gif"
+                      />
+                      <img
+                        src={gif.images.original.url}
+                        alt={gif.title ? gif.title : 'gif'}
+                      />
+                    </picture>
 
                     <CardTitle>{gif.title}</CardTitle>
                     {visible && (

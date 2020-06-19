@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category should get and map data correctly Should match the snapshot 1`] = `
+"<BrowserRouter>
+  <Router history={{...}}>
+    <GifContextProvider>
+      <DefaultCategorySearchResult type={{...}} visible={true}>
+        <styled.h1>
+          <h1 className=\\"sc-AxhCb gBAnb\\">
+            actions
+             
+            <span>
+              GIFs
+            </span>
+          </h1>
+        </styled.h1>
+        <styled.div>
+          <div className=\\"sc-AxjAm iOXpI\\">
+            <Styled(Link) to=\\"/search/breaking-up\\" onClick={[Function]}>
+              <Link to=\\"/search/breaking-up\\" onClick={[Function]} className=\\"sc-AxirZ hipYxo\\">
+                <LinkAnchor onClick={[Function]} className=\\"sc-AxirZ hipYxo\\" href=\\"/search/breaking-up\\" navigate={[Function: navigate]}>
+                  <a className=\\"sc-AxirZ hipYxo\\" href=\\"/search/breaking-up\\" onClick={[Function: onClick]}>
+                    <h4>
+                      BREAKING UP
+                    </h4>
+                    <LazyLoad height={200} offset={100} placeholder={{...}} once={true} overflow={false} resize={false} scroll={true} unmountIfInvisible={false}>
+                      <span className=\\"lazyload-wrapper\\">
+                        <Placeholder>
+                          <styled.div>
+                            <div className=\\"sc-AxiKw eELaVs\\" />
+                          </styled.div>
+                        </Placeholder>
+                      </span>
+                    </LazyLoad>
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </Styled(Link)>
+          </div>
+        </styled.div>
+      </DefaultCategorySearchResult>
+    </GifContextProvider>
+  </Router>
+</BrowserRouter>"
+`;
+
+exports[`Category should get and map data correctly, match the snapshot Should match the snapshot 1`] = `
+"<BrowserRouter>
+  <Router history={{...}}>
+    <GifContextProvider>
+      <DefaultCategorySearchResult type={{...}} visible={true}>
+        <styled.h1>
+          <h1 className=\\"sc-AxhCb gBAnb\\">
+            actions
+             
+            <span>
+              GIFs
+            </span>
+          </h1>
+        </styled.h1>
+        <styled.div>
+          <div className=\\"sc-AxjAm iOXpI\\">
+            <Styled(Link) to=\\"/search/breaking-up\\" onClick={[Function]}>
+              <Link to=\\"/search/breaking-up\\" onClick={[Function]} className=\\"sc-AxirZ hipYxo\\">
+                <LinkAnchor onClick={[Function]} className=\\"sc-AxirZ hipYxo\\" href=\\"/search/breaking-up\\" navigate={[Function: navigate]}>
+                  <a className=\\"sc-AxirZ hipYxo\\" href=\\"/search/breaking-up\\" onClick={[Function: onClick]}>
+                    <h4>
+                      BREAKING UP
+                    </h4>
+                    <LazyLoad height={200} offset={100} placeholder={{...}} once={true} overflow={false} resize={false} scroll={true} unmountIfInvisible={false}>
+                      <span className=\\"lazyload-wrapper\\">
+                        <Placeholder>
+                          <styled.div>
+                            <div className=\\"sc-AxiKw eELaVs\\" />
+                          </styled.div>
+                        </Placeholder>
+                      </span>
+                    </LazyLoad>
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </Styled(Link)>
+          </div>
+        </styled.div>
+      </DefaultCategorySearchResult>
+    </GifContextProvider>
+  </Router>
+</BrowserRouter>"
+`;

@@ -163,4 +163,12 @@ so I am adding an extra here to make it look better
             background-position: -518px;
         }
     }
+    @-moz-document url-prefix() {
+        @keyframes play {
+            100% {
+                background-position: -519px;
+                background-color: #eb10ff;
+            }
+        }
+    }
 }

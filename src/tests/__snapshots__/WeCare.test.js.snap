@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render WeCare component 1`] = `
+"<WeCare>
+  <styled.a href=\\"https://twitter.com/urlDev\\" rel=\\"noopener noreferrer\\" target=\\"_blank\\">
+    <a href=\\"https://twitter.com/urlDev\\" rel=\\"noopener noreferrer\\" target=\\"_blank\\" className=\\"sc-AxjAm eAwEQP\\">
+      <h3>
+        Do you like the app?
+      </h3>
+      <img src=\\"V.gif\\" alt=\\"victory gif\\" />
+      <img src=\\"heart.gif\\" alt=\\"heart gif\\" />
+      <h3>
+        <span>
+          Jiffy
+        </span>
+         Cares
+      </h3>
+    </a>
+  </styled.a>
+</WeCare>"
+`;

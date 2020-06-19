@@ -221,7 +221,12 @@ export const LoginRegisterResponsive = styled.div`
     display: flex;
     align-items: center;
     object-fit: cover;
+    @-moz-document url-prefix() {
+      height: 36px;
+      width: 80px;
+    }
   }
+
   h5 {
     padding: 0;
     margin: 0;

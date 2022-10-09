@@ -1,127 +1,129 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-    /* colors */
-    --sky-blue: rgb(94, 204, 228);
-    --cosmic-cobalt: rgb(56, 51, 135);
-    --iris: rgb(82, 73, 208);
-    --blue-violet: rgb(138, 51, 225);
-    --pink: rgb(215, 82, 160);
-    --indian-red: rgb(208, 86, 86);
-    --white: rgb(255, 255, 255);
-    --smoke-black: rgb(18, 18, 18);
-    --dark-gray: rgb(64, 64, 64);
-    --light-gray: rgb(81, 81, 81);
-    --green: rgb(66, 151, 8);
-    --light-green: rgb(42, 255, 124);
-    /* fonts */
-    --Merriweather: 'Merriweather Sans', sans-serif;
-    --Raleway: 'Raleway', sans-serif;
-    /* font sizes */
-    --whaat: 3.5rem;
-    --sub-header: 3rem;
-    --giant: 2.5rem;
-    --big: 1.8rem;
-    --mid: 1.2rem;
-    --normal: 1rem;
-    --text: 0.8rem;
-    min-height: 100vh;
-    overflow-y: scroll;
+  /* colors */
+  --sky-blue: rgb(94, 204, 228);
+  --cosmic-cobalt: rgb(56, 51, 135);
+  --iris: rgb(82, 73, 208);
+  --blue-violet: rgb(138, 51, 225);
+  --pink: rgb(215, 82, 160);
+  --indian-red: rgb(208, 86, 86);
+  --white: rgb(255, 255, 255);
+  --smoke-black: rgb(18, 18, 18);
+  --dark-gray: rgb(64, 64, 64);
+  --light-gray: rgb(81, 81, 81);
+  --green: rgb(66, 151, 8);
+  --light-green: rgb(42, 255, 124);
+  /* fonts */
+  --Merriweather: 'Merriweather Sans', sans-serif;
+  --Raleway: 'Raleway', sans-serif;
+  /* font sizes */
+  --whaat: 3.5rem;
+  --sub-header: 3rem;
+  --giant: 2.5rem;
+  --big: 1.8rem;
+  --mid: 1.2rem;
+  --normal: 1rem;
+  --text: 0.8rem;
+  min-height: 100vh;
+  overflow-y: scroll;
 }
 
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: var(--smoke-black);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--smoke-black);
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 .come-down {
-    animation: comeDown 0.5s linear forwards;
+  animation: comeDown 0.5s linear forwards;
 }
 
 .go-right {
-    margin-left: auto;
-    animation: goRight 0.2s linear forwards;
+  margin-left: auto;
+  animation: goRight 0.2s linear forwards;
 }
 
 .modal {
-    margin-left: 90px !important;
-    margin-top: 64px !important;
-    width: calc(0.83 * 1060px) !important;
+  margin-left: 90px !important;
+  margin-top: 64px !important;
+  width: calc(0.83 * 1060px) !important;
 }
 
 .added {
-    background: url('./assets/favoriteHearts.svg') left center;
-    background-size: cover;
-    display: inline-block;
-    width: var(--mid);
-    height: 100%;
-    animation: favorite 0.5s steps(6) forwards;
+  background: url('./assets/favoriteHearts.svg') left center;
+  background-size: cover;
+  display: inline-block;
+  width: var(--mid);
+  height: 100%;
+  animation: favorite 0.5s steps(6) forwards;
 }
 
 .add {
-    background: url('./assets/emptyHeart.svg') center no-repeat;
-    background-size: contain;
-    display: inline-block;
-    position: relative;
-    left: -1.5px;
+  background: url('./assets/emptyHeart.svg') center no-repeat;
+  background-size: contain;
+  display: inline-block;
+  position: relative;
+  left: -1.5px;
 }
 
 @keyframes goRight {
-    0% {
-        width: 100%;
-    }
-    100% {
-        width: 83%;
-    }
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 83%;
+  }
 }
 
 @keyframes comeDown {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes login {
-    100% {
-        background-position: -768px;
-    }
+  100% {
+    background-position: -768px;
+  }
 }
 
 @keyframes play {
-    100% {
-        background-position: -791px;
-    }
+  100% {
+    background-position: -780px;
+  }
 }
-
 
 /* 
 in firefox, logo animation looks different
@@ -129,46 +131,46 @@ so I am adding an extra here to make it look better
 */
 
 @-moz-document url-prefix() {
-    @keyframes play {
-        100% {
-            background-position: -780.7px;
-        }
+  @keyframes play {
+    100% {
+      background-position: -780.7px;
     }
+  }
 }
 
 @keyframes favorite {
-    100% {
-        background-position: -127.5px;
-    }
+  100% {
+    background-position: -127.5px;
+  }
 }
 
 @keyframes fade {
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes rotate {
-    0% {
-        transform: rotateX(-20deg);
-    }
-    100% {
-        transform: rotateX(0deg);
-    }
+  0% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
 }
 
 @media (max-width: 500px) {
+  @keyframes play {
+    100% {
+      background-position: -518px;
+    }
+  }
+  @-moz-document url-prefix() {
     @keyframes play {
-        100% {
-            background-position: -518px;
-        }
+      100% {
+        background-position: -519px;
+        background-color: #eb10ff;
+      }
     }
-    @-moz-document url-prefix() {
-        @keyframes play {
-            100% {
-                background-position: -519px;
-                background-color: #eb10ff;
-            }
-        }
-    }
+  }
 }

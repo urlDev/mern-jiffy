@@ -13,7 +13,7 @@ export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
   let history = useHistory();
-  const url = 'https://urldev-mern-jiffy-api.herokuapp.com';
+  const url = process.env.REACT_APP_API_URL;
   // Added an initial user function here that will run only once
   const initialUser = () => JSON.parse(localStorage.getItem('user')) || {};
   // if there is initial user, it will get from localStorage, if not, user is empty object

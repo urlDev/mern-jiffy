@@ -1,55 +1,55 @@
 {
-    "name": "mern-jiffy",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@emotion/core": "^10.0.28",
-        "@emotion/styled": "^10.0.27",
-        "@giphy/js-fetch-api": "^1.5.9",
-        "@giphy/js-types": "^2.0.2",
-        "@giphy/react-components": "^1.0.7",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "@testing-library/user-event": "^7.1.2",
-        "axios": "^0.21.2",
-        "dotenv": "^8.2.0",
-        "moment": "^2.29.4",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-lazyload": "^2.6.8",
-        "react-router": "^5.2.0",
-        "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.1",
-        "react-share": "^4.1.0",
-        "react-spring": "^8.0.27",
-        "react-transition-group": "^4.4.1",
-        "styled-components": "^5.1.0",
-        "toasted-notes": "^3.2.0",
-        "uuid": "^8.1.0"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --verbose",
-        "eject": "react-scripts eject"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "enzyme": "^3.11.0",
-        "enzyme-adapter-react-16": "^1.15.2"
-    }
+  "name": "mern-jiffy",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/core": "10.1.1",
+    "@emotion/styled": "10.0.27",
+    "@giphy/js-fetch-api": "1.5.9",
+    "@giphy/js-types": "2.0.2",
+    "@giphy/react-components": "1.0.7",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.5.0",
+    "@testing-library/user-event": "7.2.1",
+    "axios": "0.21.2",
+    "dotenv": "8.2.0",
+    "moment": "2.29.4",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-lazyload": "2.6.9",
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "^4.0.3",
+    "react-share": "4.2.0",
+    "react-spring": "8.0.27",
+    "react-transition-group": "4.4.1",
+    "styled-components": "5.1.1",
+    "toasted-notes": "3.2.0",
+    "uuid": "8.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --verbose",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.5"
+  }
 }

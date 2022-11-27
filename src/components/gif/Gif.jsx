@@ -28,6 +28,9 @@ import {
   GifGrid,
 } from './Gif.styles';
 
+import VerifiedLogo from '../../assets/correct.svg';
+import UserNotfound from '../../assets/notFound.gif';
+
 const Gif = () => {
   const { gif, fetchGifs, width } = useContext(GifContext);
   const { favorite, addDeleteFavorite } = useContext(UserContext);
@@ -50,11 +53,7 @@ const Gif = () => {
                 <span>
                   @{gif.user.username}
                   {gif.user.is_verified ? (
-                    <img
-                      src={require('../../assets/correct.svg')}
-                      alt="Verified"
-                      title="Verified"
-                    />
+                    <img src={VerifiedLogo} alt="Verified" title="Verified" />
                   ) : null}
                 </span>
               </h4>
@@ -76,10 +75,7 @@ const Gif = () => {
                 marginBottom: '20px',
               }}
             >
-              <img
-                src={require('../../assets/notFound.gif')}
-                alt="user not found gif"
-              />
+              <img src={UserNotfound} alt="user not found gif" />
               <h4>
                 Could not find <br /> <span>@user</span>
               </h4>

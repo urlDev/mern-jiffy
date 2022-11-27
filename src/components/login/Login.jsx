@@ -30,7 +30,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${url}/profile/login`, input);
+      const response = await axios.post(`${url}/profile/login`, null, {
+        params: {
+          email: input.email,
+          password: input.password,
+        },
+      });
       const { data } = response;
       localStorage.setItem('user', JSON.stringify(data.user));
       localStorage.setItem('userToken', JSON.stringify(data.token));

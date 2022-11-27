@@ -7,6 +7,8 @@ import { SearchContainer } from '../searchBar/SearchBar.styles';
 import { StyledLink } from '../nav/Nav.styles';
 import { FixedContainer } from './FixedSearchBar.styles';
 
+import NeonHearts from '../../assets/neonHeartFull.svg';
+
 const FixedSearchBar = () => {
   const {
     scroll,
@@ -35,7 +37,7 @@ const FixedSearchBar = () => {
         <>
           <FixedContainer>
             <StyledLink to="/" onClick={clearInput} className="come-down">
-              <img src={require('../../assets/neonHeartFull.svg')} alt="" />
+              <img src={NeonHearts} alt="Neon 8-bit heart logo" />
               JIFFY
             </StyledLink>
             <SearchContainer onSubmit={handleSubmit} className="go-right">

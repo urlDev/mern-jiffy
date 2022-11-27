@@ -25,7 +25,13 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${url}/profile/register`, input);
+      const response = await axios.post(`${url}/profile/register`, null, {
+        params: {
+          email: input.email,
+          password: input.password,
+          name: input.name,
+        },
+      });
       const { data } = await response;
       localStorage.setItem('user', JSON.stringify(data.user));
       localStorage.setItem('userToken', JSON.stringify(data.token));

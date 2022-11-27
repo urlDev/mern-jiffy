@@ -43,6 +43,7 @@ const UserContextProvider = (props) => {
     } catch (error) {
       console.log(error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   useEffect(() => {
@@ -50,6 +51,7 @@ const UserContextProvider = (props) => {
       getFavorites();
       getImage();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, getImage]);
 
   const getFavorites = async () => {

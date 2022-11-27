@@ -12,6 +12,10 @@ import Loading from '../loading/Loading';
 import { StyledLink, LoginRegister } from '../nav/Nav.styles';
 import { LoginRegisterNav, FormContainer, Video } from './LoginRegister.styles';
 
+import BackgroundVideo from '../../assets/backgroundVideo.webm';
+import NeonHeartsFull from '../../assets/neonHeartFull.svg';
+import Poster from '../../assets/backgroundPoster.png';
+
 const LoginRegisterComponent = () => {
   const { user, loading } = useContext(UserContext);
   const { inLogin, width } = useContext(GifContext);
@@ -21,24 +25,12 @@ const LoginRegisterComponent = () => {
         <ProfileComponents />
       ) : (
         <>
-          <Video
-            preload="auto"
-            poster={require('../../assets/backgroundPoster.png')}
-            autoPlay
-            muted
-            loop
-          >
-            <source
-              src={require('../../assets/backgroundVideo.webm')}
-              type="video/webm"
-            />
+          <Video preload="auto" poster={Poster} autoPlay muted loop>
+            <source src={BackgroundVideo} type="video/webm" />
           </Video>
           <LoginRegisterNav>
             <StyledLink to="/">
-              <img
-                src={require('../../assets/neonHeartFull.svg')}
-                alt="Jiffy Logo"
-              />
+              <img src={NeonHeartsFull} alt="Jiffy Logo" />
               JIFFY <span>Login</span>
             </StyledLink>
             <LoginRegister to="/profile/login">

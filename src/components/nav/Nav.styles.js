@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import LogoSvg from '../../assets/neonHeartsFull.svg';
+
 export const NavContainer = styled.nav`
   display: flex;
   // justify-content: space-between;
@@ -152,7 +154,7 @@ export const ResponsiveMenu = styled.a`
 `;
 
 export const Logo = styled.div`
-  background: url(${require(`../../assets/neonHeartsFull.svg`)}) left center;
+  background: url(${LogoSvg}) left center;
   background-size: cover;
   display: inline-block;
   width: 40px;

@@ -17,7 +17,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-lazyload": "2.6.9",
-    "react-router": "5.2.0",
+    "react-router": "6.4.4",
     "react-router-dom": "5.2.0",
     "react-scripts": "^4.0.3",
     "react-share": "4.2.0",

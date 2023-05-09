@@ -15,6 +15,17 @@ After registering, user can upload a new avatar/image. That image will be resize
 ## Bcrypt, JWT
 When a user registers, passwords get hashed before being saved to the database, and for each login, there's a new token assigned, for secure sessions.
 
+## Scripts
+App is created with CRA so scripts are same (react-scripts);
+- **npm run start**; starts the app,
+- **npm run build**; build,
+- **npm run test** or **npm t**; running tests,
+- **npm run eject**; ejects.
+
+## Environment Variables
+- **REACT_APP_GIPHY_SDK_KEY**: Key to utilize Giphy SDK ([docs](https://developers.giphy.com/docs/api#quick-start-guide)),
+- **REACT_APP_API_URL**; URL to use [API](https://github.com/urlDev/mern-jiffy-api). Recently changed because of updates in Heroku service and migrating to `fly.io`.
+
 ## Profile Update
 ![Jiffy Profile update](https://i.paste.pics/26b21ab1f9681d636a02fa86dd39da8c.png)
 

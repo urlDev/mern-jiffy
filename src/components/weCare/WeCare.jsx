@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { WeCareContainer } from './WeCare.styles';
+import VictoryGif from '../../assets/V.gif';
+import HeartGif from '../../assets/heart.gif';
 
 const WeCare = () => {
   return (
@@ -10,8 +12,8 @@ const WeCare = () => {
       target="_blank"
     >
       <h3>Do you like the app?</h3>
-      <img src={require('../../assets/V.gif')} alt="victory gif" />
-      <img src={require('../../assets/heart.gif')} alt="heart gif" />
+      <img src={VictoryGif} alt="victory gif" />
+      <img src={HeartGif} alt="heart gif" />
       <h3>
         <span>Jiffy</span> Cares
       </h3>

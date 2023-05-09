@@ -27,7 +27,7 @@
     "uuid": "8.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve build -s -n -L -p $PORT",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose",
     "eject": "react-scripts eject"

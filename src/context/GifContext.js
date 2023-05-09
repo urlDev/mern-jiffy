@@ -1,7 +1,6 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { GiphyFetch } from '@giphy/js-fetch-api';
-import axios from 'axios';
-require('dotenv').config();
+import React, { createContext, useState, useEffect } from "react";
+import { GiphyFetch } from "@giphy/js-fetch-api";
+import axios from "axios";
 
 export const GifContext = createContext();
 
@@ -21,19 +20,19 @@ const GifContextProvider = (props) => {
   const [menuDropdown, setMenuDropdown] = useState(false);
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState({});
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     getTrending();
     getEmoji();
     getSiliconValley();
-    window.addEventListener('resize', updateWidth);
-    document.addEventListener('scroll', updateScroll);
+    window.addEventListener("resize", updateWidth);
+    document.addEventListener("scroll", updateScroll);
     updateScroll();
 
     return () => {
-      window.removeEventListener('resize', updateWidth);
-      document.removeEventListener('scroll', updateScroll);
+      window.removeEventListener("resize", updateWidth);
+      document.removeEventListener("scroll", updateScroll);
     };
   }, [searchCategoryResult]);
 
@@ -80,7 +79,7 @@ const GifContextProvider = (props) => {
 
   const getSiliconValley = async () => {
     try {
-      const { data } = await gifFetch.gifs('tv', 'silicon-valley');
+      const { data } = await gifFetch.gifs("tv", "silicon-valley");
       const random = Math.floor(Math.random() * 3);
       setSiliconValley(data.slice(random, random + 5));
     } catch (error) {
@@ -110,20 +109,20 @@ const GifContextProvider = (props) => {
     setSearchCategoryResult({});
     try {
       const result = await gifFetch.search(`${topic}`, {
-        sort: 'recent',
+        sort: "recent",
         limit: 100,
       });
 
       let newResult = undefined;
-      let newTitle = '';
+      let newTitle = "";
       // Result data is empty and search terms array is empty too
       // which means theres no suggestion coming from api
       // e.g. when search is long
       if (!result.data.length && !search.length) {
         newResult = await gifFetch.search(
-          `${topic.split(' ').slice(0, 1).join(' ')}`,
+          `${topic.split(" ").slice(0, 1).join(" ")}`,
           {
-            sort: 'recent',
+            sort: "recent",
             limit: 100,
           }
         );
@@ -131,7 +130,7 @@ const GifContextProvider = (props) => {
         // e.g. when search term is short but might have a typo
       } else if (!result.data.length && search.length) {
         newResult = await gifFetch.search(`${search[0].name}`, {
-          sort: 'recent',
+          sort: "recent",
           limit: 100,
         });
         newTitle = search[0].name;
@@ -142,7 +141,7 @@ const GifContextProvider = (props) => {
           ? {
               title: search.length
                 ? newTitle
-                : topic.split(' ').slice(0, 1).join(' '),
+                : topic.split(" ").slice(0, 1).join(" "),
               data: newResult.data,
             }
           : {
@@ -178,7 +177,7 @@ const GifContextProvider = (props) => {
   // fetchGifs syntax should be like this in order for
   // individual gif Grid component to work properly.
   // Its Giphy's own component
-  const fetchGifs = (offset: number) =>
+  const fetchGifs = (offset) =>
     gifFetch.related(`${gif.id}`, { offset, limit: 10 });
 
   // I made seperate functions like this to open and close modals

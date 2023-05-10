@@ -22,12 +22,14 @@
     "react-share": "4.4.1",
     "react-spring": "8.0.27",
     "react-transition-group": "4.4.1",
+    "serve": "^14.2.0",
     "styled-components": "5.1.1",
     "toasted-notes": "3.2.0",
     "uuid": "8.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve build -s -n -L -p $PORT",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose",
     "eject": "react-scripts eject"

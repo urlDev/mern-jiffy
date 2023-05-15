@@ -1,13 +1,14 @@
-import React, { createContext, useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
-import toaster from 'toasted-notes';
-import moment from 'moment';
+import React, { createContext, useState, useEffect, useCallback } from "react";
+import axios from "axios";
+import toaster from "toasted-notes";
+import moment from "moment";
+import { Buffer } from "buffer";
 
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
-import NotificationComponent from '../components/notificationComponent/NotificationComponent';
+import NotificationComponent from "../components/notificationComponent/NotificationComponent";
 
-import 'toasted-notes/src/styles.css';
+import "toasted-notes/src/styles.css";
 
 export const UserContext = createContext();
 
@@ -15,7 +16,7 @@ const UserContextProvider = (props) => {
   let history = useHistory();
   const url = process.env.REACT_APP_API_URL;
   // Added an initial user function here that will run only once
-  const initialUser = () => JSON.parse(localStorage.getItem('user')) || {};
+  const initialUser = () => JSON.parse(localStorage.getItem("user")) || {};
   // if there is initial user, it will get from localStorage, if not, user is empty object
   const [user, setUser] = useState(initialUser);
   const [token, setToken] = useState({});
@@ -30,16 +31,18 @@ const UserContextProvider = (props) => {
   const getImage = useCallback(async () => {
     try {
       const response = await axios.get(`${url}/profile/${user._id}/avatar`);
-      const png = await Buffer.from(response.data.png, 'binary').toString(
-        'base64'
+      const png = await Buffer.from(response.data.png, "binary").toString(
+        "base64"
       );
       const webp =
         response.data.webp &&
-        (await Buffer.from(response.data.webp, 'binary').toString('base64'));
+        (await Buffer.from(response.data.webp, "binary").toString("base64"));
       setImage({
         png,
         webp,
       });
+
+      console.log(webp);
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +58,7 @@ const UserContextProvider = (props) => {
   }, [user, getImage]);
 
   const getFavorites = async () => {
-    const token = JSON.parse(localStorage.getItem('userToken'));
+    const token = JSON.parse(localStorage.getItem("userToken"));
 
     const config = {
       headers: { Authorization: `Bearer ${token}` },
@@ -78,7 +81,7 @@ const UserContextProvider = (props) => {
       gif: gif,
       added: moment().format(),
     };
-    const token = JSON.parse(localStorage.getItem('userToken'));
+    const token = JSON.parse(localStorage.getItem("userToken"));
 
     const config = {
       headers: { Authorization: `Bearer ${token}` },
@@ -94,7 +97,7 @@ const UserContextProvider = (props) => {
   };
 
   const deleteFavorite = async (gif) => {
-    const token = JSON.parse(localStorage.getItem('userToken'));
+    const token = JSON.parse(localStorage.getItem("userToken"));
 
     const config = {
       headers: { Authorization: `Bearer ${token}` },
@@ -121,12 +124,12 @@ const UserContextProvider = (props) => {
         );
       }
     } else {
-      history.push('/profile');
+      history.push("/profile");
     }
   };
 
   const logOut = async () => {
-    const token = JSON.parse(localStorage.getItem('userToken'));
+    const token = JSON.parse(localStorage.getItem("userToken"));
 
     const config = {
       headers: { Authorization: `Bearer ${token}` },
@@ -142,7 +145,7 @@ const UserContextProvider = (props) => {
   };
 
   const deleteAccount = async () => {
-    const token = JSON.parse(localStorage.getItem('userToken'));
+    const token = JSON.parse(localStorage.getItem("userToken"));
 
     const config = {
       headers: { Authorization: `Bearer ${token}` },
@@ -153,12 +156,12 @@ const UserContextProvider = (props) => {
       setUser({});
       setFavorite([]);
       localStorage.clear();
-      history.push('/');
+      history.push("/");
       setLoading(false);
       toaster.notify(
         () => (
           <NotificationComponent
-            text={'Sad to see you go! Account is deleted :('}
+            text={"Sad to see you go! Account is deleted :("}
             success={true}
           />
         ),
@@ -169,7 +172,7 @@ const UserContextProvider = (props) => {
       toaster.notify(
         () => (
           <NotificationComponent
-            text={'Oops! Something went wrong!'}
+            text={"Oops! Something went wrong!"}
             success={false}
           />
         ),

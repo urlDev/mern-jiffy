@@ -22,7 +22,7 @@
     "react-scripts": "5.0.1",
     "react-share": "4.4.1",
     "react-spring": "8.0.27",
-    "react-transition-group": "4.4.1",
+    "react-transition-group": "4.4.5",
     "serve": "^14.2.0",
     "styled-components": "5.1.1",
     "toasted-notes": "3.2.0",
